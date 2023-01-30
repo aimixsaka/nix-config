@@ -18,8 +18,7 @@
       };
 
       font = {
-        normal.family = "Inconsolata";
-        size = 30;
+        size = 27;
       };
 
       draw_bold_text_with_bright_colors = true;
