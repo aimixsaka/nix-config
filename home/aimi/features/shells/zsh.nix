@@ -18,6 +18,10 @@
     };
 
     dotDir = ".config/zsh";
+ 
+    initExtra = ''
+      set -o vi
+    '';
 
     oh-my-zsh = {
       enable = true;

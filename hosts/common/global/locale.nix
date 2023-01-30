@@ -32,15 +32,18 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
+      # Chinese Specified
+      wqy_zenhei
+      wqy_microhei
     ];
     
-    fontconfig = {
-      defaultFonts = {
-        serif = [ "Consolas Nerd Font" ];
-        sansSerif = [ "Consolas Nerd Font" ];
-        monospace = [ "Consolas Nerd Font" ];
-      };
-    };
+    #fontconfig = {
+    #  defaultFonts = {
+    #    serif = [ "" ];
+    #    sansSerif = [ "" ];
+    #    monospace = [ "Inconsolata" ];
+    #  };
+    #};
   };
 
   # Set your time zone.
