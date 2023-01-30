@@ -9,6 +9,10 @@
     userName = "aimisaka";
     userEmail = "aimixsaka@gmail.com";
     extraConfig = {
+      core = {
+        editor = "vim";
+      };
+      pull.rebase = true;
       feature.manyFiles = true;
       init.defaultBranch = "main";
     };

@@ -1,7 +1,6 @@
 { pkgs, lib, outputs, ... }:
 {
   imports = [
-    ./font.nix
     ./firefox.nix
   ];
 
