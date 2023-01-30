@@ -12,22 +12,22 @@
  
   # Session Variables for Hyprland
   #!!: Set these in hypr.sh is more apropriate?
-  home.sessionVariables = {
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_TYPE = "wayland";
-    XDG_SESSION_DESKTOP = "Hyprland";
-    
-    ## For hidpi
-    GDK_SCALE = 2;
-    XCURSOR_SIZE = 32;
-    ## Firefox
-    MOZ_ENABLE_WAYLAND = 1;
-    
-    QT_AUTO_SCREEN_SCALE_FACTOR = 1;
-    QT_QPA_PLATFORM = "wayland;xcb";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-  };
+  #home.sessionVariables = {
+  #  XDG_CURRENT_DESKTOP = "Hyprland";
+  #  XDG_SESSION_TYPE = "wayland";
+  #  XDG_SESSION_DESKTOP = "Hyprland";
+  #  
+  #  ## For hidpi
+  #  GDK_SCALE = 2;
+  #  XCURSOR_SIZE = 32;
+  #  ## Firefox
+  #  MOZ_ENABLE_WAYLAND = 1;
+  #  
+  #  QT_AUTO_SCREEN_SCALE_FACTOR = 1;
+  #  QT_QPA_PLATFORM = "wayland;xcb";
+  #  QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+  #  QT_QPA_PLATFORMTHEME = "qt5ct";
+  #};
 
   wayland.windowManager.hyprland = {
     enable = true;

@@ -53,11 +53,13 @@
 
     persistence = {
       "/persist/home/aimi" = {
+        allowOther = true;
         directories = [
           "Documents"
           "Downloads"
           "Pictures"
           "Videos"
+          "workspace"
         ];
       };
     };

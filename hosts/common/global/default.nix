@@ -7,6 +7,8 @@
     ./locale.nix
     ./sound.nix
     ./shells.nix
+    ./nix.nix
+    ./steam-hardware.nix
   ];
 
   home-manager = {

@@ -15,6 +15,7 @@
     shellAliases = {
       rm = "trash";
       lst = "ls -al --time=birth";
+      ws = "cd ~/workspace";
     };
 
     dotDir = ".config/zsh";

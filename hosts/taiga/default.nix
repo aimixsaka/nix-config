@@ -17,6 +17,8 @@
 
     ../common/global
     ../common/users/aimi
+
+    ../common/optional/gamemode.nix
   ];
 
 
@@ -37,6 +39,8 @@
 
   # Enable network manager applet
   programs.nm-applet.enable = true;
+  # For impermanence's allowOther = true;
+  programs.fuse.userAllowOther = true;
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot = {
@@ -79,7 +83,6 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    git
     unzip
     lsof
     htop
@@ -94,7 +97,6 @@
     gdb
     gnupg
     file
-    tmux
     mpv
     ranger
     ## vaapi info
@@ -105,8 +107,6 @@
     geeqie
     ## markdown viewer
     marktext
-    ## browser
-    firefox
 
     ## use appimage-run to run .AppImage file
     appimage-run
@@ -155,6 +155,8 @@
       vaapiVdpau
       libvdpau-va-gl
     ];
+    driSupport = true;
+    driSupport32Bit = true;
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

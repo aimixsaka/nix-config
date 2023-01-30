@@ -42,7 +42,10 @@
     
     fontconfig = {
       defaultFonts = {
-        serif = [ "" ];
+        serif = [ 
+          "Noto Serif"
+          "Noto Color Emoji" 
+        ];
         sansSerif = [
           "SauceCodePro Nerd Font" 
           "Noto Sans CJK SC"
@@ -51,12 +54,14 @@
           "Noto Color Emoji" 
         ];
         monospace = [
+          "SauceCodePro Nerd Font Mono" 
           "Inconsolata Nerd Font Mono"
           "Noto Sans Mono CJK SC"
           "WenQuanYi Micro Hei Mono"
           "Noto Sans Mono CJK JP"
           "Noto Color Emoji" 
         ];
+        emoji = ["Noto Color Emoji"];
       };
     };
   };

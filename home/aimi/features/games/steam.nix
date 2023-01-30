@@ -20,17 +20,18 @@ in
     steam-with-pkgs
     gamescope
     protontricks
+    winetricks
   ];
 
   home.persistence = {
     "/persist/games/aimi" = {
       allowOther = true;
       directories = [
-        # ".local/share/xxx"
-        {
-          directory = ".local/share/Steam";
-          method = "symlink";
-        }
+        "SerenBanka"
+        #{
+        #  directory = ".local/share/Steam";
+        #  method = "symlink";
+        #}
       ];
     };
   };
