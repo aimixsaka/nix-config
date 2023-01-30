@@ -25,6 +25,7 @@
     ];
   };
 
+  # FIXME: system-wide font configuration is bad habit!
   # fonts
   fonts = {
     enableDefaultFonts = true;
@@ -35,15 +36,29 @@
       # Chinese Specified
       wqy_zenhei
       wqy_microhei
+      # Nerd Fonts
+      (nerdfonts.override { fonts = [ "Inconsolata" "SourceCodePro" ]; })
     ];
     
-    #fontconfig = {
-    #  defaultFonts = {
-    #    serif = [ "" ];
-    #    sansSerif = [ "" ];
-    #    monospace = [ "Inconsolata" ];
-    #  };
-    #};
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "" ];
+        sansSerif = [
+          "SauceCodePro Nerd Font" 
+          "Noto Sans CJK SC"
+          "WenQuanYi Micro Hei"
+          "Noto Sans Mono CJK JP" 
+          "Noto Color Emoji" 
+        ];
+        monospace = [
+          "Inconsolata Nerd Font Mono"
+          "Noto Sans Mono CJK SC"
+          "WenQuanYi Micro Hei Mono"
+          "Noto Sans Mono CJK JP"
+          "Noto Color Emoji" 
+        ];
+      };
+    };
   };
 
   # Set your time zone.
