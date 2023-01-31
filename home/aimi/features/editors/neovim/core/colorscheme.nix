@@ -13,7 +13,7 @@
   home.packages = with pkgs; [ darkplus ];
   programs.neovim.extraConfig = {
     lua = /* lua */ ''
-      colorscheme darkplus
+      vim.cmd("colorscheme darkplus")
     '';
   };
 }
