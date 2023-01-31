@@ -40,10 +40,19 @@
     let 
       inherit (nixpkgs.lib) filterAttrs;
       inherit (self) outputs;
+      supportedSystems = [ "x86_64-linux" ];
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
     in
     rec {
       ## HM modules
       homeManagerModules = import ./modules/home-manager;
+
+      ## Packages
+      packages = forAllSystems (system:
+        import ./pkgs { pkgs = nixpkgs.legacyPackages.${system}; }
+      );
+
+      overlays = import ./overlays; 
 
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
@@ -63,7 +72,7 @@
       homeConfigurations = {
         # FIXME replace with your username@hostname
         "aimi@taiga" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          pkgs = nixpkgs.legacyPackages."x86_64-linux"; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; }; # Pass flake inputs to our config
           # > Our main home-manager configuration file <
           modules = [ ./home/aimi/taiga.nix ];

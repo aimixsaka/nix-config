@@ -17,6 +17,8 @@
   };
 
   nixpkgs = {
+    ## Overlay to use myself packages instead
+    overlays = builtins.attrValues outputs.overlays;
     config = {
       allowUnfree = true;
     };

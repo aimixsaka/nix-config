@@ -126,9 +126,6 @@
     python39
     jdk11
     nodejs
-    neovim
-    # treesitter (for nvim)
-    tree-sitter
     # use swaybg instead
     #hyprpaper
     ## bar

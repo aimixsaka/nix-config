@@ -15,18 +15,9 @@
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
+    ## Overlay to use self-build packages
+    overlays = builtins.attrValues outputs.overlays;
 
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
     # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages
@@ -42,6 +33,7 @@
     settings = {
       # Enable flakes and new 'nix' command
       experimental-features = [ "nix-command flakes" "repl-flake" ];
+      warn-dirty = false;
     };
   };
 

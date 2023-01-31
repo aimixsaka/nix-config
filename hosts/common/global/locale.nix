@@ -29,17 +29,7 @@
   # fonts
   fonts = {
     enableDefaultFonts = true;
-    fonts = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      # Chinese Specified
-      wqy_zenhei
-      wqy_microhei
-      # Nerd Fonts
-      (nerdfonts.override { fonts = [ "Inconsolata" "SourceCodePro" ]; })
-    ];
-    
+    ## Use fonts installed in home-manager instead
     fontconfig = {
       defaultFonts = {
         serif = [ 

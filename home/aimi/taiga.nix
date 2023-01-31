@@ -6,6 +6,7 @@
     ./features/cli
     ./features/games
     ./features/shells/zsh.nix
+    ./features/editors/neovim
   ];
   
   wallpaper = (import ./wallpapers).shana;
@@ -18,8 +19,6 @@
     workspace = "1";
   }];
 
-  # Add stuff for your user as you see fit:
-  #programs.neovim.enable = true;
   ## Autojump
   programs.autojump.enable = true;
 

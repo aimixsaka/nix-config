@@ -10,13 +10,14 @@
       auto-optimise-store = lib.mkDefault true;
 
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];
-      #warn-dirty = false;
+      warn-dirty = false;
       system-features = [ "kvm" "big-parallel" ];
     };
     package = pkgs.nixUnstable;
     gc = {
       automatic = true;
-      dates = "weekly";
+      # default is "03:15"
+      #dates = "weekly";
     };
 
     # Add each flake input as a registry

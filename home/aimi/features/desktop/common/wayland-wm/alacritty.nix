@@ -18,6 +18,18 @@
       };
 
       font = {
+        normal = {
+          family = "Inconsolata Nerd Font Mono";
+          style = "Regular";
+        };
+        bold = {
+          family = "Inconsolata Nerd Font Mono";
+          style = "Bold";
+        };
+        italic = {
+          family = "SauceCodePro Nerd Font Mono";
+          style = "Italic";
+        };
         size = 27;
       };
 
