@@ -7,6 +7,7 @@
     ./features/games
     ./features/shells/zsh.nix
     ./features/editors/neovim
+    ./features/editors/vim
   ];
   
   wallpaper = (import ./wallpapers).shana;
