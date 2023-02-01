@@ -16,94 +16,124 @@
   programs.neovim = {
     enable = true;
 
+    plugins = with pkgs.vimPlugins; [
+      ## VIM
+      # show registers info
+      vim-peekaboo
+      # undo tree viewer
+      vim-mundo
+
+
+      ## NEOVIM
+      # Misc
+      vim-surround
+    ];
+
     extraConfig = {
-      #viml = /* vim */ ''
-      #  "Use system clipboard
-      #  set clipboard=unnamedplus
-      #  "Use truecolor
-      #  set termguicolors
-
-      #  "Set fold level to highest in file
-      #  "so everything starts out unfolded at just the right level
-      #  augroup initial_fold
-      #    autocmd!
-      #    autocmd BufWinEnter * let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))
-      #  augroup END
-
-      #  "Tabs
-      #  set tabstop=4 "4 char-wide tab
-      #  set expandtab "Use spaces
-      #  set softtabstop=0 "Use same length as 'tabstop'
-      #  set shiftwidth=0 "Use same length as 'tabstop'
-      #  "2 char-wide overrides
-      #  augroup two_space_tab
-      #    autocmd!
-      #    autocmd FileType json,html,htmldjango,hamlet,nix,scss,typescript,php,haskell,terraform setlocal tabstop=2
-      #  augroup END
-
-      #  "Set tera to use htmldjango syntax
-      #  augroup tera_htmldjango
-      #    autocmd!
-      #    autocmd BufRead,BufNewFile *.tera setfiletype htmldjango
-      #  augroup END
-
-      #  "Options when composing mutt mail
-      #  augroup mail_settings
-      #    autocmd FileType mail set noautoindent wrapmargin=0 textwidth=0 linebreak wrap formatoptions +=w
-      #  augroup END
-
-      #  "Fix nvim size according to terminal
-      #  "(https://github.com/neovim/neovim/issues/11330)
-      #  augroup fix_size
-      #    autocmd VimEnter * silent exec "!kill -s SIGWINCH" getpid()
-      #  augroup END
-
-      #  "Line numbers
-      #  set number relativenumber
-
-      #  "Scroll up and down
-      #  nmap <C-j> <C-e>
-      #  nmap <C-k> <C-y>
-
-      #  "Buffers
-      #  nmap <C-l> :bnext<CR>
-      #  nmap <C-h> :bprev<CR>
-      #  nmap <C-q> :bdel<CR>
-
-      #  "Loclist
-      #  nmap <space>l :lwindow<cr>
-      #  nmap [l :lprev<cr>
-      #  nmap ]l :lnext<cr>
-
-      #  nmap <space>L :lhistory<cr>
-      #  nmap [L :lolder<cr>
-      #  nmap ]L :lnewer<cr>
-
-      #  "Quickfix
-      #  nmap <space>q :cwindow<cr>
-      #  nmap [q :cprev<cr>
-      #  nmap ]q :cnext<cr>
-
-      #  nmap <space>Q :chistory<cr>
-      #  nmap [Q :colder<cr>
-      #  nmap ]Q :cnewer<cr>
-
-      #  "Make
-      #  nmap <space>m :make<cr>
-
-      #  "Grep (replace with ripgrep)
-      #  nmap <space>g :grep<space>
-      #  if executable('rg')
-      #      set grepprg=rg\ --vimgrep
-      #      set grepformat=%f:%l:%c:%m
-      #  endif
-
-      #  "Close other splits
-      #  nmap <space>o :only<cr>
-
-      #  "Sudo save
-      #  cmap w!! w !sudo tee > /dev/null %
-      #'';
+      viml = /* vim */ ''
+        """"""""""""""""
+        """ comm set """
+        """"""""""""""""
+        " To enabel netrw
+        " set nocompatible
+        set nocp 
+        
+        set hidden    " hide warn when change unsaved buffer
+        
+        set relativenumber
+        set number
+        
+        " set indent
+        filetype indent on
+        set tabstop=4
+        set shiftwidth=4
+        set expandtab " transfer tab to space
+        set autoindent
+        
+        " set nowrap
+        set nowrap
+        
+        " set default split window position
+        set splitright
+        set splitbelow
+        
+        syntax enable " enalbe syntax hightlight
+        
+        " enable built-in plugin on filetype
+        
+        set showcmd
+        
+        " set times `u` can to undo changes
+        set undolevels=1000
+        filetype plugin on 
+        
+        " use ripgrep when using `:vim` or `:grep`
+        set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+        
+        " set undodir(where save the .undo file)
+        " and set undofile(means starting undo func on the file you save and quit,
+        " while not get 'Already at oldest change'
+        " normally you can use `wundo! xxx.undo` to create an undo file and `rundo
+        " xxx.undo` to read undo history when reopen a closed 
+        " and the folloing will automatically do this
+        set undodir=~/.vim/undo_dir
+        set undofile
+        
+        " all smallcase -> ignorecase
+        " one char is upercase -> noignorecase
+        set ignorecase smartcase
+        
+        " set foldmethod 
+        set foldmethod=syntax
+        
+        " set keymap timeout
+        set timeoutlen=400
+        
+        
+        " paste mode (can prevent indent wrong when paste)
+        set pastetoggle=<F3>
+        
+        
+        """""""""""""""""
+        """ key map """
+        """""""""""""""""
+        let mapleader = " "
+        noremap <silent> <leader> <Nop>
+        
+        " convinient save and quit
+        nnoremap <silent> <leader>w :w<CR>     
+        nnoremap <silent> <leader>wq :wq<CR>
+        nnoremap <silent> <leader>q :q<CR>
+        nnoremap <silent> <leader>qa :wqall<CR>
+        
+        nnoremap <silent> <leader>b :Buffers<CR>
+        nnoremap <silent> <C-f> :Files<CR>
+        nnoremap <silent> <leader>f :Rg<CR>
+        nnoremap <silent> <leader>/ :BLines<CR>
+        nnoremap <silent> <leader>' :Marks<CR>
+        nnoremap <silent> <leader>g :Commits<CR>
+        nnoremap <silent> <leader>H :Helptags<CR>
+        nnoremap <silent> <leader>hh :History<CR>
+        nnoremap <silent> <leader>h: :History:<CR>
+        nnoremap <silent> <leader>h/ :History/<CR>
+        
+        " set undo savepoint before truly use <C-u> and <C-w>
+        inoremap <C-u> <C-g>u<C-u>
+        inoremap <C-w> <C-g>u<C-w>
+        
+        " resize window
+        nnoremap <leader>h :vertical resize +3<CR>
+        nnoremap <leader>l :vertical resize -3<CR>
+        nnoremap <leader>j :resize -3<CR>
+        nnoremap <leader>k :resize +3<CR>
+        
+        
+        """""""""""""""
+        """ autocmd """
+        """""""""""""""
+        " auto update ctags after `w`
+        autocmd BufWritePost *.[rs|py|go|java] silent !ctags -R 
+      '';
       lua = /* lua */ ''
         function add_sign(name, text)
           vim.fn.sign_define(name, { text = text, texthl = name, numhl = name})
@@ -141,11 +171,6 @@
 	    })
       '';
     };
-
-    plugins = with pkgs.vimPlugins; [
-      # Misc
-      vim-surround
-    ];
   };
 
   ## Lsp Server use pkgs
