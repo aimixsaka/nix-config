@@ -40,7 +40,6 @@
         
         -- load friendly-snippets
         require("luasnip/loaders/from_vscode").lazy_load()
-        vim.opt.completeopt = "menu,menuone,noselect"
         
         cmp.setup({
           snippet = {
@@ -61,10 +60,14 @@
 
           -- sources for autocompletion
           sources = cmp.config.sources({
-            { name = "nvim_lsp" },                      -- lsp
-            { name = "luasnip" },                       -- snippets
-            { name = "buffer" },                        -- text within current buffer
-            { name = "path" },
+            { name = 'nvim_lsp' },
+            -- { name = 'vsnip' }, -- For vsnip users.
+            { name = 'luasnip' }, -- For luasnip users.
+            -- { name = 'ultisnips' }, -- For ultisnips users.
+            -- { name = 'snippy' }, -- For snippy users.
+            }, {
+              { name = 'buffer' },
+              { name = 'path' },
           }),
           
           -- configure lspkind for vs-code like icons
@@ -75,7 +78,7 @@
             }),
           },
 
-          --- ??? ---
+          -- set window appearence
           window = {
             completion = cmp.config.window.bordered(),
             documentation = cmp.config.window.bordered(),

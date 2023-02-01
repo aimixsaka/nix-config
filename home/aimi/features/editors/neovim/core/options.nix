@@ -31,6 +31,9 @@
       
       -- backspace
       opt.backspace = "indent,eol,start"
+
+      -- completeopt
+      completeopt = "menu,menuone,noselect"
       
       -- connect to systemc clipboard
       opt.clipboard:append("unnamedplus")

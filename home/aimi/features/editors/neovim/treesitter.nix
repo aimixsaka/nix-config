@@ -1,6 +1,11 @@
 { pkgs, ... }:
 {
   programs.neovim.plugins = with pkgs.vimPlugins; [
+    # bracket rainbow
+    nvim-ts-rainbow 
+    # `<div + >` -> `<div></div>` (auto close tag for html, ...)
+    nvim-ts-autotag
+
     {
       plugin =  (nvim-treesitter.withPlugins (p: [
         p.c
@@ -33,6 +38,15 @@
           -- enable syntax highlighting
           highlight = {
               enable = true,
+          },
+          -- enable rainbow
+          rainbow = {
+            enable = true,
+            -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+            extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+            max_file_lines = nil, -- Do not enable for files with more than n lines, int
+            -- colors = {}, -- table of hex strings
+            -- termcolors = {} -- table of colour name strings
           },
           -- enable indentation
           indent = { enable = true },

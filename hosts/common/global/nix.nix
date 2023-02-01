@@ -17,7 +17,7 @@
     gc = {
       automatic = true;
       # default is "03:15"
-      #dates = "weekly";
+      dates = "21:00";
     };
 
     # Add each flake input as a registry
