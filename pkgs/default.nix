@@ -1,3 +1,3 @@
 { pkgs ? null }: {
-  darkplus = pkgs.callPackage ./darkplus {};
+  darkplus = pkgs.callPackage ./vim-plugins/darkplus {};
 }

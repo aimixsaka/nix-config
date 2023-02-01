@@ -27,7 +27,7 @@
           style = "Bold";
         };
         italic = {
-          family = "SauceCodePro Nerd Font Mono";
+          family = "Inconsolata Nerd Font Mono";
           style = "Italic";
         };
         size = 27;

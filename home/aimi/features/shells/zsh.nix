@@ -26,7 +26,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "web-search" ];
+      plugins = [ "git" ];
       theme = "amuse";
     };
     
