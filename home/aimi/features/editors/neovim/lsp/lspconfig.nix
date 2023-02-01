@@ -10,11 +10,11 @@
       type = "lua";
       config = /* lua */ ''
         -- LspSaga 
-	local status_saga_ok, lspsaga = pcall(require, "lspsaga")
-	if not status_saga_ok then
-	  error("Load [lspsaga] Failed!")
-	  return
-	end
+	    local status_saga_ok, lspsaga = pcall(require, "lspsaga")
+	    if not status_saga_ok then
+	      error("Load [lspsaga] Failed!")
+	      return
+	    end
         lspsaga.setup({})
 
         local M = {}     
@@ -33,7 +33,7 @@
           local opts = { noremap = true, silent = true }
           local keymap = vim.api.nvim_buf_set_keymap
           
-          -- set keybinds
+          -- Lspsaga keybinds
           keymap(bufnr, "n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)                       -- show definition, references
           keymap(bufnr, "n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)            -- got to declaration
           keymap(bufnr, "n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)                  -- see definition and make edits in window
@@ -70,9 +70,9 @@
 
 
         -- Lspconfig
-	local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-        if not lspconfig_status_ok then
-	  error("Load [lspconfig] Failed")
+	    local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+          if not lspconfig_status_ok then
+	    error("Load [lspconfig] Failed")
           return
         end
 
@@ -85,32 +85,15 @@
           if vim.fn.executable(binary) == 1 then server.setup(options) end
         end
 
-        add_lsp("docker-langserver", lspconfig.dockerls, {})
         add_lsp("bash-language-server", lspconfig.bashls, {})
         add_lsp("clangd", lspconfig.clangd, {})
         add_lsp("nil", lspconfig.nil_ls, {})
-        add_lsp("ltex-ls", lspconfig.ltex, {})
-        add_lsp("pylsp", lspconfig.pylsp, {})
-        add_lsp("dart", lspconfig.dartls, {})
-        add_lsp("haskell-language-server", lspconfig.hls, {})
-        add_lsp("kotlin-language-server", lspconfig.kotlin_language_server, {})
-        add_lsp("solargraph", lspconfig.solargraph, {})
-        add_lsp("phpactor", lspconfig.phpactor, {})
-        add_lsp("terraform-ls", lspconfig.terraformls, {})
-        add_lsp("texlab", lspconfig.texlab, {})
+        add_lsp("pyright", lspconfig.pyright, {})
         add_lsp("gopls", lspconfig.gopls, {})
+        add_lsp("rnix", lspconfig.rnix, {})
 
         add_lsp("lua-lsp", lspconfig.sumneko_lua, {
           cmd = { "lua-lsp" }
-        })
-        add_lsp("jdt-language-server", lspconfig.jdtls, {
-          cmd = { "jdt-language-server" }
-        })
-        add_lsp("texlab", lspconfig.texlab, {
-          chktex = {
-            onEdit = true,
-            onOpenAndSave = true
-          }
         })
       '';
     }
