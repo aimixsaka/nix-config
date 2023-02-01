@@ -19,17 +19,4 @@
     workspace = "1";
   }];
 
-  ## Autojump
-  programs.autojump.enable = true;
-
-  home.packages = with pkgs; [
-    qq
-    feishu
-    # telegram desktop
-    tdesktop
-    # change light of screen 
-    light
-    # office tool
-    #libreoffice
-  ];
 }
