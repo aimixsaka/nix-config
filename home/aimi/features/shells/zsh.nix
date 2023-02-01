@@ -38,6 +38,9 @@
         # vi mode
         set -o vi
 
+        # env settings
+        ZSH_AUTOSUGGEST_MANUAL_REBIND=1;
+
         ## opts
         # Remove older cmmand from the history if a duplicate is to be adde        # Remove older cmmand from the history if a duplicate is to be added.
         setopt HIST_IGNORE_ALL_DUPS
@@ -87,9 +90,12 @@
 
       # Set alias
       shellAliases = {
+        cl = "clear";
         rm = "trash";
+
         ls = "ls --color=auto";
         lst = "ls -al --time=birth";
+
         ws = "cd ~/workspace";
       };
 
@@ -116,4 +122,8 @@
       #};
     };
   };
+
+  home.packages = with pkgs; [ 
+    fd
+  ];
 }

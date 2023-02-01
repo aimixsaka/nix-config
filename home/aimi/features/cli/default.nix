@@ -2,7 +2,7 @@
 {
   imports = [
     ./git.nix
-    ./nurl.nix
+    ./tools.nix
   ];
 
   # home.packages = with pkgs; [
