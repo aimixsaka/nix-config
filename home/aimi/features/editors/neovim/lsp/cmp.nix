@@ -1,10 +1,17 @@
 { pkgs, ... }:
 {
   programs.neovim.plugins = with pkgs.vimPlugins; [
-    # Completions
+    # cmp
     cmp-nvim-lsp
     cmp-buffer
     cmp-path
+    
+    # snip
+    luasnip
+    cmp_luasnip
+    friendly-snippets
+
+    # lspkind (vs-code like icons for autocompletion)
     lspkind-nvim
     {
       plugin = nvim-cmp;
@@ -48,7 +55,7 @@
             ["<C-y>"] = cmp.mapping.scroll_docs(-4),
             ["<C-e>"] = cmp.mapping.scroll_docs(4),
             ["<C-Space>"] = cmp.mapping.complete(),     -- show completion suggestions
-            ["<C-E>"] = cmp.mapping.abort(),            -- close completion window
+            -- ["<C-a>"] = cmp.mapping.abort(),            -- close completion window
             ["<CR>"] = cmp.mapping.confirm({ select = true }),
           }),
 
@@ -57,7 +64,7 @@
             { name = "nvim_lsp" },                      -- lsp
             { name = "luasnip" },                       -- snippets
             { name = "buffer" },                        -- text within current buffer
-            { name = "path" },                          -- file system paths
+            { name = "path" },
           }),
           
           -- configure lspkind for vs-code like icons
@@ -82,21 +89,18 @@
         cmp.setup.cmdline({ '/', '?' }, {
           mapping = cmp.mapping.preset.cmdline(),
           sources = {
-              { name = 'buffer' }
+            { name = 'buffer' }
           }
         })
-        
+
         -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
         cmp.setup.cmdline(':', {
           mapping = cmp.mapping.preset.cmdline(),
-          sources = cmp.config.sources(
-            {
-              { name = 'path' }
-            }, 
-            {
-              { name = 'cmdline' }
-            }
-          )
+          sources = cmp.config.sources({
+            { name = 'path' }
+          }, {
+            { name = 'cmdline' }
+          })
         })
       '';
     }

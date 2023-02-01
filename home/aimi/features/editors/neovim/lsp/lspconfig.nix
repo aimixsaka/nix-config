@@ -2,8 +2,6 @@
 {
   programs.neovim.plugins = with pkgs.vimPlugins; [
     # LspSaga
-    cmp-nvim-lsp
-
     lspsaga-nvim-original
     {
       plugin = nvim-lspconfig;
@@ -90,7 +88,7 @@
         add_lsp("nil", lspconfig.nil_ls, {})
         add_lsp("pyright", lspconfig.pyright, {})
         add_lsp("gopls", lspconfig.gopls, {})
-        add_lsp("rnix", lspconfig.rnix, {})
+        add_lsp("rnix-lsp", lspconfig.rnix, {})
 
         add_lsp("lua-lsp", lspconfig.sumneko_lua, {
           cmd = { "lua-lsp" }
