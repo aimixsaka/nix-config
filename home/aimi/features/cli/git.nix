@@ -10,7 +10,7 @@
     userEmail = "aimixsaka@gmail.com";
     extraConfig = {
       core = {
-        editor = "vim";
+        editor = "nvim";
       };
       pull.rebase = true;
       feature.manyFiles = true;
