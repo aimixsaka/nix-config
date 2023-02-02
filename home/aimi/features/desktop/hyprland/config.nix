@@ -31,7 +31,8 @@
   exec-once = waybar
   exec-once = hyprctl setcursor Bibata-Modern-Classic 50
   ## High cpu cost!?(no, its my miss)
-  exec-once = wlsunset -S 7:40 -s 17:30
+  # use gammastep instead
+  #exec-once = wlsunset -S 7:40 -s 17:30
   exec-once = wl-clipboard-history -t
   exec-once = fcitx5 -d
   exec-once = mako 

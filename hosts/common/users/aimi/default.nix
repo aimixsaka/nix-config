@@ -26,4 +26,7 @@ in {
   };
 
   home-manager.users.aimi = import home/${config.networking.hostName}.nix;
+
+   # supply geoclue2 service (for time infomation, such as sunrise, sunset)
+   services.geoclue2.enable = true;
 }

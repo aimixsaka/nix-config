@@ -1,8 +1,5 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    # light control
-    wlsunset
-
     ## screenshot
     grim
     slurp
