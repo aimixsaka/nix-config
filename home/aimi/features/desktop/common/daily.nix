@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     qq
     feishu
+    chromium
     # telegram desktop
     tdesktop
     # change light of screen 

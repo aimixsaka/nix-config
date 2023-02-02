@@ -5,7 +5,7 @@
 {
   # You can import other NixOS modules here
   imports = [
-    # If you want to use modules from other flakes (such as nixos-hardware):
+    # microsoft-surface-pro-intel specific hardware 
     inputs.hardware.nixosModules.microsoft-surface-pro-intel
 
     # You can also split up your configuration and import pieces of it here:
@@ -45,7 +45,8 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    kernelPackages = pkgs.linuxPackages_zen;
+    # use surface hardware specific
+    #kernelPackages = pkgs.linuxPackages_zen;
   };
 
   # auto updae
