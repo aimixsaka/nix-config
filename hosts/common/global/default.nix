@@ -6,7 +6,6 @@
     inputs.home-manager.nixosModules.home-manager
     ./locale.nix
     ./sound.nix
-    ./shells.nix
     ./nix.nix
     ./steam-hardware.nix
   ];

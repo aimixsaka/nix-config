@@ -9,6 +9,7 @@ in {
     # Be sure to change it (using passwd) after rebooting!
     initialPassword = "aimi";
     isNormalUser = true;
+    shell = pkgs.zsh;
     #openssh.authorizedKeys.keys = [
       # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
     #];
@@ -27,6 +28,8 @@ in {
 
   home-manager.users.aimi = import home/${config.networking.hostName}.nix;
 
-   # supply geoclue2 service (for time infomation, such as sunrise, sunset)
+   # Whether to enable GeoClue 2 daemon, a DBus service that provides location information for accessing.
    services.geoclue2.enable = true;
+   # For geoclue2
+   services.avahi.enable = true;
 }
