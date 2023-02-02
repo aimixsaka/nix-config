@@ -289,6 +289,15 @@ in {
         description = "Resulting customized neovim package.";
       };
 
+      defaultEditor = mkOption {
+        type = types.bool;
+        default = false;
+        description = ''
+          Whether to configure <command>nvim</command> as the default
+          editor using the <envar>EDITOR</envar> environment variable.
+        '';
+      };
+
       extraConfig = mkOption {
         type = with types; coercedTo lines (x: { viml = x; }) (attrsOf lines);
         default = {};
@@ -494,6 +503,8 @@ in {
       zipAttrsWith (_: concatLines) [ cfg.extraConfig pluginConfigs ];
 
     home.packages = [ cfg.finalPackage ];
+
+    home.sessionVariables = mkIf cfg.defaultEditor { EDITOR = "nvim"; };
 
     xdg.configFile = mkMerge
       (

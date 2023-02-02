@@ -6,8 +6,7 @@
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules from other flakes (such as nixos-hardware):
-    inputs.hardware.nixosModules.common-cpu-intel
-    inputs.hardware.nixosModules.common-gpu-intel
+    inputs.hardware.nixosModules.microsoft-surface-surface-pro-intel
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
@@ -81,7 +80,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     unzip
     lsof

@@ -11,10 +11,12 @@
     ./impatient.nix
     ./lsp
   ];
-  home.sessionVariables.EDITOR = "nvim";
 
   programs.neovim = {
     enable = true;
+
+    # use nvim as default editor
+    defaultEditor = true;
 
     plugins = with pkgs.vimPlugins; [
       # Misc
