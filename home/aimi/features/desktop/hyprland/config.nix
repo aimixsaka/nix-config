@@ -171,12 +171,12 @@
   windowrule = float, title:^(Picture-in-Picture)$
   windowrule = size 800 600, title:^(Volume Control)$
   windowrule = move 75 44%, title:^(Volume Control)$
-  windowrulev2 = workspace 2, class:^(steam)(.*)$
-  windowrulev2 = workspace 2, class:^(Steam)(.*)$
+  windowrulev2 = workspace 1, class:^(marktext)$
   windowrulev2 = workspace 2, title:^(Telegram)$
   windowrulev2 = workspace 2, class:^(Bytedance-feishu)$
-  windowrulev2 = workspace 2, class:^(marktext)$
   windowrulev2 = workspace 2, class:^(QQ)$
+  windowrulev2 = workspace 4, class:^(steam)(.*)$
+  windowrulev2 = workspace 4, class:^(Steam)(.*)$
   
   ##################
   ###  KEYBIND  ###

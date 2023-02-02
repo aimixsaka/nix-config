@@ -36,9 +36,10 @@
              on-click = "activate";
              format = "  {icon}  ";
              format-icons = {
-                 "1" = "";
-                 "2" = "";
-                 "3" = "";
+                 "1" = "<span font='Font Awesome 5 Free 14'></span>";
+                 "2" = "<span font='Font Awesome 5 Free 14'></span>";
+                 "3" = "<span font='Font Awesome 5 Free 14'></span>";
+                 "4" = "<span font='Font Awesome 5 Free 14'></span>";
                  active = "<span color=\"red\"></span>";
                  urgent = "";
                  default = "";
