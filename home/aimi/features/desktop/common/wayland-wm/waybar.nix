@@ -1,7 +1,9 @@
-{ config, lib, pkgs, ... }: 
+{ config, lib, pkgs, inputs, ... }: 
 {
   programs.waybar = {
     enable = true;
+    # use waybar-hyprland from hyprland overlay
+    package = inputs.hyprland.packages.${pkgs.system}.waybar-hyprland;
 
     settings = {
       mainBar = {
@@ -31,21 +33,17 @@
         };
         # Modules configuration
         "wlr/workspaces" = {
-             disable-scroll = true;
-             disable-markup  = false;
-	         persistent_workspaces = {
-	    	   "1" = [];
-	    	   "2" = [];
-	    	   "3" = [];
-	         };
+             on-click = "activate";
              format = "  {icon}  ";
              format-icons = {
                  "1" = "";
-                 "2" = "";
-                 "3" = "";
-                 # "focused" = "";
-                 # "default" = "";
+                 "2" = "";
+                 "3" = "";
+                 active = "<span color=\"red\"></span>";
+                 urgent = "";
+                 default = "";
              };
+             sort-by-number = true;
          };
         "hyprland/window" = {
         	max-length = 50;

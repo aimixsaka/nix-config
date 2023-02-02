@@ -14,11 +14,12 @@
       system-features = [ "kvm" "big-parallel" ];
     };
     package = pkgs.nixUnstable;
-    gc = {
-      automatic = true;
-      # default is "03:15"
-      dates = "21:00";
-    };
+    ## do not need auto gc
+    #gc = {
+    #  automatic = true;
+    #  # default is "03:15"
+    #  dates = "21:00";
+    #};
 
     # Add each flake input as a registry
     # To make nix3 commands consistent with the flake

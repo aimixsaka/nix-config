@@ -3,11 +3,19 @@
   imports = [
     ../common
     ../common/wayland-wm
+    # already include waybar-hyprland and xdg-desktop-protal-hyprland, ...
     inputs.hyprland.homeManagerModules.default
   ];
 
   home.packages = with pkgs; [
     swaybg  
+
+    #An XDG Desktop Portal (later called XDP) is a program that lets other applications communicate swiftly with the compositor through D-Bus.
+    #It’s used for stuff like e.g. opening file pickers, screen sharing.
+    #On Wayland, it also requires an implementation. For Hyprland, you’d usually use xdg-desktop-portal-wlr (later called XDPW)
+    #inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+
+    #xdg-desktop-portal-wlr
   ];
  
   # Session Variables for Hyprland

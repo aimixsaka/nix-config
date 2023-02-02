@@ -36,8 +36,6 @@
     networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   };
 
-  # Enable network manager applet
-  programs.nm-applet.enable = true;
   # For impermanence's allowOther = true;
   programs.fuse.userAllowOther = true;
 
@@ -90,67 +88,22 @@
     #trashy
     trash-cli
     ## for nix-shello development
-    direnv
-    libnotify
     traceroute
     gdb
-    gnupg
     file
-    mpv
-    ranger
     ## vaapi info
     libva-utils
     ## intel gpu tools
     intel-gpu-tools
-    ## image viewer
-    geeqie
-    ## markdown viewer
-    marktext
-
-    ## use appimage-run to run .AppImage file
-    appimage-run
-
     ### system monitor
     ## sar
     sysstat
-    #
     plocate 
-
     gcc
-    cargo
-    rustc
-    rustup
-    go
-    lua
-    python39
-    jdk11
-    nodejs
-    # use swaybg instead
-    #hyprpaper
-    ## bar
-    ##eww-wayland
-    ## light control
-    wlsunset
-    xdg-desktop-portal-wlr
-    ## screen recording
-    ## for acceses for seat
-    #polkit
-
-    ### Wine
-    wineWowPackages.stable
   ];
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-  };
   hardware.opengl = {
     enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
     driSupport = true;
     driSupport32Bit = true;
   };
