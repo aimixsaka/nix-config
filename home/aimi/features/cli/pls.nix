@@ -1,8 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    cargo
-    rustc
-    #rustup
+    #cargo
+    #rustc
+    rustup
     go
     lua
     python39
