@@ -47,7 +47,7 @@
       opt.iskeyword:append("-")
       
       -- time to wait for a mapped sequence to complete (in milliseconds)
-      opt.timeoutlen = 400
+      opt.timeoutlen = 600
       
       -- enable persistent undo
       opt.undofile = true

@@ -19,6 +19,8 @@
     wineWowPackages.stable
     # screen sharing
     obs-studio
+    # xdg-open and a lot
+    xdg-utils
   ];
 }
 

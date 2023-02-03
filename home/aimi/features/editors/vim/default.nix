@@ -7,6 +7,8 @@
        vim-peekaboo
        # undo tree viewer
        vim-mundo
+       # auto save 
+       vim-auto-save
      ];
 
      #settings = {
@@ -84,10 +86,10 @@
        noremap <silent> <leader> <Nop>
        
        " convinient save and quit
-       nnoremap <silent> <leader>w :w<CR>     
-       nnoremap <silent> <leader>wq :wq<CR>
-       nnoremap <silent> <leader>q :q<CR>
-       nnoremap <silent> <leader>qa :wqall<CR>
+       " nnoremap <silent> <leader>w :w<CR>     
+       " nnoremap <silent> <leader>wq :wq<CR>
+       " nnoremap <silent> <leader>q :q<CR>
+       " nnoremap <silent> <leader>qa :wqall<CR>
        
        nnoremap <silent> <leader>b :Buffers<CR>
        nnoremap <silent> <C-f> :Files<CR>
@@ -110,6 +112,12 @@
        nnoremap <leader>j :resize -3<CR>
        nnoremap <leader>k :resize +3<CR>
        
+
+       """""""""""""""
+       """ autocmd """
+       """""""""""""""
+       let g:auto_save = 1
+
        
        """""""""""""""
        """ autocmd """

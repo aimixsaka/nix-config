@@ -29,11 +29,14 @@
       
       keymap("n", "<leader>+", "<C-a>", opts)        -- self-increment
       keymap("n", "<leader>-", "<C-x>", opts)        -- self-decrement
+
+      -- show keymap help
+      keymap("n", "<leader>h", "split /home/aimi/nix-config/home/aimi/features/editors/neovim/core/keymap.nix", opts)
       
-      keymap("n", "<leader>w", ":w<CR>", opts)       -- convinient save and quit
-      keymap("n", "<leader>wq", ":wq<CR>", opts)
-      keymap("n", "<leader>q", ":q<CR>", opts)
-      keymap("n", "<leader>qa", ":wqall<CR>", opts)
+      -- keymap("n", "<leader>w", ":w<CR>", opts)       -- convinient save and quit
+      -- keymap("n", "<leader>wq", ":wq<CR>", opts)
+      -- keymap("n", "<leader>q", ":q<CR>", opts)
+      -- keymap("n", "<leader>qa", ":wqall<CR>", opts)
       
       -------------------------
       --- window management ---
@@ -42,6 +45,11 @@
       keymap("n", "<leader>sh", "<C-w>s", opts)      -- split window horizontally
       keymap("n", "<leader>se", "<C-w>=", opts)      -- split window equal width
       keymap("n", "<leader>sx", ":close<CR>", opts)  -- close current split window
+
+      keymap("n", "<leader>wj", ":resize +3", opts)  -- below to increase 3
+      keymap("n", "<leader>wk", ":resize -3", opts)  -- below to decrease 3
+      keymap("n", "<leader>wh", ":vertical resize -3", opts)  -- right to decrease 3
+      keymap("n", "<leader>wl", ":vertical resize +3", opts)  -- right to increase 3
       
       
       -------------------------
@@ -55,7 +63,7 @@
       -------------------------
       ---  plugin keymaps  ----
       -------------------------
-      keymap("n", "<leader>sm", ":MaximizerToggle<CR>", opts) -- maximize current window and come back
+      keymap("n", "<leader>mt", ":MaximizerToggle<CR>", opts) -- maximize current window and come back
       
       -- nvim-tree
       keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts) -- toggle file explorer
@@ -68,7 +76,10 @@
       keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api", opts).toggle.linewise(vim.fn.visualmode())<CR>', opts)
       
       -- md preview
-      keymap("n", "<leader>m", ":MarkdownPreviewToggle<CR>", opts)
+      keymap("n", "<leader>mp", ":MarkdownPreviewToggle<CR>", opts)
+
+      -- auto save 
+      keymap("n", "<leader>a", ":ASToggle<CR>", opts)
     '';
   };
 }

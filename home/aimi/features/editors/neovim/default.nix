@@ -10,6 +10,8 @@
     ./illuminate.nix
     ./impatient.nix
     ./lsp
+    ./autosave.nix
+    ./markdown-preview.nix
   ];
 
   programs.neovim = {
@@ -77,13 +79,6 @@
     nodePackages.bash-language-server
     nodePackages.pyright
   ];
-
-  #xdg.configFile."nvim/init.lua".onChange = ''
-  #  XDG_RUNTIME_DIR=''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
-  #  for server in $XDG_RUNTIME_DIR/nvim.*; do
-  #    nvim --server $server --remote-send ':source $MYVIMRC<CR>' &
-  #  done
-  #'';
 
   xdg.desktopEntries = {
     nvim = {
