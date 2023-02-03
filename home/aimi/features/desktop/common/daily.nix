@@ -13,8 +13,8 @@
     # martrix client
     # use weechat-martrix instead
     #element-desktop
-    weechat
-    weechatScripts.weechat-matrix
-    weechatScripts.edit
+    
+    # overlay: weechat with scripts
+    weechat-with-scripts
   ];
 }
