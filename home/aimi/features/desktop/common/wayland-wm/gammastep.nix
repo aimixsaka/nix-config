@@ -10,7 +10,7 @@
     longitude = 118.8;
 
     temperature = {
-      day = 6300;
+      day = 6600;
       night = 4200;
     };
     settings = {
