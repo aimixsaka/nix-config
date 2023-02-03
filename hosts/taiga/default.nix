@@ -30,7 +30,8 @@
 
     timeServers = [ "0.cn.pool.ntp.org" "1.cn.pool.ntp.org" "2.cn.pool.ntp.org" "3.cn.pool.ntp.org" ]; 
 
-    proxy.noProxy = "127.0.0.1,localhost,internal.domain"; # set proxy
+    #proxy.default = 
+    #proxy.noProxy = "127.0.0.1,localhost,internal.domain"; # set proxy
 
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -48,8 +49,8 @@
   };
 
   # auto updae
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
+  #system.autoUpgrade.enable = true;
+  #system.autoUpgrade.allowReboot = true;
 
   # Lid settings
   services.logind = {

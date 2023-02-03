@@ -28,8 +28,8 @@ in {
 
   home-manager.users.aimi = import home/${config.networking.hostName}.nix;
 
-   # Whether to enable GeoClue 2 daemon, a DBus service that provides location information for accessing.
-   services.geoclue2.enable = true;
-   # For geoclue2
-   services.avahi.enable = true;
+   ## Whether to enable GeoClue 2 daemon, a DBus service that provides location information for accessing.
+   #services.geoclue2.enable = true;
+   ## For geoclue2
+   #services.avahi.enable = true;
 }

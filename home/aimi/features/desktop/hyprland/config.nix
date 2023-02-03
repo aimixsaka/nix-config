@@ -33,6 +33,7 @@
   ## High cpu cost!?(no, its my miss)
   # use gammastep instead
   #exec-once = wlsunset -S 7:40 -s 17:30
+  #exec-once = gammastep -l geoclue2 -m wayland -t 6000:4000
   exec-once = wl-clipboard-history -t
   exec-once = fcitx5 -d
   exec-once = mako 
