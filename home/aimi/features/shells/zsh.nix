@@ -93,6 +93,7 @@
         cl = "clear";
         rm = "trash";
 
+        l = "ls --color=auto -l";
         ls = "ls --color=auto";
         lst = "ls -al --time=birth";
 
