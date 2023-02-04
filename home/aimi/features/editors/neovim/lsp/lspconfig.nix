@@ -49,4 +49,16 @@
       '';
     }
   ];
+
+    ## Lsp Server use pkgs
+  home.packages = with pkgs; [
+    gopls
+    rnix-lsp
+    rust-analyzer
+    sumneko-lua-language-server
+
+    ## Lsp Server use pkgs.nodePackages
+    nodePackages.bash-language-server
+    nodePackages.pyright
+  ];
 }

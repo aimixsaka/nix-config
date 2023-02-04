@@ -28,3 +28,5 @@ in
     "x-scheme-handler/https" = [ "firefox.desktop" ];
   };
 }
+
+

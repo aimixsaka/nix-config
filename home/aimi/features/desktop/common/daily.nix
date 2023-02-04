@@ -6,7 +6,7 @@
     # telegram desktop
     tdesktop
     # change light of screen 
-    light
+    brightnessctl
     # office tool
     mdds # dependency for libreoffice
     libreoffice

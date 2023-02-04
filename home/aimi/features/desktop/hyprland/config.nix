@@ -194,11 +194,16 @@
   
   #bind = $Mod_S, C, exec, grim -g "$(slurp)" ~/Pictures/screenshots/$(date +'%Y:%m:%d:%H:%M:%S.png')
   #bind = $Mod, C, exec, grim -g  "$(slurp)" - | wl-copy -t image/png
-  bind = $Mod, C, exec,grim -g "$(slurp)" - | swappy -f -
+  #bind = $Mod, C, exec,grim -g "$(slurp)" - | swappy -f -
+  bind = , Print, exec,grim -g "$(slurp)" - | swappy -f -
   
   ## Sound
   bind = , XF86AudioLowerVolume, exec, pamixer -d 3
   bind = , XF86AudioRaiseVolume, exec, pamixer -i 3
+
+  ## Light
+  bind = , XF86MonBrightnessDown, exec, brightnessctl set 3%-
+  bind = , XF86MonBrightnessUp, exec, brightnessctl set +3%
   
   
   ##################

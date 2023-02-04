@@ -31,7 +31,7 @@
       keymap("n", "<leader>-", "<C-x>", opts)        -- self-decrement
 
       -- show keymap help
-      keymap("n", "<leader>h", "split /home/aimi/nix-config/home/aimi/features/editors/neovim/core/keymap.nix", opts)
+      keymap("n", "<leader>h", ":split /home/aimi/nix-config/home/aimi/features/editors/neovim/core/keymap.nix<CR>", opts)
       
       -- keymap("n", "<leader>w", ":w<CR>", opts)       -- convinient save and quit
       -- keymap("n", "<leader>wq", ":wq<CR>", opts)

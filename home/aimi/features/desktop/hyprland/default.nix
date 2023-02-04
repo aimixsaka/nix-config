@@ -3,7 +3,6 @@
   imports = [
     ../common
     ../common/wayland-wm
-    # already include waybar-hyprland and xdg-desktop-protal-hyprland, ...
     inputs.hyprland.homeManagerModules.default
   ];
 
@@ -15,7 +14,9 @@
     #On Wayland, it also requires an implementation. For Hyprland, you’d usually use xdg-desktop-portal-wlr (later called XDPW)
     #inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
 
+    #!!! not be here, should be ~/nix-config/hosts/taiga/default.nix
     #xdg-desktop-portal-wlr
+    #xdg-desktop-portal-gtk
   ];
  
   # Session Variables for Hyprland

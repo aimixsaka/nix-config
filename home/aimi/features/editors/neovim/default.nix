@@ -68,17 +68,6 @@
     };
   };
 
-  ## Lsp Server use pkgs
-  home.packages = with pkgs; [
-    gopls
-    rnix-lsp
-    rust-analyzer
-    sumneko-lua-language-server
-
-    ## Lsp Server use pkgs.nodePackages
-    nodePackages.bash-language-server
-    nodePackages.pyright
-  ];
 
   xdg.desktopEntries = {
     nvim = {
@@ -109,4 +98,23 @@
       categories = [ "Utility" "TextEditor" ];
     };
   };
-}
+
+
+  xdg.mimeApps.defaultApplications = {
+    "text/english" = [ "nvim.desktop" ];
+    "text/plain" = [ "nvim.desktop" ];
+    "text/x-makefile" = [ "nvim.desktop" ];
+    "text/x-c++hdr" = [ "nvim.desktop" ];
+    "text/x-c++src" = [ "nvim.desktop" ];
+    "text/x-chdr" = [ "nvim.desktop" ];
+    "text/x-csrc" = [ "nvim.desktop" ];
+    "text/x-java" = [ "nvim.desktop" ];
+    "text/x-moc" = [ "nvim.desktop" ];
+    "text/x-pascal" = [ "nvim.desktop" ];
+    "text/x-tcl" = [ "nvim.desktop" ];
+    "text/x-tex" = [ "nvim.desktop" ];
+    "application/x-shellscript" = [ "nvim.desktop" ];
+    "text/x-c" = [ "nvim.desktop" ];
+    "text/x-c++" = [ "nvim.desktop" ];
+  };
+} 
