@@ -58,6 +58,12 @@
     lidSwitchExternalPower = "lock";
   };
 
+  # Resume (hibernate) hook
+  powerManagement.resumeCommands = ''
+    systemctl restart systemd-timesyncd.service
+    echo "Restarted systemd-timesyncd.service!"
+  '';
+
   # xdg-desktop-portal works by exposing a series of D-Bus interfaces
   # known as portals under a well-known name
   # (org.freedesktop.portal.Desktop) and object path
