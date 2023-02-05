@@ -30,13 +30,10 @@
       opt.signcolumn = "yes"
       
       -- backspace
-      opt.backspace = "indent,eol,start"
+      opt.backspace = { "indent", "eol", "start" }
 
-      -- completeopt
-      completeopt = "menu,menuone,noselect"
-      
       -- connect to systemc clipboard
-      opt.clipboard:append("unnamedplus")
+      opt.clipboard:append { "unnamedplus"} 
       
       -- original window position will be when split windows
       opt.splitright = true
@@ -44,7 +41,7 @@
       
       -- make `-` to be a part of a word in neovim
       -- means `some-test` is a `w` in neovim
-      opt.iskeyword:append("-")
+      opt.iskeyword:append { "-" }
       
       -- time to wait for a mapped sequence to complete (in milliseconds)
       opt.timeoutlen = 600

@@ -30,14 +30,17 @@
       #'';
 
       lua = /* lua */ ''
-        function add_sign(name, text)
-          vim.fn.sign_define(name, { text = text, texthl = name, numhl = name})
-        end
+        local signs = {
+          { name = "DiagnosticSignError", text = " " },
+          { name = "DiagnosticSignWarn", text = " " },
+          { name = "DiagnosticSignHint", text = " " },
+          { name = "DiagnosticSignInfo", text = " " },
+        }
 
-        add_sign("DiagnosticSignError", " ")
-        add_sign("DiagnosticSignWarn", " ")
-        add_sign("DiagnosticSignHint", "ﴞ ")
-        add_sign("DiagnosticSignInfo", " ")
+        -- use iparis to ensure the order is right
+	    for _, sign in ipairs(signs) do
+	      vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+	    end
 
         local config = {
           virtual_text = false, -- disable virtual text

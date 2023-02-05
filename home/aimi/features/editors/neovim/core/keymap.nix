@@ -46,10 +46,10 @@
       keymap("n", "<leader>se", "<C-w>=", opts)      -- split window equal width
       keymap("n", "<leader>sx", ":close<CR>", opts)  -- close current split window
 
-      keymap("n", "<leader>wj", ":resize +3", opts)  -- below to increase 3
-      keymap("n", "<leader>wk", ":resize -3", opts)  -- below to decrease 3
-      keymap("n", "<leader>wh", ":vertical resize -3", opts)  -- right to decrease 3
-      keymap("n", "<leader>wl", ":vertical resize +3", opts)  -- right to increase 3
+      keymap("n", "<leader>wj", ":resize +10<CR>", opts)  -- below to increase 3
+      keymap("n", "<leader>wk", ":resize -10<CR>", opts)  -- below to decrease 3
+      keymap("n", "<leader>wh", ":vertical resize -10<CR>", opts)  -- right to decrease 3
+      keymap("n", "<leader>wl", ":vertical resize +10<CR>", opts)  -- right to increase 3
       
       
       -------------------------

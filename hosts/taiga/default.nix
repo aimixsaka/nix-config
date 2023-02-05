@@ -61,7 +61,7 @@
   # Resume (hibernate) hook
   powerManagement.resumeCommands = ''
     systemctl restart systemd-timesyncd.service
-    echo "Restarted systemd-timesyncd.service!"
+    echo "HOOK: Restarted systemd-timesyncd.service!"
   '';
 
   # xdg-desktop-portal works by exposing a series of D-Bus interfaces
