@@ -55,7 +55,8 @@
   # Lid settings
   services.logind = {
     lidSwitch = "suspend";
-    lidSwitchExternalPower = "lock";
+    #lidSwitchExternalPower = "lock";
+    lidSwitchExternalPower = "suspend";
   };
 
   # Resume (hibernate) hook

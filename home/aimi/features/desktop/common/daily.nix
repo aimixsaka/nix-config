@@ -16,5 +16,11 @@
     
     # overlay: weechat with scripts
     weechat-with-scripts
+
+    # Vector graphics editor
+    inkscape
+
+    # The GNU Image Manipulation Program
+    gimp
   ];
 }
