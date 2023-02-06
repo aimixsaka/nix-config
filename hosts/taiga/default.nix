@@ -28,6 +28,7 @@
   networking = {
     hostName = "taiga";
 
+    nameservers = [ "1.1.1.1" "9.9.9.9" "8.8.8.8" ];
     timeServers = [ "0.cn.pool.ntp.org" "1.cn.pool.ntp.org" "2.cn.pool.ntp.org" "3.cn.pool.ntp.org" ]; 
 
     #proxy.default = 

@@ -34,7 +34,7 @@
        set shiftwidth=4
        set expandtab " transfer tab to space
        set autoindent
-       autocmd Filetype c setlocal expandtab tabstop=8 shiftwidth=8 softtabstop=8
+       autocmd Filetype c setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
        
        " set nowrap
        set nowrap
