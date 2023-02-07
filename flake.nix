@@ -23,10 +23,11 @@
     hyprland.url = "github:hyprwm/Hyprland";
     # TODO: use NUR instead
     # Every day updated firefox addons(extentions)
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Not that useful when you have firefox account synced
+    #firefox-addons = {
+    #  url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     # TODO: Add any other flake you might need
     hardware.url = "github:nixos/nixos-hardware";

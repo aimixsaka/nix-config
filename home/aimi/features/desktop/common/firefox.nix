@@ -7,11 +7,11 @@ in
   #programs.browserpass.enable = true;
   programs.firefox = {
     enable = true;
-    extensions = with addons; [
-      darkreader
-      octotree
-      vimium
-    ];
+    #extensions = with addons; [
+    #  darkreader
+    #  octotree
+    #  vimium
+    #];
   };
 
   home = {
