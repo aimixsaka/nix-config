@@ -9,6 +9,8 @@
        vim-mundo
        # auto save 
        vim-auto-save
+       # navigate between tmux and vim(neovim)
+       vim-tmux-navigator
      ];
 
      #settings = {
@@ -34,7 +36,7 @@
        set shiftwidth=4
        set expandtab " transfer tab to space
        set autoindent
-       autocmd Filetype c setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
+       autocmd Filetype c setlocal noexpandtab cindent tabstop=8 shiftwidth=8 softtabstop=8
        
        " set nowrap
        set nowrap
@@ -117,7 +119,14 @@
        """""""""""""""
        """ autocmd """
        """""""""""""""
+       " enable autosave plugin
        let g:auto_save = 1
+
+       " auto mkview before close buffer
+       autocmd BufWinLeave *.txt,*.c,*.py mkview
+
+       " auto loadview after open buffer
+       autocmd BufWinEnter *.txt,*.c,*.py silent loadview
 
        
        """""""""""""""

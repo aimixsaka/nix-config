@@ -41,6 +41,9 @@
         # env settings
         ZSH_AUTOSUGGEST_MANUAL_REBIND=1;
 
+        # set path for cargo bin
+        PATH="/home/aimi/.cargo/bin:$PATH"
+
         ## opts
         # Remove older cmmand from the history if a duplicate is to be adde        # Remove older cmmand from the history if a duplicate is to be added.
         setopt HIST_IGNORE_ALL_DUPS

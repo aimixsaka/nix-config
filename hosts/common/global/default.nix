@@ -1,5 +1,5 @@
 # This file (and the global directory) holds config that i use on all hosts
-{ inputs, outputs, ... }:
+{ lib, inputs, outputs, ... }:
 {
   imports = [
     inputs.impermanence.nixosModules.impermanence
@@ -19,7 +19,10 @@
     ## Overlay to use myself packages instead
     overlays = builtins.attrValues outputs.overlays;
     config = {
-      allowUnfree = true;
+      #allowUnfreePredicate = 
+      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+        "steam-original"
+      ];
     };
   };
 

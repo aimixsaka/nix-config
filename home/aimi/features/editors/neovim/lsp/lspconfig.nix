@@ -54,7 +54,8 @@
   home.packages = with pkgs; [
     gopls
     rnix-lsp
-    rust-analyzer
+    # use rust nightly to supply
+    #rust-analyzer
     sumneko-lua-language-server
 
     ## Lsp Server use pkgs.nodePackages

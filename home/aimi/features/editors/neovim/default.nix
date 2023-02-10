@@ -23,6 +23,7 @@
     plugins = with pkgs.vimPlugins; [
       # Misc
       vim-surround
+      vim-tmux-navigator
     ];
 
     extraConfig = {

@@ -21,6 +21,8 @@
     obs-studio
     # xdg-open and a lot
     xdg-utils
+    # virtual machine
+    qemu
   ];
 }
 
