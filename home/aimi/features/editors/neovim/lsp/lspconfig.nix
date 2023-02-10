@@ -33,9 +33,7 @@
         add_lsp("gopls", lspconfig.gopls, {})
         add_lsp("rnix-lsp", lspconfig.rnix, {})
 
-        add_lsp("lua-language-server", lspconfig.sumneko_lua, {
-          cmd = { "lua-lsp" }
-        })
+        add_lsp("lua-language-server", lspconfig.sumneko_lua, {})
       '';
     }
     {
