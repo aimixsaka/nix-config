@@ -33,7 +33,7 @@
         add_lsp("gopls", lspconfig.gopls, {})
         add_lsp("rnix-lsp", lspconfig.rnix, {})
 
-        add_lsp("lua-lsp", lspconfig.sumneko_lua, {
+        add_lsp("lua-language-server", lspconfig.sumneko_lua, {
           cmd = { "lua-lsp" }
         })
       '';
@@ -56,7 +56,7 @@
     rnix-lsp
     # use rust nightly to supply
     #rust-analyzer
-    sumneko-lua-language-server
+    lua-language-server
 
     ## Lsp Server use pkgs.nodePackages
     nodePackages.bash-language-server
