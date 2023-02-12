@@ -33,7 +33,29 @@
         add_lsp("gopls", lspconfig.gopls, {})
         add_lsp("rnix-lsp", lspconfig.rnix, {})
 
-        add_lsp("lua-language-server", lspconfig.sumneko_lua, {})
+        add_lsp("lua-language-server", lspconfig.sumneko_lua, {
+          settings = {
+            Lua = {
+              runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+              },
+              diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim'},
+              },
+              workspace = {
+                -- Make the server aware of Neovim runtime files
+                -- library = {
+                --   "/nix/store/7nhgzslbhhg1f53r8y36pb7gpc0q2d3z-neovim-0.8.3/share/nvim/runtime/lua", 
+                --   "/nix/store/7nhgzslbhhg1f53r8y36pb7gpc0q2d3z-neovim-0.8.3/share/nvim/runtime/lua/vim",
+                --   "/nix/store/7nhgzslbhhg1f53r8y36pb7gpc0q2d3z-neovim-0.8.3/share/nvim/runtime/lua/vim/lsp",
+                -- },
+                library = vim.api.nvim_get_runtime_file("", true),
+              },
+            },
+          },
+        })
       '';
     }
     {
