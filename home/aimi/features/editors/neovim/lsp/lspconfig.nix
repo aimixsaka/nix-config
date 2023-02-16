@@ -1,6 +1,10 @@
 { pkgs, ... }:
 {
   programs.neovim.plugins = with pkgs.vimPlugins; [
+    # for java
+    # not need for none-project
+    #nvim-jdtls
+
     {
       plugin = nvim-lspconfig;
       type = "lua";
@@ -18,22 +22,29 @@
           return
         end
 
-        function add_lsp(binary, server, conf_opts)
+        function add_lsp(server, conf_opts)
           local opts = {
             capabilities = cmp_nvim_lsp.default_capabilities()
           }
           options = vim.tbl_deep_extend("force", conf_opts, opts)
-          if vim.fn.executable(binary) == 1 then server.setup(options) end
+          server.setup(options)
         end
 
-        add_lsp("bash-language-server", lspconfig.bashls, {})
-        add_lsp("clangd", lspconfig.clangd, {})
-        add_lsp("nil", lspconfig.nil_ls, {})
-        add_lsp("pyright", lspconfig.pyright, {})
-        add_lsp("gopls", lspconfig.gopls, {})
-        add_lsp("rnix-lsp", lspconfig.rnix, {})
+        add_lsp(lspconfig.bashls, {})
+        add_lsp(lspconfig.clangd, {})
+        -- add_lsp(lspconfig.nil_ls, {})
+        add_lsp(lspconfig.pyright, {})
+        add_lsp(lspconfig.gopls, {})
+        add_lsp(lspconfig.rnix, {})
 
-        add_lsp("lua-language-server", lspconfig.sumneko_lua, {
+        add_lsp(lspconfig.java_language_server, {
+          cmd = { 'java-language-server' },
+          root_dir = function(fname)
+            return vim.fn.getcwd()
+          end
+        })
+
+        add_lsp(lspconfig.sumneko_lua, {
           settings = {
             Lua = {
               runtime = {
@@ -77,6 +88,7 @@
     # use rust nightly to supply
     #rust-analyzer
     lua-language-server
+    java-language-server
 
     ## Lsp Server use pkgs.nodePackages
     nodePackages.bash-language-server
