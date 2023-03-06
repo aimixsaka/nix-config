@@ -23,6 +23,9 @@
     xdg-utils
     # virtual machine
     qemu
+
+    #idea
+    jetbrains.idea-ultimate
   ];
 }
 

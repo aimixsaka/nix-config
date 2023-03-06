@@ -29,6 +29,7 @@
         "steam-original"
         "qq"
         "feishu"
+        "idea-ultimate"
       ];
     };
   };

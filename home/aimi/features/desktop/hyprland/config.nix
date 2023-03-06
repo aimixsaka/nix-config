@@ -193,9 +193,9 @@
   #bind = ALT, Print, exec, grimblast --notify --cursor copysave screen
   
   #bind = $Mod_S, C, exec, grim -g "$(slurp)" ~/Pictures/screenshots/$(date +'%Y:%m:%d:%H:%M:%S.png')
-  #bind = $Mod, C, exec, grim -g  "$(slurp)" - | wl-copy -t image/png
+  bind = $Mod, C, exec, grim -g  "$(slurp)" - | wl-copy -t image/png
   #bind = $Mod, C, exec,grim -g "$(slurp)" - | swappy -f -
-  bind = , Print, exec,grim -g "$(slurp)" - | swappy -f -
+  bind = , Print, exec, grim -g "$(slurp)" - | swappy -f -
   
   ## Sound
   bind = , XF86AudioLowerVolume, exec, pamixer -d 3

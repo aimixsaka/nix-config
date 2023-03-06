@@ -20,6 +20,8 @@
     # Vector graphics editor
     inkscape
 
+    # ebook reader
+    calibre
     # The GNU Image Manipulation Program
     gimp
   ];

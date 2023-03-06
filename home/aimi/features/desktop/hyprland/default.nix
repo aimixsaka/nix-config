@@ -9,6 +9,7 @@
   home.packages = with pkgs; [
     swaybg  
     swaylock
+    wl-clipboard
 
     #An XDG Desktop Portal (later called XDP) is a program that lets other applications communicate swiftly with the compositor through D-Bus.
     #It’s used for stuff like e.g. opening file pickers, screen sharing.
