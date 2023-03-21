@@ -25,7 +25,7 @@
     qemu
 
     #idea
-    jetbrains.idea-ultimate
+    #jetbrains.idea-ultimate
   ];
 }
 
