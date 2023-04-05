@@ -13,4 +13,5 @@ in
   #};
   #rustLatest = rustNightly.rust { }; 
   darkplus = pkgs.callPackage ./vim-plugins/darkplus { };
+  #v2raya-x = pkgs.callPackage ./v2rayax { };
 }

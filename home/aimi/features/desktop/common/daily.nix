@@ -24,5 +24,11 @@
     calibre
     # The GNU Image Manipulation Program
     gimp
+
+    #v2raya-x
+    #v2ray
+    #xray
+
+    #clash-verge
   ];
 }
