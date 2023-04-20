@@ -13,5 +13,7 @@
     python39
     jdk11
     nodejs
+    # lisp compiler
+    sbcl
   ];
 }

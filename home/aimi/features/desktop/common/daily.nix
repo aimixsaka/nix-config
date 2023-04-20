@@ -25,6 +25,9 @@
     # The GNU Image Manipulation Program
     gimp
 
+    # torrent downloader
+    qbittorrent
+
     #v2raya-x
     #v2ray
     #xray

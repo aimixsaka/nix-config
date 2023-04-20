@@ -45,7 +45,8 @@
   #monitor = eDP-1, 2736x1824@59.959000, 0x0, 1
   # Not needed, already defined in
   # hyprland/default.nix, wayland.windowManager.hyprland.extraConfig
-  #monitor = eDP-1, 2736x1824, 0x0, 1
+  monitor = eDP-1, 2736x1824, 0x0, 1
+  #monitor = eDP-1, 2736x1824, 0x0, 1, mirror, eDP-2
   
   
   ##################

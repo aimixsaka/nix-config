@@ -12,12 +12,14 @@
   
   wallpaper = (import ./wallpapers).shana;
 
-  monitors = [{
-    name = "eDP-1";
-    width = 2736;
-    height = 1824;
-    isPrimary = true;
-    workspace = "1";
-  }];
+  # monitors = [
+  #   {
+  #     name = "eDP-1";
+  #     width = 2736;
+  #     height = 1824;
+  #     isPrimary = true;
+  #     workspace = "1";
+  #   },
+  # ];
 
 }
