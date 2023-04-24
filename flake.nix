@@ -20,7 +20,9 @@
     #nur.url = github:nix-community/NUR; 
 
     # Nixified software I use
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland?rev=1a91c6ee603e3e779f288ad9189992faeda944f8";
+    };
     # TODO: use NUR instead
     # Every day updated firefox addons(extentions)
     # Not that useful when you have firefox account synced

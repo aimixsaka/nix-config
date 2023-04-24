@@ -9,7 +9,8 @@
     # file exploer
     ranger
     # vedio
-    mpv
+    # use home-manager instead
+    #mpv
     ## image viewer
     geeqie
     ## markdown viewer

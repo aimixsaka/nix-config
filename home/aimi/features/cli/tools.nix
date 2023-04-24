@@ -15,5 +15,6 @@
     gnupg
     # include killall, pstree, ...
     psmisc
+    cmake
   ];
 }

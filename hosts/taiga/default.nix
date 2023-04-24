@@ -38,6 +38,9 @@
     networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   };
 
+  # set kernel version
+  microsoft-surface.kernelVersion = "6.1.18";
+
   # For impermanence's allowOther = true;
   programs.fuse.userAllowOther = true;
 

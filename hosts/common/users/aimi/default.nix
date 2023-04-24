@@ -27,6 +27,9 @@ in {
     packages = [ pkgs.home-manager ];
   };
 
+  # FIXME: zsh config should not be here
+  programs.zsh.enable = true;
+
   home-manager.users.aimi = import home/${config.networking.hostName}.nix;
 
    ## Whether to enable GeoClue 2 daemon, a DBus service that provides location information for accessing.

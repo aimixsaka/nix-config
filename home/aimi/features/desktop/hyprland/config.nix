@@ -14,6 +14,8 @@
       no_border_on_floating = true
       col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
       col.inactive_border = rgba(595959aa)
+      col.group_border = rgba(595959aa)
+      col.group_border_active = rgb(ff00cc) rgb(ff0000) 45deg
       # col.active_border = rgb(f49bc1) rgb(ff0000) 45deg
       # col.inactive_border = rgba(595959aa)
       layout = dwindle
@@ -137,8 +139,6 @@
   ###  DWINDLE  ###
   ##################
   dwindle {
-      col.group_border = rgba(595959aa)
-      col.group_border_active = rgb(ff00cc) rgb(ff0000) 45deg
       no_gaps_when_only = false
       pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
       preserve_split = true # you probably want this
