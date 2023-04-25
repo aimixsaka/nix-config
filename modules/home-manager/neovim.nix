@@ -528,8 +528,7 @@ in {
         (mapAttrsToList
           (langName: langOpts: mkIf (langOpts.enableScript != null) {
             "nvim/init.lua".text = langOpts.enableScript;
-          }) cfg.configLanguages
-        ) ++
+          }) cfg.configLanguages) ++
         [{
           "nvim/coc-settings.json" = mkIf cfg.coc.enable {
             source = jsonFormat.generate "coc-settings.json" cfg.coc.settings;

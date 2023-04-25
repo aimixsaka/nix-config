@@ -78,7 +78,7 @@
     mouse_move_enables_dpms = true
     # VFR increases battery life
     #no_vfr = false
-    enable_swallow = true
+    #enable_swallow = true
     swallow_regex = ^(Alacritty)$
   
     # Whether Hyprland should focus an app that requests to be focused 

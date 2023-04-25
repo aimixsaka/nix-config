@@ -44,7 +44,7 @@
           end
         })
 
-        add_lsp(lspconfig.sumneko_lua, {
+        add_lsp(lspconfig.lua_ls, {
           settings = {
             Lua = {
               runtime = {
