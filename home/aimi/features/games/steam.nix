@@ -25,17 +25,4 @@ in
     protontricks
     winetricks
   ];
-
-  home.persistence = {
-    "/persist/games/aimi" = {
-      allowOther = true;
-      directories = [
-        "SerenBanka"
-        #{
-        #  directory = ".local/share/Steam";
-        #  method = "symlink";
-        #}
-      ];
-    };
-  };
 }

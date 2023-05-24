@@ -182,6 +182,7 @@
   windowrulev2 = workspace 2, class:^(QQ)$
   windowrulev2 = workspace 4, class:^(steam)(.*)$
   windowrulev2 = workspace 4, class:^(Steam)(.*)$
+  windowrulev2 = opacity 1.0 override 1.0 override, class:^(steam_app_888790)$
   
   ##################
   ###  KEYBIND  ###

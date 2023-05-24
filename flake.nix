@@ -21,7 +21,7 @@
 
     # Nixified software I use
     hyprland = {
-      url = "github:hyprwm/Hyprland?rev=1a91c6ee603e3e779f288ad9189992faeda944f8";
+      url = "github:hyprwm/Hyprland/main";
     };
     # TODO: use NUR instead
     # Every day updated firefox addons(extentions)

@@ -5,7 +5,7 @@
     cmp-nvim-lsp
     cmp-buffer
     cmp-path
-    #cmp-cmdline
+    cmp-cmdline
     # nvim-cmp source for neovim Lua API.
     cmp-nvim-lua
     
@@ -125,7 +125,7 @@
           mapping = cmp.mapping.preset.cmdline(),
           sources = {
             { name = 'path' },
-            -- { name = 'cmdline' }
+            { name = 'cmdline' }
           }
         })
       '';

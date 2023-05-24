@@ -137,7 +137,7 @@
           border: none;
           border-radius: 0;
           font-family: Roboto,'Font Awesome 5', 'SFNS Display',  Helvetica, Arial, sans-serif;
-          font-size: 15px;
+          font-size: 20px;
           min-height: 0;
       }
       

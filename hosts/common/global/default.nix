@@ -4,7 +4,8 @@
   imports = [
     inputs.impermanence.nixosModules.impermanence
     inputs.home-manager.nixosModules.home-manager
-    ./locale.nix
+    #./locale.nix
+    ./steam-fonts.nix
     ./sound.nix
     ./nix.nix
     ./steam-hardware.nix

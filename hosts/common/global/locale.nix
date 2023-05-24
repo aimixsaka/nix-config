@@ -58,7 +58,7 @@
     #     emoji = ["Noto Color Emoji"];
     #   };
     # };
-  };
+  #};
 
   fonts = {
     fonts = with pkgs; [
@@ -135,8 +135,8 @@
               <string>monospace</string>
             </test>
             <edit name="family" mode="prepend" binding="strong">
+              <string>Inconsolata Nerd Font Mono</string>
               <string>Noto Sans Mono CJK SC</string>
-              <string>Inconsolata Nerd Font</string>
               <string>Twemoji</string>
             </edit>
           </match>

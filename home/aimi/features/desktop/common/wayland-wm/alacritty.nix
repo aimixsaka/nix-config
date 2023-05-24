@@ -19,15 +19,15 @@
 
       font = {
         normal = {
-          family = "Inconsolata Nerd Font Mono";
+          family = "monospace";
           style = "Regular";
         };
         bold = {
-          family = "Inconsolata Nerd Font Mono";
+          family = "monospace";
           style = "Bold";
         };
         italic = {
-          family = "Inconsolata Nerd Font Mono";
+          family = "monospace";
           style = "Italic";
         };
         size = 27;

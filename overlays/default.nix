@@ -17,6 +17,16 @@
     };
     
     weechat-with-scripts = final.weechat;
+
+    #nvim-treesitter-tmp = prev.vimPlugins.nvim-treesitter.overrideAttrs (_: rec {
+    #  version = "2023-4-26";
+    #  src = prev.fetchFromGitHub {
+    #   owner = "nvim-treesitter";
+    #   repo = "nvim-treesitter";
+    #   rev = "82bcd8483e0b802bd5f639046c88aecfddbab508";
+    #   sha256 = "";
+    #  }; 
+    #});
   };
 }
 

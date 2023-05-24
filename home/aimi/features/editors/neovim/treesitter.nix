@@ -49,7 +49,8 @@
             -- termcolors = {} -- table of colour name strings
           },
           -- enable indentation
-          indent = { enable = true },
+          -- FIXME: uncomment bellow once nixos update treesitter
+          -- indent = { enable = true },
           -- enable autotagging (w/ nvim-ts-autotag plugin)
           autotag = { enable = true },
         })

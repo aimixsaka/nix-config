@@ -10,6 +10,7 @@
     ./illuminate.nix
     ./impatient.nix
     ./lsp
+    ./gonvim.nix
     ./autosave.nix
     ./markdown-preview.nix
   ];

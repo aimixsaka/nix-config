@@ -7,18 +7,13 @@ in
   #programs.browserpass.enable = true;
   programs.firefox = {
     enable = true;
+    # use firefox dev
+    package = pkgs.firefox-devedition;
     #extensions = with addons; [
     #  darkreader
     #  octotree
     #  vimium
     #];
-  };
-
-  home = {
-    sessionVariables.BROWSER = "firefox";
-    persistence = {
-      "/persist/home/aimi".directories = [ ".mozilla/firefox" ];
-    };
   };
 
   xdg.mimeApps.defaultApplications = {
