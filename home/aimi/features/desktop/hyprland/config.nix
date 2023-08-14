@@ -212,7 +212,7 @@
   ###    MISC    ###
   ##################
   bind = $Mod, X, exec, hyprpicker -a -n
-  bind = $Mod_S, Tab, exec, swaylock -f -c 000000
+  #bind = $Mod_S, Tab, exec, swaylock -f -c 000000
   bind = $Mod, Return, exec, alacritty
   bind = $Mod, E, exec, thunar
   bind = $Mod, D, exec, wofi --show=drun --lines=5 --prompt=""

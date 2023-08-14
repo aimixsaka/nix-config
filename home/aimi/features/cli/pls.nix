@@ -15,5 +15,7 @@
     nodejs
     # lisp compiler
     sbcl
+    # haskell compiler
+    ghc
   ];
 }
