@@ -8,34 +8,32 @@
   $Mod_A = SUPER_ALT
   $Mod_C = SUPER_CTRL
   general {
-      gaps_in = 3
-      gaps_out = 3
-      border_size = 2
-      no_border_on_floating = true
-      col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-      col.inactive_border = rgba(595959aa)
-      col.group_border = rgba(595959aa)
-      col.group_border_active = rgb(ff00cc) rgb(ff0000) 45deg
-      # col.active_border = rgb(f49bc1) rgb(ff0000) 45deg
-      # col.inactive_border = rgba(595959aa)
-      layout = dwindle
+    gaps_in = 3
+    gaps_out = 3
+    border_size = 2
+    no_border_on_floating = true
+    col.active_border = rgba(33ccffee) rgba(00ff99ee) 90deg
+    #col.active_border = rgb(E190EE) rgb(E44549) 90deg
+    #col.active_border = rgb(383C4A) rgb(BFC5C7) 45deg
+    #col.active_border = rgb(DE8CB2)
+    col.inactive_border = rgba(595959aa)
+    # col.active_border = rgb(f49bc1) rgb(ff0000) 45deg
+    # col.inactive_border = rgba(595959aa)
+
+    col.group_border_active = rgb(E190EE) rgb(E44549) 90deg
+    col.group_border = rgb(E44549)
+
+    layout = dwindle
   }
   
   
   ##################
   ###    EXEC    ###
   ##################
-  #exec-once = bash ~/xdph.sh
   exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
   exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
   exec = swaybg -i ${wallpaper} --mode fill
-  #exec-once = hyprpaper --config ~/.config/hypr/hyprpaper.conf
   exec-once = waybar
-  exec-once = hyprctl setcursor Bibata-Modern-Classic 50
-  ## High cpu cost!?(no, its my miss)
-  # use gammastep instead
-  #exec-once = wlsunset -S 7:40 -s 17:30
-  #exec-once = gammastep -l geoclue2 -m wayland -t 6000:4000
   exec-once = wl-clipboard-history -t
   exec-once = fcitx5 -d
   exec-once = mako 
@@ -69,6 +67,17 @@
   }
   
   
+
+  ##################
+  ###  GESTURE  ###
+  ##################
+  gestures {
+    workspace_swipe = true
+    #workspace_swipe_invert = true
+    #workspace_swipe_min_speed_to_force=5
+  }
+
+
   ##################
   ###    MISC    ###
   ##################
@@ -83,6 +92,10 @@
   
     # Whether Hyprland should focus an app that requests to be focused 
     focus_on_activate = true
+
+    # close highlight of title
+    groupbar_gradients = false
+    groupbar_text_color = false
   }
   
   
@@ -95,15 +108,17 @@
     multisample_edges = true
   
     ## Opacity
-    active_opacity = 0.93
-    inactive_opacity = 0.80
+    active_opacity = 0.97
+    inactive_opacity = 0.85
   
     ## Blur
-    blur = false
-    blur_size = 2
-    blur_passes = 3
-    blur_new_optimizations = true
-  
+    blur {
+      enabled = true
+      size = 2
+      passes = 3
+    }
+
+
   
     ## Shadow
     drop_shadow = true
@@ -193,29 +208,61 @@
   #bind = $Mod_S, S, exec, $screenshotarea
   #bind = , Print, exec, grimblast --notify --cursor copysave output
   #bind = ALT, Print, exec, grimblast --notify --cursor copysave screen
-  
-  #bind = $Mod_S, C, exec, grim -g "$(slurp)" ~/Pictures/screenshots/$(date +'%Y:%m:%d:%H:%M:%S.png')
-  bind = $Mod, C, exec, grim -g  "$(slurp)" - | wl-copy -t image/png
-  #bind = $Mod, C, exec,grim -g "$(slurp)" - | swappy -f -
-  bind = , Print, exec, grim -g "$(slurp)" - | swappy -f -
-  
+  bind = $Mod_S, C, exec, grim -g "$(slurp)" - | swappy -f -
+  bind = , Print, exec, /home/aimi/workspace/shell/screenshot.sh
+
+
   ## Sound
-  bind = , XF86AudioLowerVolume, exec, pamixer -d 3
-  bind = , XF86AudioRaiseVolume, exec, pamixer -i 3
+  bind = , XF86AudioLowerVolume, exec, pamixer -d 1
+  bind = , XF86AudioRaiseVolume, exec, pamixer -i 1
+  bind = $Mod, BackSpace, exec, pamixer -t
+  #bind = $Mod, Shift_R, exec, pamixer -t
+
 
   ## Light
   bind = , XF86MonBrightnessDown, exec, brightnessctl set 3%-
   bind = , XF86MonBrightnessUp, exec, brightnessctl set +3%
+  bind = $Mod_A, j, exec, mpc volume -2
+  bind = $Mod_A, k, exec, mpc volume +2
   
+  # MPRIS(media player remote interface specification)
+  #bind = , XF86AudioPlay, exec, playerctl play
+  #bind = , XF86AudioStop, exec, playerctl stop
+  #bind = , XF86AudioPrev, exec, playerctl previous
+  #bind = , XF86AudioNext, exec, playerctl next
+
+  bind = $Mod_A, Space, exec, playerctl play
+  bind = $Mod, Space, exec, playerctl stop
+  bind = $Mod, left, exec, playerctl previous
+  bind = $Mod, right, exec, playerctl next
+
+  ## For mpc (mpd client)
+  # bind = , XF86AudioPlay, exec, mpc play
+  # bind = , XF86AudioStop, exec, mpc stop
+  # bind = , XF86AudioNext, exec, mpc next
+  # bind = , XF86AudioPrev, exec, mpc prev
+
+  bind = $Mod_A, Space, exec, mpc toggle
+  bind = $Mod_A, l, exec, mpc next
+  bind = $Mod_A, h, exec, mpc prev
+  bind = $Mod_A, s, exec, mpc repeat on; mpc single on
+
+  # start mpc
+  bind = $Mod_A, m, exec, mpc listall | tail -85 | mpc add; mpc play
+  # clear queue
+  bind = $Mod_A, c, exec, mpc clear
+
   
   ##################
   ###    MISC    ###
   ##################
   bind = $Mod, X, exec, hyprpicker -a -n
-  #bind = $Mod_S, Tab, exec, swaylock -f -c 000000
+  bind = $Mod_S, Tab, exec, swaylock -f -c 000000
   bind = $Mod, Return, exec, alacritty
   bind = $Mod, E, exec, thunar
-  bind = $Mod, D, exec, wofi --show=drun --lines=5 --prompt=""
+  #bind = $Mod, D, exec, wofi --show run,drun,dmenu --lines=5 --prompt=""
+  bind = $Mod, D, exec, wofi --show drun --lines=5 --prompt=""
+  #bind = $Mod, period, exec, killall rofi || rofi -show emoji -emoji-format "{emoji}" -modi emoji -theme ~/.config/rofi/global/emoji
   bind = $Mod, escape, exec, wlogout --protocol layer-shell -b 5 -T 400 -B 400
   bind = $Mod, A, exec, hyprctl activewindow
   
@@ -233,7 +280,7 @@
   
   
   # bind=,Print,exec,grim $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y%m%d%H%M%S_1.png') && notify-send 'Screenshot Saved'
-  # bind=$Mod,Print,exec,grim - | wl-copy && notify-send 'Screenshot Copied to Clipboard'
+  bind=$Mod, C, exec, grim -g "$(slurp)" - | wl-copy && notify-send 'Screenshot Copied to Clipboard'
   # bind=$ModSHIFT,Print,exec,grim - | swappy -f -
   # bind=$ModSHIFT,S,exec,slurp | grim -g - $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y%m%d%H%M%S_1.png') && notify-send 'Screenshot Saved'
   

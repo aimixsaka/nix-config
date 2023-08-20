@@ -13,10 +13,10 @@
 
     inputs.hardware.nixosModules.microsoft-surface-pro-intel
 
-    ../../resources/system/tmproot.nix
+    ../../resources/system
   ];
 
-  ############### boot config ###############
+  ############### boot and resume config ###############
   boot = {
     kernelModules = [ "kvm-intel" ];
     initrd = {
@@ -24,13 +24,28 @@
       kernelModules = [ ];
     };
 
-    loader = {
-      systemd-boot = {
-        enable = true;
-        consoleMode = "max";
-      };
-      efi.canTouchEfiVariables = true;
+    ## systemd-boot
+    #loader = {
+    #  systemd-boot = {
+    #    enable = true;
+    #    consoleMode = "max";
+    #  };
+    #  efi.canTouchEfiVariables = true;
+    #};
+
+    ## grub
+    # Use the GRUB 2 boot loader (Both EFI and legacy boot supported).
+    boot = {
+      loader.grub.enable = true;
+
+	  # This is for GRUB in EFI mode
+	  loader.grub.efiSupport = true;
+	  loader.grub.device = "nodev";
     };
+
+    # resume
+    kernelParams = [ "resume_offset=1193275" ];
+    resumeDevice = "/dev/nvme0n1p2";
   };
 
   ############ Surface Specific #############

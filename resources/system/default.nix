@@ -4,6 +4,7 @@
     ./nix.nix
     ./ssh.nix
     ./tmproot.nix
+    ./impermanence.nix
     ./tools.nix
   ];
 }

@@ -1,6 +1,46 @@
 {
   description = "aimixsaka's nixos config";
 
+  outputs = { 
+    self, 
+    nixpkgs-stable, 
+    nixpkgs,
+    home-manager, 
+    ... 
+  }@inputs:
+
+  let
+    inherit (self) outputs;
+    lib = nixpkgs.lib // home-manager.lib;
+    pkgsFor = nixpkgs.legacyPackages;
+  in
+  {
+    inherit lib;
+
+    #nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
+    #templates = import ./templates;
+    #overlays = import ./overlays { inherit inputs outputs; };
+    #packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
+    #devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; }
+
+    nixosConfigurations = {
+      surface = lib.nixosSystem {
+        modules = [ ./hosts/surface ];
+	specialArgs = { inherit inputs outputs; };
+      };
+    };
+
+    homeConfigurations = {
+      "aimi@surface" = lib.homeManagerConfiguration {
+        modules = [ ./hosts/surface/users/aimi ];
+	pkgs = pkgsFor.x86_64-linux;
+	extraSpecialArgs = { inherit inputs outputs; };
+      };
+    };
+  };
+
+
   # the nixConfig affects the flake itself,
   # not the system configuration
   nixConfig = {
@@ -47,44 +87,9 @@
     };
 
     hardware.url = "github:nixos/nixos-hardware";
+
+    # For persistence
+    impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { 
-    self, 
-    nixpkgs-stable, 
-    nixpkgs,
-    home-manager, 
-    ... 
-  }@inputs:
-
-  let
-    inherit (self) outputs;
-    lib = nixpkgs.lib // home-manager.lib;
-    pkgsFor = nixpkgs.legacyPackages;
-  in
-  {
-    inherit lib;
-
-    #nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
-    #templates = import ./templates;
-    #overlays = import ./overlays { inherit inputs outputs; };
-    #packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
-    #devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; }
-
-    nixosConfigurations = {
-      surface = lib.nixosSystem {
-        modules = [ ./hosts/surface ];
-	specialArgs = { inherit inputs outputs; };
-      };
-    };
-
-    homeConfigurations = {
-      "aimi@surface" = lib.homeManagerConfiguration {
-        modules = [ ./hosts/surface/users/aimi ];
-	pkgs = pkgsFor.x86_64-linux;
-	extraSpecialArgs = { inherit inputs outputs; };
-      };
-    };
-  };
 }

@@ -1,6 +1,6 @@
 {
   imports = [
     ./nvim
-    #./vim
+    ./vim
   ];
 }
