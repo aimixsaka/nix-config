@@ -3,7 +3,7 @@ builtins.listToAttrs (map
     inherit (wallpaper) name;
     value = builtins.fetchurl {
       inherit (wallpaper) sha256;
-      url = "http://apsb.cc/${wallpaper.name}.${wallpaper.ext}";
+      url = "raw.githubusercontent.com/aimixsaka/wallpapers/main/${wallpaper.name}.${wallpaper.ext}";
     };
   })
   (builtins.fromJSON (builtins.readFile ./list.json)))

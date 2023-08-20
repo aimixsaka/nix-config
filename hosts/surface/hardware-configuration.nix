@@ -25,27 +25,32 @@
     };
 
     ## systemd-boot
-    #loader = {
-    #  systemd-boot = {
-    #    enable = true;
-    #    consoleMode = "max";
-    #  };
-    #  efi.canTouchEfiVariables = true;
-    #};
+    loader = {
+      systemd-boot = {
+        enable = true;
+        consoleMode = "max";
+      };
+      efi.canTouchEfiVariables = true;
+    };
 
     ## grub
     # Use the GRUB 2 boot loader (Both EFI and legacy boot supported).
-    boot = {
-      loader.grub.enable = true;
+    #loader = {
+    #  grub = {
+    #    enable = true;
 
-	  # This is for GRUB in EFI mode
-	  loader.grub.efiSupport = true;
-	  loader.grub.device = "nodev";
-    };
+    #    # This is for GRUB in EFI mode
+    #    efiSupport = true;
+    #    device = "nodev";
+    #  
+    #    # This is for GRUB for legacy boot
+    #    #device = "/dev/disk/by-label/ESP";
+    #  };
+    #};
 
     # resume
     kernelParams = [ "resume_offset=1193275" ];
-    resumeDevice = "/dev/nvme0n1p2";
+    resumeDevice = "/dev/disk/by-label/${config.networking.hostName}";
   };
 
   ############ Surface Specific #############

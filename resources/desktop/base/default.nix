@@ -2,6 +2,6 @@
   imports = [
     ./firefox.nix
     ./mpv.nix
-    ./locale.nix
+    ./fcitx5.nix
   ];
 }
