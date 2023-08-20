@@ -1,90 +1,90 @@
 {
-  description = "nix config";
+  description = "aimixsaka's nixos config";
+
+  # the nixConfig affects the flake itself,
+  # not the system configuration
+  nixConfig = {
+    experimental-features = [ "nix-command" "flakes" ];
+
+    substituters = [
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://cache.nixos.org"
+      "https://hyprland.cachix.org"
+    ];
+
+    # nix community's cache server
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+      "https://nixpkgs-wayland.cachix.org"
+    ];
+
+    extra-trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+    ];
+  };
 
   inputs = {
-    # Nixpkgs
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs
+    nixpkgs-stable = {
+      url = "github:nixos/nixpkgs/nixos-23.05";
+    };
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
 
-    # Home manager
+    # home-manager
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.05";
+      # nixpkgs in home-manager flake inputs follows our nixpkgs above
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # For persistence
-    impermanence.url = "github:nix-community/impermanence";
-   
-  
-    # TODO: use NUR
-    # NUR
-    #nur.url = github:nix-community/NUR; 
-
-    # Nixified software I use
     hyprland = {
       url = "github:hyprwm/Hyprland/main";
     };
-    # TODO: use NUR instead
-    # Every day updated firefox addons(extentions)
-    # Not that useful when you have firefox account synced
-    #firefox-addons = {
-    #  url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
 
-    # TODO: Add any other flake you might need
     hardware.url = "github:nixos/nixos-hardware";
-
-    # Shameless plug: looking for a way to nixify your themes and make
-    # everything match nicely? Try nix-colors!
-    # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
-    let 
-      inherit (nixpkgs.lib) filterAttrs;
-      inherit (self) outputs;
-      supportedSystems = [ "x86_64-linux" ];
-      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-    in
-    rec {
-      ## HM modules
-      homeManagerModules = import ./modules/home-manager;
+  outputs = { 
+    self, 
+    nixpkgs-stable, 
+    nixpkgs,
+    home-manager, 
+    ... 
+  }@inputs:
 
-      ## Packages
-      packages = forAllSystems (system:
-        import ./pkgs { pkgs = nixpkgs.legacyPackages.${system}; }
-      );
+  let
+    inherit (self) outputs;
+    lib = nixpkgs.lib // home-manager.lib;
+    pkgsFor = nixpkgs.legacyPackages;
+  in
+  {
+    inherit lib;
 
-      overlays = import ./overlays; 
+    #nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
+    #templates = import ./templates;
+    #overlays = import ./overlays { inherit inputs outputs; };
+    #packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
+    #devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; }
 
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
-      nixosConfigurations = rec {
-        # FIXME replace with your hostname
-        taiga = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; }; # Pass flake inputs to our config
-          # > Our main nixos configuration file <
-          modules = [ ./hosts/taiga ];
-          # TODO: if you want to use NUR, uncomment bellow
-          #modules = [ nur.nixosModules.nur ];
-        };
-      };
-
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = {
-        # FIXME replace with your username@hostname
-        "aimi@taiga" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux"; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs outputs; }; # Pass flake inputs to our config
-          # > Our main home-manager configuration file <
-          modules = [ ./home/aimi/taiga.nix ];
-        };
-      };
-
-      nixConfig = {
-        extra-substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" "https://cache.m7.rs" "https://hyprland.cachix.org" ];
-        extra-trusted-public-keys = [ "cache.m7.rs:kszZ/NSwE/TjhOcPPQ16IuUiuRSisdiIwhKZCxguaWg=" "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    nixosConfigurations = {
+      surface = lib.nixosSystem {
+        modules = [ ./hosts/surface ];
+	specialArgs = { inherit inputs outputs; };
       };
     };
+
+    homeConfigurations = {
+      "aimi@surface" = lib.homeManagerConfiguration {
+        modules = [ ./hosts/surface/users/aimi ];
+	pkgs = pkgsFor.x86_64-linux;
+	extraSpecialArgs = { inherit inputs outputs; };
+      };
+    };
+  };
 }
