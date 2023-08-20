@@ -14,6 +14,9 @@
 
     # shell
     ../../../../resources/cli/shell/zsh
+
+    # tools
+    ../../../../resources/cli/tools
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   home = {
