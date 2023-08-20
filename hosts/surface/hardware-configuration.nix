@@ -37,7 +37,7 @@
   # set kernel version
   microsoft-surface.kernelVersion = "6.1.18";
   # disable iptsd for dependency confilct
-  microsoft-surface.ipts.enable = lib.mkForce false;
+  #microsoft-surface.ipts.enable = lib.mkForce false;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
