@@ -7,6 +7,7 @@
 {
   imports = [
     ../../../../../resources/desktop/wayland/base
+    ../../../../../resources/desktop/base
     inputs.hyprland.homeManagerModules.default
     
   ];

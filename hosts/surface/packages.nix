@@ -10,7 +10,6 @@
   ## other tools specific to this host
     ## search tool
     ripgrep
-    ripgrep-all
   ];
 
 }
