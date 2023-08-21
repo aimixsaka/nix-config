@@ -15,14 +15,16 @@
       directories = [ 
         "/etc/nixos"
         "/etc/NetworkManager/system-connections"
+        "/etc/v2raya"
 
-        "/var/lib/systemd"
-        "/var/lib/bluetooth"
-        "/var/lib/nixos"
-        "/var/lib/systemd/coredump"
+        "/var/lib"
         "/var/log"
 
         "/srv" 
+      ];
+
+      files = [
+        "/etc/machine-id"
       ];
     };
     enableAllTerminfo = true;

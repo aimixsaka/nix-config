@@ -37,4 +37,46 @@ in
 
     packages = [ pkgs.home-manager ];
   };
+
+
+
+  ################# persistence ################
+  environment.persistence."/persist".users.aimi = {
+    directories = [
+      "Downloads"
+      "Music"
+      "Pictures"
+      "Documents"
+      "Videos"
+
+      { directory = ".gnupg"; mode = "0700"; }
+      { directory = ".ssh"; mode = "0700"; }
+
+      ## XDG_DATA_HOME
+      ".local/share/Steam"
+      ".local/share/fcitx5"
+      #{
+      #  directory = ".local/share/Steam";
+      #  method = "symlink";
+      #}
+
+      # workspace
+      "workspace"
+
+      # nixos config
+      "nix-config"
+
+      # dot files and dirs
+      ".cache"
+      ".mozilla"
+      ".zshrc"
+      ".zhistory"
+
+      ## config dir
+      ".config/zsh" 
+    ];
+    files = [
+      "hypr.sh"
+    ];
+  };
 }

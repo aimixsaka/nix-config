@@ -19,7 +19,7 @@
     inherit lib;
 
     #nixosModules = import ./modules/nixos;
-    nixosModules.all = {config, ...}: {
+    nixosModules.all = { config, ...}: {
       imports = [
         nixos-generators.nixosModules.all-formats
       ];
