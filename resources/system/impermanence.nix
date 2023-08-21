@@ -11,7 +11,7 @@
   programs.fuse.userAllowOther = true;
 
   environment = {
-    persistence."/nix/persist" = {
+    persistence."/persist" = {
       directories = [ 
         "/etc/nixos"
         "/etc/NetworkManager/system-connections"

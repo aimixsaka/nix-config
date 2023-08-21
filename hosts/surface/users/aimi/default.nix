@@ -36,7 +36,7 @@
 
 
   ################# persistence ################
-  home.persistence."/nix/persist/home/aimi" = {
+  home.persistence."/persist/home/aimi" = {
 	directories = [
       "Downloads"
       "Music"
