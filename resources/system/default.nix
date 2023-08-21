@@ -5,7 +5,7 @@
     ./locale.nix
     ./nix.nix
     ./ssh.nix
-    ./tmproot.nix
+    ./luks-tmproot.nix
     ./tools.nix
   ];
 }
