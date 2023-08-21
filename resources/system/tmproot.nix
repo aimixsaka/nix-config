@@ -25,12 +25,12 @@ in
       options = [ "subvol=nix" "noatime" "compress=zstd" ];
     };
 
-    #"/persist" = {
-    #  device = "/dev/disk/by-label/${hostname}";
-    #  fsType = "btrfs";
-    #  options = [ "subvol=persist" "compress=zstd" ];
-    #  neededForBoot = true;
-    #};
+    "/persist" = {
+      device = "/dev/disk/by-label/${hostname}";
+      fsType = "btrfs";
+      options = [ "subvol=persist" "compress=zstd" ];
+      neededForBoot = true;
+    };
 
     "/swap" = {
         device = "/dev/disk/by-label/${hostname}";
