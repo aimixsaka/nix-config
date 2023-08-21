@@ -6,6 +6,7 @@
     nixpkgs-stable, 
     nixpkgs,
     home-manager, 
+    nixos-generators,
     ... 
   }@inputs:
 
