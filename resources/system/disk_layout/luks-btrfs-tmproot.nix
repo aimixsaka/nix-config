@@ -37,8 +37,8 @@
                 type = "luks";
                 name = "crypted";
                 extraOpenArgs = [ "--allow-discards" ];
-				        passwordFile = "/tmp/secret.key"; # Interactive
-                #keyFile = "/tmp/secret.key";
+				        #passwordFile = "/tmp/secret.key"; # Interactive
+                keyFile = "/tmp/secret.key";
                 content = {
 				  type = "btrfs";
 				  # set label

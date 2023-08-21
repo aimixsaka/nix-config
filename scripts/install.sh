@@ -1,1 +1,1 @@
-nix --extra-experimental-features nix-command --extra-experimental-features flakes run github:nix-community/disko -- --mode zap_create_mount resources/system/disk_layout/luks-btrfs-tmproot.nix
+nix --extra-experimental-features nix-command --extra-experimental-features flakes run --option substituters "https://mirrors.ustc.edu.cn/nix-channels/store" github:nix-community/disko -- --mode disko "$1" --arg disks '[ "/dev/sda" ]'
