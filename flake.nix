@@ -18,6 +18,14 @@
     inherit lib;
 
     #nixosModules = import ./modules/nixos;
+    nixosModules.all = {config, ...}: {
+      imports = [
+        nixos-generators.nixosModules.all-formats
+      ];
+
+      nixpkgs.hostPlatform = "x86_64-linux";
+    };
+
     homeManagerModules = import ./modules/home-manager;
     #templates = import ./templates;
     #overlays = import ./overlays { inherit inputs outputs; };
@@ -26,16 +34,23 @@
 
     nixosConfigurations = {
       surface = lib.nixosSystem {
-        modules = [ ./hosts/surface ];
-	specialArgs = { inherit inputs outputs; };
+
+        modules = [
+          ./hosts/surface 
+
+          # useful for all hosts
+          self.nixosModules.all
+        ];
+
+	      specialArgs = { inherit inputs outputs; };
       };
     };
 
     homeConfigurations = {
       "aimi@surface" = lib.homeManagerConfiguration {
         modules = [ ./hosts/surface/users/aimi ];
-	pkgs = pkgsFor.x86_64-linux;
-	extraSpecialArgs = { inherit inputs outputs; };
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
       };
     };
   };
@@ -90,6 +105,12 @@
 
     # For persistence
     impermanence.url = "github:nix-community/impermanence";
+
+    # generate iso ...
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 }
