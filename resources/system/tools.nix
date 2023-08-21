@@ -17,5 +17,10 @@
 
     # network
     nftables
+    xray
+    v2raya
+
+    # trash
+    trash-cli
   ];
 }

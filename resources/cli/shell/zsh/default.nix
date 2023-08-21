@@ -98,12 +98,93 @@
       shellAliases = {
         cl = "clear";
         rm = "trash";
+        ws = "cd ~/workspace";
 
         l = "ls --color=auto -l";
         ls = "ls --color=auto";
         lst = "ls -al --time=birth";
 
-        ws = "cd ~/workspace";
+        del = "/run/current-system/sw/bin/rm";
+        sdel = "sudo del";
+
+        # pacman;
+        pas = "sudo pacman -S";
+        pasi = "pacman -Si";
+        pass = "pacman -Ss";
+        passq = "sudo pacman -Ssq";
+        paq = "pacman -Q";
+        paqi = "pacman -Qi";
+        paql = "pacman -Qil";
+        paqs = "pacman -Qs";
+        paqqs = "pacman -Qqs";
+        paqo = "pacman -Qo";
+        paqqo = "pacman -Qqo";
+        paqqdt = "pacman -Qqdt";
+        paqk = "pacman -Qk";
+        paqkk = "pacman -Qkk";
+        paclear = "sudo pacman -Rns \$(pacman -Qqdt)";
+        paf = "sudo pacman -F";
+        pau = "sudo pacman -Syu";
+        par = "sudo pacman -Rns";
+
+        # paru;
+        prs = "paru -S";
+        prss = "paru -Ss";
+        prssq = "paru -Ssq";
+        prsi = "paru -Si";
+        prq = "paru -Q";
+        prqi = "paru -Qi";
+        prqs = "paru -Qs";
+        prqqs = "paru -Qqs";
+        prr = "paru -Rns";
+
+        # systemd;
+        sss = "sudo systemctl start ";
+        sdr = "sudo systemctl daemon-reload";
+        ssr = "sudo systemctl restart ";
+        ssa = "systemctl status ";
+        sse = "sudo systemctl enable ";
+        sst = "sudo systemctl stop ";
+        blc = "bluetoothctl connect ";
+        sch = "systemctl hibernate";
+
+        sua = "systemctl --user status";
+        suss = "systemctl --user start";
+        sust = "systemctl --user stop";
+        sur = "systemctl --user restart";
+        sudr = "systemctl --user daemon-reload";
+        sue = "systemctl --user enable";
+        suen = "systemctl --user enable --now";
+        #vim = "vim -u ~/.vimrc_bak";
+
+        # docker;
+        drm = "docker rm";
+        drmi = "docker rmi";
+        dst = "docker stop";
+        dss = "docker start";
+        drs = "docker restart";
+        di = "docker info";
+        db = "docker build";
+        dp = "docker ps";
+        dpa = "docker ps -a ";
+        dil = "docker image ls";
+
+        # xray;
+        xsr = "ssr xray.service nftables.service";
+        #xst = "sst xray.service nftables.service";
+        vre = "sudo $WORKDIR/xray/xray_tool.sh vre";
+        vtp = "sudo $WORKDIR/xray/xray_tool.sh vtp";
+        xre = "sudo $WORKDIR/xray/xray_tool.sh xre";
+        xtp = "sudo $WORKDIR/xray/xray_tool.sh xtp";
+        xinfo = "sudo $WORKDIR/xray/xray_tool.sh info";
+        xst = "sudo $WORKDIR/xray/xray_tool.sh stop";
+        xtohk = "sudo $WORKDIR/xray/xray_tool.sh xtohk";
+        xtojp = "sudo $WORKDIR/xray/xray_tool.sh xtojp";
+
+        # NetworkManager
+        nwc = "nmcli device wifi connect";
+        nwr = "nmcli device wifi rescan";
+        nwl = "nmcli device wifi list";
       };
     };
   };
