@@ -18,6 +18,7 @@
 
     # tools
     ../../../../resources/cli/tools
+    ./tools.nix
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   home = {

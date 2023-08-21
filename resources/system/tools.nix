@@ -14,5 +14,8 @@
     
     # tools
     git
+
+    # network
+    nftables
   ];
 }

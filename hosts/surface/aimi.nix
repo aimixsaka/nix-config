@@ -69,14 +69,15 @@ in
       # dot files and dirs
       ".cache"
       ".mozilla"
-      ".zshrc"
-      ".zhistory"
 
       ## config dir
       ".config/zsh" 
     ];
     files = [
       "hypr.sh"
+
+      ".zshrc"
+      ".zhistory"
     ];
   };
 }
