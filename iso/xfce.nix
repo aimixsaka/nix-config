@@ -7,24 +7,32 @@
 
 {
   imports = [
-    (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")
+    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
 
     # Provide an initial copy of the NixOS channel so that the user
     # doesn't need to run "nix-channel --update" first.
-    (modulesPath + "/installer/cd-dvd/channel.nix")
+    "${modulesPath}/installer/cd-dvd/channel.nix"
+
+    ../resources/system/locale.nix 
   ];
 
   environment.systemPackages = with pkgs; [
     xray
     v2raya
+    v2ray-geoip
+    v2ray-domain-list-community
+    clash-verge
     dae
 
     firefox
 
     gparted
     neovim
-    # included in nixos install iso?
-    #btrfs-progs
+    git
+    fontconfig
+
+    ripgrep
+    fd
   ];
 
   # network
@@ -56,5 +64,12 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  users.users.root = {
+    password = "root";
+  };
+
+  # kernel
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
 
 }

@@ -33,7 +33,9 @@
 	modules = [
 	  ./iso/xfce.nix
 	];
+	#format = "raw-efi";
 	format = "install-iso";
+	#format = "iso";
       };
     };
 

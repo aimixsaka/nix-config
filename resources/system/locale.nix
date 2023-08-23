@@ -63,9 +63,6 @@
       noto-fonts-emoji
 
       source-code-pro
-      source-han-mono
-      source-han-sans
-      source-han-serif
       #inconsolata
       # Chinese Specified
       # NOTE: steam need wqy_zenhei to display chinese
