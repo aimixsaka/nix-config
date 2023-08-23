@@ -1,6 +1,5 @@
 {
   imports = [
     ./application
-    ./system
   ];
 }

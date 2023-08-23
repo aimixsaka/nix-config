@@ -8,6 +8,7 @@
 
     ./packages.nix
     ../../resources/system
+    ../../resources/desktop/base/system
 
     ./home-manager.nix
     # users
