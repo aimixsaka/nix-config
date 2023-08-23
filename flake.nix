@@ -30,6 +30,10 @@
     packages.x86_64-linux = {
       installer = nixos-generators.nixosGenerate {
         system = "x86_64-linux";
+        # explicit nixpkgs and lib:
+        pkgs = nixpkgs-stable.legacyPackages.x86_64-linux;
+        lib = nixpkgs-stable.legacyPackages.x86_64-linux.lib;
+
 	modules = [
 	  ./iso/xfce.nix
 	];
@@ -113,7 +117,7 @@
     # generate iso ...
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
   };
 

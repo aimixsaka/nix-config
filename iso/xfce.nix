@@ -13,14 +13,11 @@
     # doesn't need to run "nix-channel --update" first.
     "${modulesPath}/installer/cd-dvd/channel.nix"
 
-    ../resources/system/locale.nix 
   ];
 
   environment.systemPackages = with pkgs; [
     xray
     v2raya
-    v2ray-geoip
-    v2ray-domain-list-community
     clash-verge
     dae
 
@@ -63,10 +60,6 @@
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
-  };
-
-  users.users.root = {
-    password = "root";
   };
 
   # kernel

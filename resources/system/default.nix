@@ -4,6 +4,7 @@
     ./impermanence.nix
     ./locale.nix
     ./nix.nix
+    ./nixpkgs.nix
     ./ssh.nix
     ./luks-tmproot.nix
     ./tools.nix
