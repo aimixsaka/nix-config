@@ -19,13 +19,6 @@
     inherit lib;
 
     #nixosModules = import ./modules/nixos;
-    nixosModules.all = { config, ...}: {
-      imports = [
-        nixos-generators.nixosModules.all-formats
-      ];
-
-      nixpkgs.hostPlatform = "x86_64-linux";
-    };
 
     homeManagerModules = import ./modules/home-manager;
     #templates = import ./templates;
@@ -33,14 +26,22 @@
     #packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
     #devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; }
 
+    # nixos generators(for generate iso...)
+    packages.x86_64-linux = {
+      installer = nixos-generators.nixosGenerate {
+        system = "x86_64-linux";
+	modules = [
+	  ./iso/xfce.nix
+	];
+	format = "install-iso";
+      };
+    };
+
     nixosConfigurations = {
       surface = lib.nixosSystem {
 
         modules = [
           ./hosts/surface 
-
-          # useful for all hosts
-          self.nixosModules.all
         ];
 
 	      specialArgs = { inherit inputs outputs; };
