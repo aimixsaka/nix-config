@@ -72,6 +72,8 @@ in
 
       ## config dir
       ".config/zsh" 
+      ".config/fcitx5" 
+      ".config/fcitx" 
     ];
     files = [
       "hypr.sh"
