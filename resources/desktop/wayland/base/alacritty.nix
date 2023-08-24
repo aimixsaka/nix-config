@@ -29,7 +29,7 @@
           family = "monospace";
           style = "Italic";
         };
-        size = 27;
+        size = 23;
       };
 
       draw_bold_text_with_bright_colors = true;

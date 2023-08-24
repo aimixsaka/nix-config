@@ -30,7 +30,8 @@
   ##################
   ###    EXEC    ###
   ##################
-  exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
+  # NOTE: use other method for HiDPI
+  #exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
   exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
   exec = swaybg -i ${wallpaper} --mode fill
   exec-once = waybar
@@ -39,15 +40,31 @@
   exec-once = mako 
   
   
-  ##################
-  ###    EXEC    ###
-  ##################
+  #####################
+  ###    MONITOR    ###
+  #####################
   #monitor = eDP-1, 2736x1824@59.959000, 0x0, 1
   # Not needed, already defined in
   # hyprland/default.nix, wayland.windowManager.hyprland.extraConfig
-  monitor = eDP-1, 2736x1824, 0x0, 1
+  #monitor = eDP-1, 2736x1824, 0x0, 1
   #monitor = eDP-1, 2736x1824, 0x0, 1, mirror, eDP-2
+
+  #####################
+  ####### HiDPI #######
+  #####################
+  #####################
+  ## HiDPI:
+  # change monitor to high resolution, the last argument is the scale factor
+  monitor=,highres,auto,1.5
   
+  # unscale XWayland
+  xwayland {
+    force_zero_scaling = true
+  }
+  
+  # toolkit-specific scale
+  env = GDK_SCALE,2
+  env = XCURSOR_SIZE,32
   
   ##################
   ###   INPUT   ###
