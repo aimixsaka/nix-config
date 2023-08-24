@@ -6,8 +6,6 @@
 {
   programs.waybar = {
     enable = true;
-    # use waybar-hyprland from hyprland overlay
-    package = pkgs.waybar-hyprland;
     settings = {
       mainBar = {
         layer = "top"; # Waybar at top layer

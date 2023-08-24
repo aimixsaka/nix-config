@@ -10,6 +10,9 @@
     ./hyprland
     #./i3
 
+    # applications
+    ./applications
+
     # editor
     ../../../../resources/cli/editor
 
@@ -19,6 +22,9 @@
     # tools
     ../../../../resources/cli/tools
     ./tools
+
+    # nixpkgs config
+    ../../../../resources/system/nixpkgs.nix
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   home = {

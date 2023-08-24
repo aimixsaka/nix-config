@@ -6,9 +6,11 @@
 {
   nixpkgs = {
     config = {
-      #allowUnfreePredicate = 
+      #allowUnfree = true;
+
       allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-        "steam-original"
+        # Add additional package names here
+        "qq"
       ];
     };
   };

@@ -50,7 +50,7 @@
           ./hosts/surface 
         ];
 
-	      specialArgs = { inherit inputs outputs; };
+	specialArgs = { inherit inputs outputs; };
       };
     };
 

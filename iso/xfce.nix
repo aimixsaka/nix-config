@@ -17,7 +17,6 @@
 
   environment.systemPackages = with pkgs; [
     xray
-    v2raya
     clash-verge
     dae
 
@@ -61,6 +60,9 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  # Enable docker on btrfs
+  virtualisation.docker.enable = true;
 
   # kernel
   #boot.kernelPackages = pkgs.linuxPackages_latest;

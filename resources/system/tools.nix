@@ -3,6 +3,7 @@
 }:
 
 {
+  # useful system level tools
   environment.systemPackages = with pkgs; [
     # shells
     bash 
@@ -14,13 +15,16 @@
     
     # tools
     git
+    podman
 
     # network
     nftables
     xray
-    v2raya
+    dae
+    clash-verge
 
     # trash
     trash-cli
+    tree
   ];
 }
