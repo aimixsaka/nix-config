@@ -55,7 +55,7 @@
   #####################
   ## HiDPI:
   # change monitor to high resolution, the last argument is the scale factor
-  monitor=,highres,auto,1.5
+  monitor = , highres, auto, 1.5
   
   # unscale XWayland
   xwayland {
@@ -63,8 +63,8 @@
   }
   
   # toolkit-specific scale
-  env = GDK_SCALE,2
-  env = XCURSOR_SIZE,32
+  env = GDK_SCALE, 2
+  env = XCURSOR_SIZE, 32
   
   ##################
   ###   INPUT   ###

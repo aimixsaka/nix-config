@@ -20,11 +20,14 @@
     # network
     nftables
     xray
-    dae
     clash-verge
 
     # trash
     trash-cli
     tree
   ];
+
+  services.dae = {
+    enable = true;
+  };
 }
