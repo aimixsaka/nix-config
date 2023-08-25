@@ -21,6 +21,7 @@
     nftables
     xray
     clash-verge
+    dae
 
     # trash
     trash-cli

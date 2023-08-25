@@ -25,6 +25,7 @@
 
       files = [
         "/etc/machine-id"
+        { file = "/etc/dae/config.dae"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
       ];
     };
     enableAllTerminfo = true;
