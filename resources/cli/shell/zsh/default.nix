@@ -104,7 +104,7 @@
         ls = "ls --color=auto";
         lst = "ls -al --time=birth";
 
-        del = "/run/current-system/sw/bin/rm";
+        del = "/usr/bin/env rm";
         sdel = "sudo del";
 
         # pacman;

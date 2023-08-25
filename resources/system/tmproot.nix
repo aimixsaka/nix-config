@@ -41,7 +41,7 @@ in
 
   swapDevices = [{ 
     device = "/swap/swapfile";
-    size = 8196;
+    size = 10240;
   }];
 
 }

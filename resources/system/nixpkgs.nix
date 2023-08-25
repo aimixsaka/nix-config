@@ -10,7 +10,10 @@
 
       allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
         # Add additional package names here
-        "qq"
+	"qq"
+	"steam"
+	"steam-original"
+	"steam-run"
       ];
     };
   };

@@ -55,6 +55,7 @@ in
       ## XDG_DATA_HOME
       ".local/share/Steam"
       ".local/share/fcitx5"
+      ".local/share/TelegramDesktop"
       #{
       #  directory = ".local/share/Steam";
       #  method = "symlink";
@@ -76,8 +77,6 @@ in
       ".config/fcitx" 
     ];
     files = [
-      "hypr.sh"
-
       ".zshrc"
       ".zhistory"
     ];

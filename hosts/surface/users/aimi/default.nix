@@ -25,6 +25,10 @@
 
     # nixpkgs config
     ../../../../resources/system/nixpkgs.nix
+
+    # gtk and qt theme
+    ../../../../resources/desktop/base/system/theme.nix
+
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   home = {
