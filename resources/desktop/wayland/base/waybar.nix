@@ -16,7 +16,7 @@
           "clock"
         ];
         modules-center = [
-          "wlr/workspaces" 
+          "hyprland/workspaces" 
           "wlr/mode"
           "custom/media"
         ];
@@ -33,7 +33,7 @@
  	      };
         };
         # Modules configuration
-        "wlr/workspaces" = {
+        "hyprland/workspaces" = {
              on-click = "activate";
              format = "  {icon}  ";
              format-icons = {
