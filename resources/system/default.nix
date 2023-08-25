@@ -8,5 +8,6 @@
     ./ssh.nix
     ./luks-tmproot.nix
     ./tools.nix
+    ./fhs.nix
   ];
 }
