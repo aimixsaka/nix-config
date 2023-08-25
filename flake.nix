@@ -45,20 +45,36 @@
 
     nixosConfigurations = {
       surface = lib.nixosSystem {
+        system = "x86_64-linux";
 
         modules = [
           ./hosts/surface 
         ];
 
-	specialArgs = { inherit inputs outputs; };
+	specialArgs = {
+	  inherit inputs outputs; 
+	  pkgs-stable = import nixpkgs-stable {
+	    inherit system
+	    #config.allowUnfree = true;
+	  };
+	};
       };
     };
 
     homeConfigurations = {
       "aimi@surface" = lib.homeManagerConfiguration {
+        system = "x86_64-linux";
+
         modules = [ ./hosts/surface/users/aimi ];
+
         pkgs = pkgsFor.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
+        extraSpecialArgs = {
+	  inherit inputs outputs; 
+	  pkgs-stable = import nixpkgs-stable {
+	    inherit system
+	    #config.allowUnfree = true;
+	  };
+	};
       };
     };
   };
