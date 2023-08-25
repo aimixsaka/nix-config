@@ -34,18 +34,23 @@
         };
         # Modules configuration
         "hyprland/workspaces" = {
-             on-click = "activate";
-             format = "  {icon}  ";
-             format-icons = {
-                 "1" = "<span font='Font Awesome 5 Free 14'></span>";
-                 "2" = "<span font='Font Awesome 5 Free 14'></span>";
-                 "3" = "<span font='Font Awesome 5 Free 14'></span>";
-                 "4" = "<span font='Font Awesome 5 Free 14'></span>";
-                 active = "<span color=\"red\"></span>";
-                 urgent = "";
-                 default = "";
-             };
-             sort-by-number = true;
+          on-click = "activate";
+          format = "  {icon}  ";
+          format-icons = {
+	    "1" = "  ";
+	    "2" = "  ";
+	    "3" = "  ";
+	    "4" = "  ";
+	    "5" = "  ";
+	    "6" = "  ";
+	    "7" = "  ";
+	    "8" = "  ";
+	    "9" = " ";
+            active = "<span color=\"red\"></span>";
+            urgent = "";
+            default = "";
+          };
+          sort-by-number = true;
          };
         "hyprland/window" = {
         	max-length = 50;
