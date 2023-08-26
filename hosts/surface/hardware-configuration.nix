@@ -12,6 +12,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
 
     # FIXME
+    # contains vaapi intel ...
     #inputs.hardware.nixosModules.microsoft-surface-pro-intel
 
     ../../resources/system
@@ -20,6 +21,7 @@
   ############### boot and resume config ###############
   boot = {
     kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
     initrd = {
       availableKernelModules = [ 
         "xhci_pci"
@@ -74,6 +76,9 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+    ];
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
