@@ -11,6 +11,7 @@
       # Specify high quality video rendering preset (for --vo=gpu only)
       # Can cause performance problems with some drivers and GPUs.
       profile = "gpu-hq";
+      vo = "gpu";
       # for color
       scale = "ewa_lanczossharp";
       cscale = "ewa_lanczossharp";
@@ -25,7 +26,10 @@
       # video outputs, but should work well with default settings on most systems.
       # If performance or energy usage is an issue, forcing the vdpau or vaapi VOs
       # may or may not help.
-      hwdec = "auto";
+      hwdec = "auto-safe";
+
+      # wayland support
+      gpu-context = "wayland";
 
       # set default volume
       volume = 52;
