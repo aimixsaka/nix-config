@@ -49,4 +49,12 @@
     #nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
   };
+
+  ## NIX_PATH and flake registry
+  # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
+
+  # make `nix repl '<nixpkgs>'` use the same nixpkgs as the one used by this flake.
+  environment.etc."nix/inputs/nixpkgs".source = "${inputs.nixpkgs}";
+  nix.nixPath = ["/etc/nix/inputs"];
 }

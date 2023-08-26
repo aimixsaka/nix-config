@@ -9,5 +9,6 @@
     ./luks-tmproot.nix
     ./tools.nix
     ./fhs.nix
+    ./buildtools.nix
   ];
 }
