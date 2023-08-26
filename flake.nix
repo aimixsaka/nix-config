@@ -63,7 +63,6 @@
 
     homeConfigurations = {
       "aimi@surface" = lib.homeManagerConfiguration rec {
-        system = "x86_64-linux";
 
         modules = [ ./hosts/surface/users/aimi ];
 
@@ -71,7 +70,7 @@
         extraSpecialArgs = {
 	  inherit inputs outputs; 
 	  pkgs-stable = import nixpkgs-stable {
-	    inherit system;
+	    system = "x86_64-linux";
 	    #config.allowUnfree = true;
 	  };
 	};
