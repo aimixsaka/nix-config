@@ -39,7 +39,8 @@
  
       initExtra = with pkgs; '' 
         # vi mode
-        set -o vi
+        bindkey -v
+	setopt interactivecomments
 
         # env settings
         ZSH_AUTOSUGGEST_MANUAL_REBIND=1;
