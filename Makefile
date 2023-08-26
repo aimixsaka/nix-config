@@ -4,10 +4,10 @@
 #
 #########################################
 
-boot:
+osboot:
 	sudo nixos-rebuild boot --flake '.#surface'
 
-switch:
+osswitch:
 	sudo nixos-rebuild switch --flake '.#surface'
 
 history:
@@ -19,3 +19,6 @@ gc:
 
 update:
 	nix flake update
+
+hmswitch:
+	home-manager switch --flake '.#aimi@surface'
