@@ -10,15 +10,29 @@ osboot:
 osswitch:
 	sudo nixos-rebuild switch --flake '.#surface'
 
-history:
+oshistory:
 	nix profile history --profile /nix/var/nix/profiles/system
 
-gc:
+osgc:
 	sudo nix profile wipe-history --older-than 3d --profile /nix/var/nix/profiles/system
 	sudo nix store gc --debug
 
-update:
-	nix flake update
+osgcnow:
+	sudo nix profile wipe-history --profile /nix/var/nix/profiles/system
+	sudo nix store gc --debug
+
 
 hmswitch:
 	home-manager switch --flake '.#aimi@surface'
+
+hmhistory:
+	home-manager generations
+
+hmgc:
+	home-manager expire-generations -3 days
+
+hmgcnow:
+	home-manager generations | cut -d' ' -f5 | tail +2 | xargs home-manager remove-generations
+
+update:
+	nix flake update

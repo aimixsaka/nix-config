@@ -10,5 +10,6 @@
     ./tools.nix
     ./fhs.nix
     ./buildtools.nix
+    ./xkb.nix
   ];
 }
