@@ -56,6 +56,7 @@ in
       ".local/share/Steam"
       ".local/share/fcitx5"
       ".local/share/TelegramDesktop"
+      ".local/share/wineprefixes"
       #{
       #  directory = ".local/share/Steam";
       #  method = "symlink";

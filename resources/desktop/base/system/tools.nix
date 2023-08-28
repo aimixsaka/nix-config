@@ -9,5 +9,6 @@
     pamixer
     intel-gpu-tools
     libva-utils
+    pavucontrol
   ];
 }
