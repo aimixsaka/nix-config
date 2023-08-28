@@ -76,7 +76,6 @@ in
 
       ## config dir
       ".config/zsh" 
-      ".config/nvim" 
       ".config/fcitx5" 
       ".config/fcitx" 
     ];

@@ -99,23 +99,6 @@
         "type": "github"
       }
     },
-    "mynvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1690626722,
-        "narHash": "sha256-jDQUoLexi2rxRT2dOxcDn9js9NIHgTMv8vHJAfuWogE=",
-        "owner": "aimixsaka",
-        "repo": "nvim",
-        "rev": "825df90987749e80674c14c0da5773af617a87d9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "aimixsaka",
-        "ref": "main",
-        "repo": "nvim",
-        "type": "github"
-      }
-    },
     "nixlib": {
       "locked": {
         "lastModified": 1689469483,
@@ -206,7 +189,6 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "impermanence": "impermanence",
-        "mynvim": "mynvim",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable"
