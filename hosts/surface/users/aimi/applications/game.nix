@@ -6,8 +6,7 @@
 {
   home.packages = with pkgs; [
     steam
-    #wine 
-    wine-staging
+    wineWowPackages.staging
     winetricks
     protontricks
     lutris
