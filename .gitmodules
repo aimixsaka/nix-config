@@ -1,0 +1,3 @@
+[submodule "resources/cli/editor/nvim/myconfig"]
+	path = resources/cli/editor/nvim/myconfig
+	url = git@github.com:aimixsaka/nvim.git

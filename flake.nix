@@ -134,6 +134,8 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+
+    ## personal repo
   };
 
 }

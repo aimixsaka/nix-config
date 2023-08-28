@@ -118,7 +118,7 @@
           format = "{icon}  {capacity}%";
           # format-good = ""; # An empty format will hide the module
           # format-full = "";
-          format-charging = "{capacity}% ";
+          format-charging = "<span color=\"#37E614\"></span> {capacity}%";
           #format-plugged = "{capacity}% ";
           format-icons = [
             "<span color=\"#ff5555\"></span>"

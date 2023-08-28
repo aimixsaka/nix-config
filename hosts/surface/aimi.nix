@@ -54,6 +54,8 @@ in
 
       ## XDG_DATA_HOME
       ".local/share/Steam"
+      ".local/share/nix"
+      ".local/share/nvim"
       ".local/share/fcitx5"
       ".local/share/TelegramDesktop"
       ".local/share/wineprefixes"
@@ -74,6 +76,7 @@ in
 
       ## config dir
       ".config/zsh" 
+      ".config/nvim" 
       ".config/fcitx5" 
       ".config/fcitx" 
     ];
