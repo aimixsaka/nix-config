@@ -35,6 +35,9 @@
   networking.wireless.enable = lib.mkForce false;
   networking.networkmanager.enable = lib.mkForce true;
 
+  # default use dae as proxy
+  services.dae.enable = true;
+
   services.xserver = {
     enable = true;
     desktopManager = {
@@ -61,8 +64,11 @@
     #media-session.enable = true;
   };
 
-  # Enable docker on btrfs
-  virtualisation.docker.enable = true;
+  # podman
+  virtualisation.podman = {
+    enable = true;
+    defaultNetwork.settings.dns_enabled = true;
+  };
 
   # kernel
   #boot.kernelPackages = pkgs.linuxPackages_latest;
