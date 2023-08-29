@@ -22,38 +22,6 @@
     };
   };
 
-  # FIXME: system-wide font configuration is bad habit!
-  # fonts
-    # FIXME: check if this is truely inneed?
-    #enableDefaultFonts = true;
-    # fontconfig = {
-    #   defaultFonts = {
-    #     serif = [ 
-    #       "Noto Serif"
-    #       "Noto Color Emoji" 
-    #       "Noto Serif CJK SC"
-    #       "WenQuanYi Micro Hei"
-    #     ];
-    #     sansSerif = [
-    #       "Inconsolata Nerd Font"
-    #       "SauceCodePro Nerd Font" 
-    #       "Noto Sans CJK SC"
-    #       "WenQuanYi Micro Hei"
-    #       "Noto Sans CJK JP" 
-    #       "Noto Color Emoji" 
-    #     ];
-    #     monospace = [
-    #       "Inconsolata Nerd Font Mono"
-    #       "SauceCodePro Nerd Font Mono" 
-    #       "Noto Sans Mono CJK SC"
-    #       "WenQuanYi Micro Hei Mono"
-    #       "Noto Sans Mono CJK JP"
-    #       "Noto Color Emoji" 
-    #     ];
-    #     emoji = ["Noto Color Emoji"];
-    #   };
-    # };
-  #};
 
   fonts = {
     packages = with pkgs; [
