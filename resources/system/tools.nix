@@ -1,5 +1,6 @@
-{ pkgs
-, ...
+{ 
+  pkgs,
+  ...
 }:
 
 {
@@ -15,6 +16,8 @@
     
     # tools
     git
+    htop
+
     podman
 
     # network

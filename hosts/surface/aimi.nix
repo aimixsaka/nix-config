@@ -78,6 +78,7 @@ in
       ".config/zsh" 
       ".config/fcitx5" 
       ".config/fcitx" 
+      ".config/QQ" 
     ];
     files = [
       ".zshrc"
