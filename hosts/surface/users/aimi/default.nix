@@ -6,27 +6,28 @@
 
 {
   imports = [
-    # de
+    ## de
     ./hyprland
     #./i3
 
-    # applications
+    ## applications
     ./applications
 
-    # editor
-    ../../../../resources/cli/editor
+    ## editor
+    ../../../../resources/cli/user/editor
 
-    # shell
-    ../../../../resources/cli/shell/zsh
+    ## shell
+    ../../../../resources/cli/user/shell/zsh
 
-    # tools
-    ../../../../resources/cli/tools
+    ## tmux
+    ../../../../resources/cli/user/base
+    ## tools
     ./tools
 
-    # nixpkgs config
+    ## nixpkgs config
     ../../../../resources/system/nixpkgs.nix
 
-    # gtk and qt theme
+    ## gtk and qt theme
     ../../../../resources/desktop/base/system/theme.nix
 
   ] ++ (builtins.attrValues outputs.homeManagerModules);

@@ -1,0 +1,6 @@
+{
+  imports = [
+    ./pls.nix
+    ./tools
+  ];
+}

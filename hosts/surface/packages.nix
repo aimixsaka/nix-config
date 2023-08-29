@@ -4,12 +4,10 @@
 
 {
   imports = [
-    ../../resources/system/tools.nix
+    ../../resources/cli/host
   ];
   environment.systemPackages = with pkgs; [
   ## other tools specific to this host
-    ## search tool
-    ripgrep
   ];
 
 }

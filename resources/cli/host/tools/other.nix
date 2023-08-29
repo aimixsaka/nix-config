@@ -14,24 +14,14 @@
     vim
     neovim
     
-    # tools
+    # other
     git
     htop
+    tree
 
     podman
 
-    # network
-    nftables
-    xray
-    clash-verge
-    dae
-
-    # trash
     trash-cli
-    tree
   ];
 
-  services.dae = {
-    enable = true;
-  };
 }
