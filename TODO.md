@@ -1,4 +1,4 @@
-[ ] - move hyprland and i3... to resources. accept `config` parameter. call them in users dir
-[x] - change locale config from system level(nixos configuration) to user level(home-manager)
-[ ] - consider automation of fcitx5 addon cache(put addon cache to cloud or something else, then override fcitx5-rime's rimeDataPkgs, using fetchTarball or other). see https://github.com/ryan4yin/nix-config/blob/v0.0.4/overlays/fcitx5/default.nix
-[ ] - improve fontconfig 
+- [ ] move hyprland and i3... to resources. accept `config` parameter. call them in users dir
+- [ ] change locale config from system level(nixos configuration) to user level(home-manager)
+- [ ] consider automation of fcitx5 addon cache(put addon cache to cloud or something else, then override fcitx5-rime's rimeDataPkgs, using fetchTarball or other). see https://github.com/ryan4yin/nix-config/blob/v0.0.4/overlays/fcitx5/default.nix
+- [ ] improve fontconfig 
