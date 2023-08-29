@@ -7,14 +7,17 @@
       tmuxPlugins.vim-tmux-navigator
       {
         plugin = tmuxPlugins.resurrect;
-        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+	extraConfig = ''
+          set -g @resurrect-capture-pane-contents 'on'
+	'';
       }
       {
-        plugin = tmuxPlugins.continuum;
-        extraConfig = ''
-          #set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '5' # minutes
-        '';
+        plugin = tmuxPlugins.catppuccin;
+	extraConfig = ''
+          set -g @catppuccin_flavour 'mocha'
+          set -g @catppuccin_window_tabs_enabled on
+          set -g @catppuccin_date_time "%Y-%m-%d %H:%M"
+	'';
       }
     ];
    
@@ -45,11 +48,11 @@
       bind -r m resize-pane -Z
       
       # show time
-      set -g status-interval 1
-      set -g status-right "#[fg=red]#(awk '{print $1, $2, $3}' /proc/loadavg) #[fg=black]%Y-%m-%d %H:%M:%S"
+      #set -g status-interval 1
+      #set -g status-right "#[fg=red]#(awk '{print $1, $2, $3}' /proc/loadavg) #[fg=black]%Y-%m-%d %H:%M:%S"
       
       # set pane history number
-      set -g history-limit 10000
+      set -g history-limit 99999999
       
       # enable mouse
       set -g mouse on
