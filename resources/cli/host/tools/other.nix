@@ -18,6 +18,7 @@
     git
     htop
     tree
+    jq
 
     cachix
 
