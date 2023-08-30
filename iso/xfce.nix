@@ -35,8 +35,10 @@
   networking.wireless.enable = lib.mkForce false;
   networking.networkmanager.enable = lib.mkForce true;
 
-  # default use dae as proxy
+  # proxy
   services.dae.enable = true;
+  services.v2raya.enable = true;
+  services.xray.enable = true;
 
   services.xserver = {
     enable = true;

@@ -19,6 +19,8 @@
     htop
     tree
 
+    cachix
+
     podman
 
     trash-cli
