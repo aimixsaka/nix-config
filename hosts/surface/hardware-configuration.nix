@@ -1,9 +1,10 @@
-{ inputs
-, pkgs
-, modulesPath
-, lib
-, config
-, ...
+{
+  inputs,
+  pkgs,
+  modulesPath,
+  lib,
+  config,
+  ...
 }:
 
 {
@@ -15,7 +16,7 @@
     #inputs.hardware.nixosModules.microsoft-surface-pro-intel
 
     # use self forked nixos-hardware
-    inputs.hardware-self.nixosModules.microsoft-surface-pro-intel
+    #inputs.hardware-self.nixosModules.microsoft-surface-pro-intel
 
     ../../resources/system
   ];

@@ -15,6 +15,21 @@
         "type": "github"
       }
     },
+    "hardware-self": {
+      "locked": {
+        "lastModified": 1693446216,
+        "narHash": "sha256-J16cON/PdMjSrfmIPoA6bBElyp0yPKbwcTR9rX3Equc=",
+        "owner": "aimixsaka",
+        "repo": "nixos-hardware",
+        "rev": "88ff621f85983ae08f52054243994490ebfc8d9e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aimixsaka",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -186,6 +201,7 @@
     "root": {
       "inputs": {
         "hardware": "hardware",
+        "hardware-self": "hardware-self",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "impermanence": "impermanence",

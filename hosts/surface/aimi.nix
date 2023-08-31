@@ -79,6 +79,7 @@ in
       ".config/fcitx5" 
       ".config/fcitx" 
       ".config/QQ" 
+      ".config/cachix" 
     ];
     files = [
       ".zshrc"

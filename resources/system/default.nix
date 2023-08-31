@@ -11,5 +11,6 @@
     ./fhs.nix
     ./buildtools.nix
     ./xkb.nix
+    ./distribute-build.nix
   ];
 }
