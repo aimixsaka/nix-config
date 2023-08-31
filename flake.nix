@@ -126,6 +126,9 @@
 
     hardware.url = "github:nixos/nixos-hardware";
 
+    # my nixos-hardware fork
+    hardware-self.url = "github:aimixsaka/nixos-hardware";
+
     # For persistence
     impermanence.url = "github:nix-community/impermanence";
 

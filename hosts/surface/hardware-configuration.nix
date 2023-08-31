@@ -12,7 +12,10 @@
     (modulesPath + "/installer/scan/not-detected.nix")
 
     # contains vaapi intel, patched kernel for surface pro, ipts ...
-    inputs.hardware.nixosModules.microsoft-surface-pro-intel
+    #inputs.hardware.nixosModules.microsoft-surface-pro-intel
+
+    # use self forked nixos-hardware
+    inputs.hardware-self.nixosModules.microsoft-surface-pro-intel
 
     ../../resources/system
   ];
