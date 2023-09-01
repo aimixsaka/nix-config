@@ -11,4 +11,6 @@
       auth include login
     '';
   };
+
+  # fix podman error 'Error: statfs /lib/modules: no such file or directory'
 }

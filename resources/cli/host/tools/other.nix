@@ -19,6 +19,7 @@
     htop
     tree
     jq
+    file
 
     cachix
 

@@ -12,5 +12,6 @@
     ./buildtools.nix
     ./xkb.nix
     ./distribute-build.nix
+    ./hack.nix
   ];
 }
