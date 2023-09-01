@@ -20,12 +20,16 @@
     tree
     jq
     file
+    wget
 
     cachix
 
     podman
 
     trash-cli
+
+    # translate
+    translate-shell
   ];
 
 }
