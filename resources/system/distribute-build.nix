@@ -36,7 +36,7 @@
   programs.ssh.knownHosts = {
     taiga = {
       hostNames = [ "taiga" "192.168.0.13" ];
-      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHN/2i2o261rVuU4i5dal+H+NGdzOSGz3SL31k4RPyFu";
+      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAD0Iszx+SxrXOIOlXS7MESrM1LAgRmFUvTUcJU00FJ6";
     };
   };
 }

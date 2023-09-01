@@ -5,10 +5,10 @@
 #########################################
 
 osboot:
-	sudo nixos-rebuild boot --flake '.#surface'
+	sudo nixos-rebuild boot --flake '.#surface' --show-trace --verbose
 
 osswitch:
-	sudo nixos-rebuild switch --flake '.#surface'
+	sudo nixos-rebuild switch --flake '.#surface' --show-trace --verbose
 
 oshistory:
 	nix profile history --profile /nix/var/nix/profiles/system

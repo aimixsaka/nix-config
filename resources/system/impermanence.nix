@@ -16,6 +16,8 @@
         "/etc/nixos"
         "/etc/NetworkManager/system-connections"
         "/etc/v2raya"
+	# otherwise ssh host key will change every reboot
+        "/etc/ssh"
 
         "/var/lib"
         "/var/log"

@@ -11,7 +11,7 @@ in
     "/" = {
       device = "none";
       fsType = "tmpfs";
-      options = [ "defaults" "size=12G" "mode=755" ];
+      options = [ "defaults" "size=20G" "mode=755" ];
     };
 
     "/boot" = {
