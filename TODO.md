@@ -3,3 +3,4 @@
 - [ ] consider automation of fcitx5 addon cache(put addon cache to cloud or something else, then override fcitx5-rime's rimeDataPkgs, using fetchTarball or other). see https://github.com/ryan4yin/nix-config/blob/v0.0.4/overlays/fcitx5/default.nix
 - [ ] improve fontconfig 
 - [ ] reenable nixos-hardware surface-intel support(surface-kernel...)
+- [ ] create config for my qemu vm for building
