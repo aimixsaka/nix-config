@@ -22,6 +22,8 @@
     file
     wget
 
+    ncdu
+
     cachix
 
     podman

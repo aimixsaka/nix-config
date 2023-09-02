@@ -13,5 +13,6 @@
     ./xkb.nix
     ./distribute-build.nix
     ./hack.nix
+    ./env.nix
   ];
 }
