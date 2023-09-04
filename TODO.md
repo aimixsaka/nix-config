@@ -4,3 +4,4 @@
 - [ ] improve fontconfig 
 - [ ] reenable nixos-hardware surface-intel support(surface-kernel...)
 - [ ] create config for my qemu vm for building
+- [ ] create pkgs and overlays dir, add self packed pkgs through overlays

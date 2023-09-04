@@ -4,5 +4,6 @@
     ./firefox.nix
     ./mpv.nix
     ./text.nix
+    ./graph.nix
   ];
 }

@@ -1,8 +1,6 @@
-#########################################
 #
 # Nix commands related to local machine 
 #
-#########################################
 
 osboot:
 	sudo nixos-rebuild boot --flake '.#surface' --show-trace --verbose
@@ -30,9 +28,11 @@ hmhistory:
 
 hmgc:
 	home-manager expire-generations -3 days
+	sudo nix store gc --debug
 
 hmgcnow:
 	home-manager generations | cut -d' ' -f5 | tail +2 | xargs home-manager remove-generations
+	sudo nix store gc --debug
 
 update:
 	nix flake update
