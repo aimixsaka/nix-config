@@ -27,16 +27,25 @@
     builders-use-substitutes = true
   '';
 
+  # NOTE: inner net when using school network
+  #programs.ssh.extraConfig = ''
+  #  Host taiga
+  #    HostName 101.aimisaka.site
+  #    Port 13505
+  #'';
+
+  # use zerotier-one
   programs.ssh.extraConfig = ''
     Host taiga
-      HostName 192.168.0.13
-      Port 60022
+      HostName 10.11.12.12
+      Port 52842
   '';
 
   programs.ssh.knownHosts = {
     taiga = {
-      hostNames = [ "taiga" "192.168.0.13" ];
-      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAD0Iszx+SxrXOIOlXS7MESrM1LAgRmFUvTUcJU00FJ6";
+      # NOTE: inner net when using school network
+      #hostNames = [ "taiga" "101.aimisaka.site" ];
+      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL11KIby8U00SYDP//F+lfYKUFXHf79GcdiO7s980MzW";
     };
   };
 }

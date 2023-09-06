@@ -8,9 +8,13 @@
     # network
     nftables
     xray
-    clash-verge
     dae
+
+    # inner net
+    zerotierone
   ];
+
+  services.zerotierone.enable = true;
 
   services.dae = {
     enable = true;

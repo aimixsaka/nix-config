@@ -15,6 +15,7 @@
 	"steam-original"
 	"steam-run"
 	"obsidian"
+	"zerotierone"
       ];
     };
   };

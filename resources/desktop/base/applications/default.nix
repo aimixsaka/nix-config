@@ -5,5 +5,6 @@
     ./mpv.nix
     ./text.nix
     ./graph.nix
+    ./casual.nix
   ];
 }

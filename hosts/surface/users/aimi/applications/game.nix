@@ -6,8 +6,12 @@
 {
   home.packages = with pkgs; [
     steam
-    wineWowPackages.staging
-    #(wineWowPackages.staging.override {
+    #wineWowPackages.staging
+    #wineWowPackages.wayland
+    wineWowPackages.waylandFull
+    ## build failed
+    #(wineWowPackages.staging.override { 
+    #  waylandSupport = true;
     #  embedInstallers = true;
     #})
     winetricks
