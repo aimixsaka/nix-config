@@ -37,7 +37,7 @@
   # use zerotier-one
   programs.ssh.extraConfig = ''
     Host taiga
-      HostName 10.11.12.12
+      HostName arch.apsb.cc
       Port 52842
   '';
 
@@ -45,6 +45,7 @@
     taiga = {
       # NOTE: inner net when using school network
       #hostNames = [ "taiga" "101.aimisaka.site" ];
+      hostNames = [ "taiga" "arch.apsb.cc" ];
       publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL11KIby8U00SYDP//F+lfYKUFXHf79GcdiO7s980MzW";
     };
   };

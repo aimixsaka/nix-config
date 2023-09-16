@@ -6,6 +6,9 @@
 
 {
   imports = [
+    # specific script for set env... for Hyprland
+    ./hypr-sh.nix
+
     ../../../../../resources/desktop/wayland/base
     ../../../../../resources/desktop/base
     inputs.hyprland.homeManagerModules.default

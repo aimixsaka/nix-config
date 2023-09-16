@@ -4,6 +4,12 @@
 }:
 
 {
+
+  home.packages = with pkgs; [
+    libsForQt5.qtstyleplugin-kvantum
+    qt6Packages.qtstyleplugin-kvantum
+  ];
+
   # gtk
   gtk = {
       enable = true;
@@ -33,7 +39,10 @@
   # qt
   qt = {
     enable = true;
-    style.name = "adwaita-dark";
+    style.name = "kvantum";
   };
-
+  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
+    [General]
+    theme=KvArcDark
+  '';
 }

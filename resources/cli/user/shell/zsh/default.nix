@@ -186,6 +186,8 @@
         nwc = "nmcli device wifi connect";
         nwr = "nmcli device wifi rescan";
         nwl = "nmcli device wifi list";
+
+	wineenv = "DISPLAY= WAYLAND_DISPLAY=wayland-1 WINE_PREFIX=/home/aimi/.local/share/wineprefixes/game";
       };
     };
   };
