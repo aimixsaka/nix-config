@@ -10,9 +10,6 @@
     ./hyprland
     #./i3
 
-    ## applications
-    ./applications
-
     ## editor
     ../../../../resources/cli/user/editor
 
@@ -29,6 +26,9 @@
 
     ## gtk and qt theme
     ../../../../resources/desktop/base/system/theme.nix
+
+    ## optional applications
+    ../../../../resources/applications-optional
 
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
