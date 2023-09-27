@@ -13,48 +13,41 @@
   let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib;
-    pkgsFor = nixpkgs.legacyPackages;
+    systems = [ "x86_64-linux" "riscv64-linux" ];
+    forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
+    pkgsFor = lib.genAttrs systems (system: import nixpkgs {
+        inherit system;
+        #config.allowUnfree = true;
+    });
   in
   {
     inherit lib;
 
-    #nixosModules = import ./modules/nixos;
-
     homeManagerModules = import ./modules/home-manager;
-    #templates = import ./templates;
-    #overlays = import ./overlays { inherit inputs outputs; };
-    #packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
-    #devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; }
 
-    # nixos generators(for generate iso...)
-    packages.x86_64-linux = {
-      installer = nixos-generators.nixosGenerate {
-        system = "x86_64-linux";
-        # explicit nixpkgs and lib:
+    # can resumed by nix build 
+    # used in ./resources/system/nixpkgs.nix
+    overlays = import ./overlays { inherit inputs outputs; };
+
+    # nixos generators(to generate iso...)
+    # deeply merge two attr sets
+    packages = lib.recursiveUpdate (forEachSystem (pkgs: import ./pkgs { inherit pkgs; })) {
+      "x86_64-linux" = import ./pkgs/iso.nix {
         pkgs = nixpkgs-stable.legacyPackages.x86_64-linux;
         lib = nixpkgs-stable.legacyPackages.x86_64-linux.lib;
-
-	modules = [
-	  ./iso/xfce.nix
-	];
-	#format = "raw-efi";
-	format = "install-iso";
-	#format = "iso";
+        system = "x86_64-linux";
+	inherit nixos-generators;
       };
     };
 
     nixosConfigurations = {
       surface = lib.nixosSystem rec {
-        system = "x86_64-linux";
-
-        modules = [
-          ./hosts/surface 
-        ];
+        modules = [ ./hosts/surface ];
 
 	specialArgs = {
 	  inherit inputs outputs; 
 	  pkgs-stable = import nixpkgs-stable {
-	    inherit system;
+	    system = "x86_64-linux";
 	    #config.allowUnfree = true;
 	  };
 	};
@@ -63,7 +56,6 @@
 
     homeConfigurations = {
       "aimi@surface" = lib.homeManagerConfiguration rec {
-
         modules = [ ./hosts/surface/users/aimi ];
 
         pkgs = pkgsFor.x86_64-linux;

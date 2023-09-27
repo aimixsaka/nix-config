@@ -9,7 +9,7 @@
 {
   nix = {
     settings = {
-      substituters = [
+      substituters = lib.mkBefore [
         "https://mirrors.ustc.edu.cn/nix-channels/store"
         "https://cache.nixos.org"
         "https://hyprland.cachix.org"

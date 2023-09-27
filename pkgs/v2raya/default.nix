@@ -1,23 +1,25 @@
-{ lib
-, fetchFromGitHub
-, mkYarnPackage
-, buildGoModule
-, makeWrapper
-, v2ray
-, v2ray-geoip
-, v2ray-domain-list-community
-, symlinkJoin
-, fetchYarnDeps
+{
+  lib,
+  fetchFromGitHub,
+  mkYarnPackage,
+  buildGo121Module,
+  makeWrapper,
+  xray,
+  v2ray-geoip,
+  v2ray-domain-list-community,
+  symlinkJoin,
+  fetchYarnDeps,
 }:
+
 let
   pname = "v2raya";
-  version = "2.0.5";
+  version = "2.2.4";
 
   src = fetchFromGitHub {
     owner = "v2rayA";
     repo = "v2rayA";
     rev = "v${version}";
-    hash = "sha256-oMH4FutgI5mLz2sxDdPFUyDd80xT32r51HEQYhhnvcU=";
+    hash = "sha256-X2fCp9uVdt7fIW1C/tdRK1Tmr8mq6VBk6UBnt99E+1c=";
     postFetch = "sed -i -e 's/npmmirror/yarnpkg/g' $out/gui/yarn.lock";
   };
   guiSrc = "${src}/gui";
@@ -30,7 +32,7 @@ let
 
     offlineCache = fetchYarnDeps {
       yarnLock = "${guiSrc}/yarn.lock";
-      sha256 = "sha256-hVtETKhG9kX/4a4uO/aQ9sN2eTF6aAYaKDSHJIa0eWQ=";
+      sha256 = "sha256-pB0B5Iy6dLfU5CL2E9OBQGJKLJqYQRwPxx9aaCDg1Qk=";
     };
 
     buildPhase = ''
@@ -55,11 +57,11 @@ let
   };
 
 in
-buildGoModule {
+buildGo121Module {
   inherit pname version;
 
   src = "${src}/service";
-  vendorHash = "sha256-nI+nqftJybAGcHCTMVjYPuLHxqE/kyjUzkspnkzUi+g=";
+  vendorHash = "sha256-lK6oTI9o8oLXPPMFO/Q97tIsdRd9smUk1v7GwwCFitg=";
 
   ldflags = [
     "-s"
@@ -81,7 +83,7 @@ buildGoModule {
       --replace 'Icon=/usr/share/icons/hicolor/512x512/apps/v2raya.png' 'Icon=v2raya'
 
     wrapProgram $out/bin/v2rayA \
-      --prefix PATH ":" "${lib.makeBinPath [ v2ray ]}" \
+      --prefix PATH ":" "${lib.makeBinPath [ xray ]}" \
       --prefix XDG_DATA_DIRS ":" ${assetsDir}/share
   '';
 

@@ -8,7 +8,9 @@
     # network
     nftables
     xray
+    v2ray
     dae
+    v2raya
 
     # inner net
     zerotierone
@@ -16,7 +18,13 @@
 
   services.zerotierone.enable = true;
 
+  #networking.nftables.enable = true;
+
   services.dae = {
+    #enable = true;
+  };
+
+  services.v2raya = {
     enable = true;
   };
 
