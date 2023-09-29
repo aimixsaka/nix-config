@@ -107,7 +107,7 @@
 
     # home-manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager";
       # nixpkgs in home-manager flake inputs follows our nixpkgs above
       inputs.nixpkgs.follows = "nixpkgs";
     };

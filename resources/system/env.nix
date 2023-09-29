@@ -5,9 +5,9 @@
 
   # system levee
   environment.variables = {
-    TMP = "/tmp";
-    TMPDIR = "/tmp";
-    TEMP = "/tmp";
+    TMP = "/var/tmp";
+    TMPDIR = "/var/tmp";
+    TEMP = "/var/tmp";
   };
   # session level
   environment.sessionVariables = {

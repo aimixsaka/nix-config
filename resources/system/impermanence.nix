@@ -21,6 +21,7 @@
 
         "/var/lib"
         "/var/log"
+	"/var/tmp"
 
         "/srv" 
       ];
