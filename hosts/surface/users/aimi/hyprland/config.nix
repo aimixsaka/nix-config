@@ -12,13 +12,9 @@
     gaps_out = 3
     border_size = 2
     no_border_on_floating = true
+
     col.active_border = rgba(33ccffee) rgba(00ff99ee) 90deg
-    #col.active_border = rgb(E190EE) rgb(E44549) 90deg
-    #col.active_border = rgb(383C4A) rgb(BFC5C7) 45deg
-    #col.active_border = rgb(DE8CB2)
     col.inactive_border = rgba(595959aa)
-    # col.active_border = rgb(f49bc1) rgb(ff0000) 45deg
-    # col.inactive_border = rgba(595959aa)
 
     col.group_border_active = rgb(E190EE) rgb(E44549) 90deg
     col.group_border = rgb(E44549)
@@ -97,8 +93,10 @@
   input {
       kb_layout = us
       # exchange caps and escape
-      kb_options = caps:swapescape
-      follow_mouse = 0
+      #kb_options = caps:swapescape
+      # set caps to ctrl
+      kb_options = ctrl:nocaps
+      follow_mouse = 1
       sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
   
       touchpad {
@@ -115,8 +113,7 @@
   ##################
   gestures {
     workspace_swipe = true
-    #workspace_swipe_invert = true
-    #workspace_swipe_min_speed_to_force=5
+    workspace_swipe_min_speed_to_force=3
   }
 
 
@@ -133,7 +130,7 @@
     swallow_regex = ^(Alacritty)$
   
     # Whether Hyprland should focus an app that requests to be focused 
-    focus_on_activate = true
+    #focus_on_activate = true
 
     # close highlight of title
     groupbar_gradients = false

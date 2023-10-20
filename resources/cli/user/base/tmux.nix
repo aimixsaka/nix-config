@@ -5,12 +5,12 @@
     
     plugins = with pkgs; [
       tmuxPlugins.vim-tmux-navigator
-      {
-        plugin = tmuxPlugins.resurrect;
-	extraConfig = ''
-          set -g @resurrect-capture-pane-contents 'on'
-	'';
-      }
+      #{
+      #  plugin = tmuxPlugins.resurrect;
+      #  extraConfig = ''
+      #    set -g @resurrect-capture-pane-contents 'on'
+      #  '';
+      #}
       {
         plugin = tmuxPlugins.catppuccin;
 	extraConfig = ''
@@ -67,6 +67,9 @@
       
       # enable mouse drag to copy instead of going to the directly
       unbind -T copy-mode-vi MouseDragEnd1Pane
+
+      # fix vim <ESC> delay
+      set -sg escape-time 0
     '';
   };
 }

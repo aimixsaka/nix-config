@@ -59,6 +59,7 @@ in
       ".local/share/fcitx5"
       ".local/share/TelegramDesktop"
       ".local/share/wineprefixes"
+      ".local/share/qBittorrent"
       #{
       #  directory = ".local/share/Steam";
       #  method = "symlink";
@@ -80,6 +81,7 @@ in
       ".config/fcitx" 
       ".config/QQ" 
       ".config/cachix" 
+      ".config/qBittorrent"
     ];
     files = [
       ".zshrc"
