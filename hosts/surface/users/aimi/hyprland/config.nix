@@ -319,7 +319,7 @@
   
   
   # bind=,Print,exec,grim $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y%m%d%H%M%S_1.png') && notify-send 'Screenshot Saved'
-  bind=$Mod, C, exec, grim -g "$(slurp)" - | wl-copy --type image/png && notify-send 'Screenshot Copied to Clipboard'
+  bind=$Mod, C, exec, grim -g "$(slurp)" - | wl-copy --type image/png
   # bind=$ModSHIFT,Print,exec,grim - | swappy -f -
   # bind=$ModSHIFT,S,exec,slurp | grim -g - $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y%m%d%H%M%S_1.png') && notify-send 'Screenshot Saved'
   

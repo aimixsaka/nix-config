@@ -75,6 +75,9 @@ in
       ".cache"
       ".mozilla"
 
+      # vim file
+      ".vim"
+
       ## config dir
       ".config/zsh" 
       ".config/fcitx5" 

@@ -97,8 +97,7 @@
 
       # Set alias
       shellAliases = {
-        cl = "clear";
-        rm = "trash";
+        cl = "clear -x";
         ws = "cd ~/workspace";
 
         l = "ls --color=auto -l";

@@ -7,6 +7,7 @@
 	  email = "aimixsaka@gmail.com";
           name = "aimixsaka";
 	};
+	init.defaultBranch = "main";
       };
     };
   };
