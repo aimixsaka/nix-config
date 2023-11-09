@@ -46,7 +46,7 @@
       # NOTE: inner net when using school network
       #hostNames = [ "taiga" "101.aimisaka.site" ];
       hostNames = [ "taiga" "arch.apsb.cc" ];
-      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL11KIby8U00SYDP//F+lfYKUFXHf79GcdiO7s980MzW";
+      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJn7bhyW/e8UKTI5HjJoEwrJbQ7trX6thzXSvU3OY9dZ";
     };
   };
 }
