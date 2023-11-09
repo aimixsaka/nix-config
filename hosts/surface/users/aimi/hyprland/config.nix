@@ -16,9 +16,6 @@
     col.active_border = rgba(33ccffee) rgba(00ff99ee) 90deg
     col.inactive_border = rgba(595959aa)
 
-    col.group_border_active = rgb(E190EE) rgb(E44549) 90deg
-    col.group_border = rgb(E44549)
-
     layout = dwindle
   }
   
@@ -131,12 +128,20 @@
   
     # Whether Hyprland should focus an app that requests to be focused 
     #focus_on_activate = true
-
-    # close highlight of title
-    groupbar_gradients = false
-    groupbar_text_color = false
   }
   
+  ##################
+  ###  GROUPBAR  ###
+  ##################
+  group {
+    # disable title above window
+    groupbar {
+      gradients = false
+      text_color = false
+      col.inactive = rgb(E190EE) rgb(E44549) 90deg
+      col.active = rgb(E44549)
+    }
+  }
   
   ##################
   ### DECORATION ###
@@ -144,7 +149,6 @@
   decoration {
     ## Round Corner
     rounding = 8
-    multisample_edges = true
   
     ## Opacity
     active_opacity = 0.97

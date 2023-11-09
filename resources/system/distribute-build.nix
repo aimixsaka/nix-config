@@ -48,6 +48,11 @@
     Host ming
       HostName ming.apsb.cc
       Port 22
+    Host github.com
+      HostName github.com
+      User aimixsaka
+      PreferredAuthentications publickey
+      IdentityFile /home/aimi/.ssh/github_id_rsa
   '';
 
   programs.ssh.knownHosts = {
