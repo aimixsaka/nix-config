@@ -8,17 +8,17 @@
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
     config = {
-      #allowUnfree = true;
+      allowUnfree = true;
 
-      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-        # Add additional package names here
-	"qq"
-	"steam"
-	"steam-original"
-	"steam-run"
-	"obsidian"
-	"zerotierone"
-      ];
+      #allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      #  # Add additional package names here
+      #  "qq"
+      #  "steam"
+      #  "steam-original"
+      #  "steam-run"
+      #  "obsidian"
+      #  "zerotierone"
+      #];
     };
   };
 }

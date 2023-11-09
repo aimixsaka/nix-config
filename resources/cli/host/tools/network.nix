@@ -16,7 +16,9 @@
     zerotierone
   ];
 
-  services.zerotierone.enable = true;
+  services.zerotierone = {
+    enable = true;
+  };
 
   #networking.nftables.enable = true;
 
