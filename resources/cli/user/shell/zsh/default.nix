@@ -64,23 +64,23 @@
         source ${zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
 
         # Emacs
-        bindkey -M emacs "^P" history-substring-search-up
-        bindkey -M emacs "^N" history-substring-search-down
+        #bindkey -M emacs "^P" history-substring-search-up
+        #bindkey -M emacs "^N" history-substring-search-down
 
-        # Vi
-        bindkey -M vicmd "k" history-substring-search-up
-        bindkey -M vicmd "j" history-substring-search-down
+        ## Vi
+        #bindkey -M vicmd "k" history-substring-search-up
+        #bindkey -M vicmd "j" history-substring-search-down
 
-        # system
-        bindkey "^[[A" history-substring-search-up
-        bindkey "^[[B" history-substring-search-down
+        ## system
+        #bindkey "^[[A" history-substring-search-up
+        #bindkey "^[[B" history-substring-search-down
 
-        # Emacs and Vi
-        for keymap in 'emacs' 'viins'; do
-          bindkey "$terminfo[kcuu1]" history-substring-search-up
-          bindkey "$terminfo[kcud1]" history-substring-search-down
-        done
-        unset keymap
+        ## Emacs and Vi
+        #for keymap in 'emacs' 'viins'; do
+        #  bindkey "$terminfo[kcuu1]" history-substring-search-up
+        #  bindkey "$terminfo[kcud1]" history-substring-search-down
+        #done
+        #unset keymap
 
       '';
 
