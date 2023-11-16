@@ -21,12 +21,12 @@
 	  maxJobs = 32;
           speedFactor = 1;
 	}
-        {
-	  inherit sshUser sshKey systems supportedFeatures;
-	  hostName = "ming";
-	  maxJobs = 32;
-          speedFactor = 5;
-	}
+        #{
+	#  inherit sshUser sshKey systems supportedFeatures;
+	#  hostName = "ming";
+	#  maxJobs = 32;
+        #  speedFactor = 5;
+	#}
       ];
 
   nix.extraOptions = ''
@@ -45,9 +45,9 @@
     Host taiga
       HostName arch.apsb.cc
       Port 52842
-    Host ming
-      HostName ming.apsb.cc
-      Port 22
+    #Host ming
+    #  HostName ming.apsb.cc
+    #  Port 22
     Host github.com
       HostName github.com
       User aimixsaka
@@ -61,9 +61,9 @@
       hostNames = [ "arch.apsb.cc" ];
       publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJn7bhyW/e8UKTI5HjJoEwrJbQ7trX6thzXSvU3OY9dZ";
     };
-    ming = {
-      hostNames = [ "ming.apsb.cc" ];
-      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMH2flR7FZ47wFbln/VpRCag12wZSKmtZitymlVdmvY0";
-    };
+    #ming = {
+    #  hostNames = [ "ming.apsb.cc" ];
+    #  publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMH2flR7FZ47wFbln/VpRCag12wZSKmtZitymlVdmvY0";
+    #};
   };
 }
