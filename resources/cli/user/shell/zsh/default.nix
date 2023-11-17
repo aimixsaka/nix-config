@@ -43,7 +43,7 @@
 	setopt interactivecomments
 
         # env settings
-        ZSH_AUTOSUGGEST_MANUAL_REBIND=1;
+        #ZSH_AUTOSUGGEST_MANUAL_REBIND=1;
 
         # set path for cargo bin
         PATH="/home/aimi/.cargo/bin:$PATH"

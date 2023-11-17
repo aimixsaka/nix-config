@@ -61,7 +61,7 @@
     #};
 
     # resume
-    kernelParams = [ "resume_offset=1005787" ];
+    kernelParams = [ "resume_offset=28353792" ];
     resumeDevice = "/dev/disk/by-label/${config.networking.hostName}";
   };
 

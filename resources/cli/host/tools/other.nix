@@ -13,6 +13,9 @@
     # editor
     vim
     neovim
+
+    # debuger
+    gcc
     
     # other
     git
