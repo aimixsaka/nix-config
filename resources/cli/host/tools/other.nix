@@ -24,7 +24,6 @@
     jq
     file
     wget
-
     ncdu
 
     cachix
@@ -37,4 +36,5 @@
     translate-shell
   ];
 
+  programs.autojump.enable = true;
 }
