@@ -8,7 +8,7 @@
     # network
     nftables
     xray
-    v2ray
+    #v2ray
     dae
     v2raya
 

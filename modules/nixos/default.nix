@@ -1,0 +1,3 @@
+{
+  zxraya = import ./zxraya.nix
+}
