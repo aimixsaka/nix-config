@@ -6,4 +6,4 @@
 - [x] reenable nixos-hardware surface-intel support(surface-kernel...)
 - [ ] create config for my qemu vm for building
 - [ ] create pkgs and overlays dir, add self packed pkgs through overlays
-- [ ] create nixos service for xray to support transparent proxy.(should named with `zxraya`?)
+- [x] create nixos service for xray to support transparent proxy.(named with `zxray`)
