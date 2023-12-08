@@ -1,3 +1,3 @@
 {
-  zxray = import ./zxray.nix
+  zxray = import ./zxray;
 }

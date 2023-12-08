@@ -18,6 +18,7 @@
         "/etc/v2raya"
 	# otherwise ssh host key will change every reboot
         "/etc/ssh"
+        "/etc/xray"
 
         "/var/lib"
         "/var/log"

@@ -1,5 +1,7 @@
-{ lib
-, ...
+{ 
+  lib,
+  outputs,
+  ...
 }:
 
 {
@@ -14,7 +16,7 @@
     ./home-manager.nix
     # users
     ./aimi.nix
-  ];
+  ] ++ (builtins.attrValues outputs.nixosModules);
 
   ############## Network ############
   networking = {

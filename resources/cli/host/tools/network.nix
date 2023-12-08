@@ -26,14 +26,14 @@
   };
 
   services.v2raya = {
-    enable = true;
+    #enable = true;
   };
 
   services.zxray = {
     enable = true;
     # enableIPv6 = false;
-    xrayConfigFile = ${config.environment.sessionVariables.XDG_CONFIG_HOME}/xray/config.json;
-    nftRuleSet = ''
+    xrayConfigFile = /etc/xray/config.json;
+    nftRuleset = ''
       table inet v2raya {
           set whitelist {
               type ipv4_addr
@@ -68,7 +68,7 @@
           }
 
           chain tp_pre {
-              iifname "lo" mark & 0xc0 != 0x40 return
+              iifname lo mark & 0xc0 != 0x40 return
               meta l4proto { tcp, udp } fib saddr type != local fib daddr type != local jump tp_rule
               meta l4proto { tcp, udp } mark & 0xc0 == 0x40 tproxy ip to 127.0.0.1:52345
           }
@@ -86,11 +86,11 @@
           chain tp_rule {
               meta mark set ct mark
               meta mark & 0xc0 == 0x40 return
-              iifname "br-*" return
-              iifname "docker*" return
-              iifname "veth*" return
-              iifname "wg*" return
-              iifname "ppp*" return
+              iifname br-* return
+              iifname docker* return
+              iifname veth* return
+              iifname wg* return
+              iifname ppp* return
 
               meta l4proto { tcp, udp } th dport 53 jump tp_mark
               meta mark & 0xc0 == 0x40 return

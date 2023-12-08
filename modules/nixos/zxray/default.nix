@@ -59,10 +59,35 @@ in
       requires = [ "xray.service" "nftables.service" ];
       after = [ "xray.service" "nftables.service" ];
       wantedBy = [ "multi-user.target" ];
-      serviceConfig = {
-        ExecStart = "ip rule add fwmark 0x40/0xc0 table 100 && ip route add local 0.0.0.0/0 dev lo table 100 && systemctl start xray.service nftables.service"; 
-        ExecReload = "systemctl restart xray.service nftables.service";
-        ExecStop = "ip rule del fwmark 0x40/0xc0 table 100 && ip route del local 0.0.0.0/0 dev lo table 100 && systemctl stop xray.service nftables.service";
+      serviceConfig = let
+	setIpRule = pkgs.writeShellScript "set-ip-rule" ''
+	  ${pkgs.iproute2}/bin/ip rule add fwmark 0x40/0xc0 table 100
+	  ${pkgs.iproute2}/bin/ip route add local 0.0.0.0/0 dev lo table 100
+	'';
+
+	rmIpRule = pkgs.writeShellScript "remoev-ip-rule" ''
+	  ${pkgs.iproute2}/bin/ip rule del fwmark 0x40/0xc0 table 100
+	  ${pkgs.iproute2}/bin/ip route del local 0.0.0.0/0 dev lo table 100
+	'';
+
+	startServices = pkgs.writeShellScript "start-services" ''
+	  systemctl start xray.service nftables.service
+	'';
+	restartServices = pkgs.writeShellScript "restart-services" ''
+	  systemctl restart xray.service nftables.service
+	'';
+	stopServices = pkgs.writeShellScript "stop-services" ''
+	  systemctl stop xray.service nftables.service
+	'';
+      in {
+	Type = "oneshot";
+	RemainAfterExit = true;
+	ExecStartPre = startServices;
+        ExecStart = setIpRule;
+        ExecReload = restartServices;
+        ExecStop = rmIpRule;
+        ExecStopPost = stopServices;
+	StateDirectory = "zxray";
       };
     };
   };
