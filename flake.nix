@@ -24,6 +24,7 @@
     inherit lib;
 
     homeManagerModules = import ./modules/home-manager;
+    nixosModules = import ./modules/nixos;
 
     # can resumed by nix build 
     # used in ./resources/system/nixpkgs.nix
