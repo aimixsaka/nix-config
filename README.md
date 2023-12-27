@@ -1,3 +1,6 @@
+## NOTE
+**Temporarily archive this repo to focus on server side of NixOS**
+
 ## TODO
 - [ ] move hyprland and i3... to resources. accept `config` parameter. call them in users dir
 - [ ] change locale config from system level(nixos configuration) to user level(home-manager)
