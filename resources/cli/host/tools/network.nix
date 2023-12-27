@@ -26,11 +26,11 @@
   };
 
   services.v2raya = {
-    #enable = true;
+    enable = true;
   };
 
   services.zxray = {
-    enable = true;
+    #enable = true;
     # enableIPv6 = false;
     xrayConfigFile = /etc/xray/config.json;
     nftRuleset = ''
