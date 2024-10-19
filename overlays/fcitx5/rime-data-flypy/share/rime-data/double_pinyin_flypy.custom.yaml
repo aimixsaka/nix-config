@@ -1,0 +1,59 @@
+patch:
+  schema/dependencies/+:
+    - melt_eng        # 英文输入，作为次翻译器挂载到拼音方案
+
+  engine/translators/+:
+    - table_translator@melt_eng         # 英文输入
+    - table_translator@cn_en            # 中英混合词汇
+
+  # 次翻译器，英文
+  melt_eng:
+    dictionary: melt_eng     # 挂载词库 melt_eng.dict.yaml
+    enable_sentence: false   # 禁止造句
+    enable_user_dict: false  # 禁用用户词典
+    initial_quality: 1.1     # 初始权重
+    comment_format:          # 自定义提示码
+      - xform/.*//           # 清空提示码
+  # 中英混合词汇
+  cn_en:
+    dictionary: ""
+    user_dict: en_dicts/cn_en_flypy
+    db_class: stabledb
+    enable_completion: true
+    enable_sentence: false
+    initial_quality: 0.5
+    comment_format:
+      - xform/^.+$//
+
+  switches/@2:
+    name: traditionalization
+    #reset: 0
+    states: [ 简, 繁 ]
+
+  engine/filters:
+    - simplifier@traditionalize
+    - uniquifier
+
+  traditionalize:
+    option_name: traditionalization
+    opencc_config: s2tw.json
+    tips: all
+
+  ## 自定義詞典
+  translator/dictionary: custom_dict
+  # See https://dvel.me/posts/make-rime-en-better/#%E6%9D%83%E9%87%8D%E8%AE%BE%E5%AE%9A
+  translator/initial_quality: 1.2
+
+  ## emoji_suggestion
+  switches/@next:
+    name: emoji_suggestion
+    reset: 1
+    states: [ "🈚︎", "🈶️" ]
+  'engine/filters/@before 0':
+    simplifier@emoji_suggestion
+  emoji_suggestion:
+    opencc_config: emoji.json
+    option_name: emoji_suggestion
+    tips: none
+    inherit_comment: false
+
