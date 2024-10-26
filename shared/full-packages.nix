@@ -35,7 +35,7 @@
       vscode
       pandoc
       qemu
-      firefox-devedition-unwrapped
+      telegram-desktop
       ;
 
     inherit (pkgs.nodePackages_latest)
