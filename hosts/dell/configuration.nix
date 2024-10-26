@@ -18,7 +18,7 @@
   boot.loader.grub = {
     device = "nodev";
     efiSupport = true;
-    #useOSProber = true;
+    useOSProber = true;
   };
 
   boot.initrd.availableKernelModules = [
