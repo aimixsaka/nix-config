@@ -1,19 +1,25 @@
-{ lib, pkgs, ... }:
-
+{
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [ ./min-packages.nix ];
   environment.systemPackages = lib.attrValues {
     inherit (pkgs)
       ## term
+
       podman
       git-filter-repo
+      just
       stow
       trash-cli
+      emacs
       ## db
-      sqlite
 
+      sqlite
       ## languages
-      python3
+
       pdm
       go
       rustup
@@ -22,16 +28,16 @@
       racket
       guile
       sbcl
-
       ## lsp
+
       nil
       zls
       pyright
-
       ## net
-      networkmanager
 
+      networkmanager
       ## app
+
       vscode
       pandoc
       qemu
@@ -43,5 +49,4 @@
       npm
       ;
   };
-
 }

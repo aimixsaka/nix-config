@@ -33,14 +33,16 @@
     stable.url = "github:nixos/nixpkgs/release-24.05";
     unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nur.url = "github:nix-community/NUR";
-    # emacs-macport for x86_64-darwin broken after this commit
-    pkgs-emacs-macport.url = "github:nixos/nixpkgs/038fb464fcfa79b4f08131b07f2d8c9a6bcc4160";
 
     # Default Nixpkgs for packages and modules
     nixpkgs.follows = "master";
 
-    ### -- overlays
+    ### -- editor
+    # personal nixvim config
+    nixvim.url = "github:aimixsaka/nixvim";
     emacs-overlays.url = "github:nix-community/emacs-overlay";
+    # emacs-macport for x86_64-darwin broken after this commit
+    pkgs-emacs-macport.url = "github:nixos/nixpkgs/038fb464fcfa79b4f08131b07f2d8c9a6bcc4160";
 
     ### -- platform support
     darwin.url = "github:LnL7/nix-darwin";
@@ -52,6 +54,7 @@
 
     # Minimize duplicate instances of inputs
     nix.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     darwin.inputs.nixpkgs.follows = "nixpkgs";

@@ -1,6 +1,4 @@
-_:
-
-{
+_: {
   # nix-darwin configurations
   parts.darwinConfigurations.mt = {
     system = "x86_64-darwin";
@@ -13,6 +11,13 @@ _:
       stateVersion = "24.11";
       modules = [
         ./dell
+      ];
+    };
+    rn-dc01 = {
+      system = "x86_64-linux";
+      stateVersion = "24.11";
+      modules = [
+        ./racknerd-dc01
       ];
     };
   };
