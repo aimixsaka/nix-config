@@ -1,4 +1,9 @@
 {
+  # blog
+  imports = [
+    ../../services/blog
+  ];
+
   services = {
     miniflux = {
       enable = true;
@@ -18,5 +23,8 @@
   networking.firewall.allowedTCPPorts = [
     3443 # xray
     8081 # miniflux
+    # blog
+    80
+    443
   ];
 }
