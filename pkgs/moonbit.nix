@@ -1,8 +1,0 @@
-{
-  pkgs,
-  ...
-}:
-
-pkgs.mkDerivation {
-
-}
