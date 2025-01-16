@@ -17,6 +17,7 @@
   ## see https://nixos.org/manual/nixos/stable/#sec-installation-manual-installing UEFI section
   boot.loader.grub = {
     device = "nodev";
+    default = "saved";
     efiSupport = true;
     useOSProber = true;
   };
@@ -72,4 +73,5 @@
     5901
   ];
   networking.networkmanager.enable = true;
+  time.timeZone = "Asia/Shanghai";
 }

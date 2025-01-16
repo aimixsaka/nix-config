@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   services.caddy = {
     enable = true;
     configFile = pkgs.writeText "Caddyfile" ''

@@ -3,7 +3,8 @@
   inputs,
   system,
   ...
-}: {
+}:
+{
   flake.overlays = {
     fcitx5-rime = import ./fcitx5;
     emacs-overlays = inputs.emacs-overlays.overlays.default;
@@ -12,15 +13,17 @@
       emacs-macport = inputs.pkgs-emacs-macport.legacyPackages.${system}.emacs-macport;
     };
 
-    pkgs = self: super: import ../pkgs {pkgs = super;};
+    pkgs = self: super: import ../pkgs { pkgs = super; };
 
-    default = let
-      overlays = [
-        self.overlays.emacs-overlays
-        self.overlays.emacs-macport-overlay
-        self.overlays.fcitx5-rime
-        self.overlays.pkgs
-      ];
-    in (self: super: super.lib.composeManyExtensions overlays self super);
+    default =
+      let
+        overlays = [
+          self.overlays.emacs-overlays
+          self.overlays.emacs-macport-overlay
+          self.overlays.fcitx5-rime
+          self.overlays.pkgs
+        ];
+      in
+      (self: super: super.lib.composeManyExtensions overlays self super);
   };
 }

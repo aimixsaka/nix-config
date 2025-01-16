@@ -1,5 +1,5 @@
 {
-  description = "aimi flake config for macos";
+  description = "amx's flake config for mac and nixos";
 
   outputs =
     inputs:
@@ -35,7 +35,7 @@
     nur.url = "github:nix-community/NUR";
 
     # Default Nixpkgs for packages and modules
-    nixpkgs.follows = "master";
+    nixpkgs.follows = "unstable";
 
     ### -- editor
     # personal nixvim config

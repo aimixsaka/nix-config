@@ -22,6 +22,7 @@
 
         nixpkgs = {
           config = lib.mkForce {
+            android_sdk.accept_license = true;
             allowBroken = true;
             allowUnfree = true;
           };

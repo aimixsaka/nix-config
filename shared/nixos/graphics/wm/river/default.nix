@@ -2,18 +2,19 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   imports = [
     ../../wm
   ];
   home.packages = lib.attrValues {
-    inherit (pkgs)
+    inherit
+      (pkgs)
       swaybg
       copyq
       grim
       slurp
+      wl-clipboard
+      swappy
       ;
   };
   wayland.windowManager.river = {
@@ -22,9 +23,9 @@
 
     extraSessionVariables = {
       XDG_CURRENT_DESKTOP = "river";
-      NIXOS_OZONE_WL = "1";
-      MOZ_ENABLE_WAYLAND = "1";
-      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      NIXOS_OZONE_WL = 1;
+      MOZ_ENABLE_WAYLAND = 1;
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
     };
 
     extraConfig = ''

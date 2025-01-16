@@ -10,12 +10,14 @@
       stateVersion = "24.05";
       modules = [ ];
     };
-    "aimi@dell" = {
+    "aimi@dell" = rec {
       system = "x86_64-linux";
       stateVersion = "24.05";
       modules = [
+        { home.packages = [ inputs.nixvim.packages.${system}.full ]; }
         ../shared/nixos/graphics/wm/river
         ../shared/nixos/graphics/apps
+        ../shared/nixos/graphics/dev
         ./aimi-dell
       ];
     };

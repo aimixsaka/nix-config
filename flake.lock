@@ -691,7 +691,7 @@
         "nix-index-database": "nix-index-database",
         "nixos-facter-modules": "nixos-facter-modules",
         "nixpkgs": [
-          "master"
+          "unstable"
         ],
         "nixvim": "nixvim",
         "nur": "nur",
