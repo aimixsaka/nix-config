@@ -46,6 +46,7 @@
       telegram-desktop
       qq
       android-studio
+      google-chrome
       ;
 
     androidsdk =
