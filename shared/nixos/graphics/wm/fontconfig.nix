@@ -1,12 +1,8 @@
-{
-  pkgs,
-  ...
-}:
-
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     dejavu_fonts
-    (nerdfonts.override { fonts = [ "DejaVuSansMono" ]; })
+    nerd-fonts.dejavu-sans-mono
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-color-emoji

@@ -5,7 +5,6 @@
   withSystem,
   ...
 }:
-
 let
   inherit lib;
   inherit (lib) types;
@@ -57,7 +56,7 @@ let
           pkgs = inputs.nixpkgs.legacyPackages.${ctx.system};
 
           modules = config.modules ++ [
-            inputs.nur.hmModules.nur
+            inputs.nur.modules.homeManager.default
             ../home-manager
 
             # Shared configuration across all users
