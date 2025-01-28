@@ -2,13 +2,12 @@
   config,
   pkgs,
   ...
-}:
-
-let
+}: let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-in
-{
+in {
   programs.zsh.enable = true;
+  # enable adb
+  programs.adb.enable = true;
   users.users.aimi = {
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -23,6 +22,7 @@ in
       ]
       ++ ifTheyExist [
         "plocate"
+        "adbusers"
         "audio"
       ];
   };
