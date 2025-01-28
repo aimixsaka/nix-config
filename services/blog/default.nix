@@ -1,13 +1,12 @@
-{ pkgs, ... }:
 {
-  services.caddy = {
-    enable = true;
-    configFile = pkgs.writeText "Caddyfile" ''
-      amx.moe {
+  services.caddy.enable = true;
+  services.caddy.virtualHosts = {
+    "amx.moe" = {
+      extraConfig = ''
         root * ${./src}
         encode gzip
         file_server
-      }
-    '';
+      '';
+    };
   };
 }

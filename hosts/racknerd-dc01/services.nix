@@ -1,4 +1,8 @@
 {
+  pkgs,
+  config,
+  ...
+}: {
   # blog
   imports = [
     ../../services/blog
@@ -14,10 +18,27 @@
     };
   };
 
-  # proxy
-  services.xray = {
-    enable = true;
-    settingsFile = "/etc/xray/config.json";
+  services = {
+    # proxy
+    xray = {
+      enable = true;
+      settingsFile = "/etc/xray/config.json";
+    };
+    # downloader
+    aria2 = {
+      enable = true;
+      rpcSecretFile = "/root/secret/aria2-rpc.txt";
+    };
+  };
+
+  # caddy
+  services.caddy.virtualHosts."aria2.amx.moe" = {
+    extraConfig = ''
+      file_server {
+          root ${pkgs.ariang}/share/ariang
+      }
+      reverse_proxy /jsonrpc localhost:${toString config.services.aria2.settings.rpc-listen-port}
+    '';
   };
 
   networking.firewall.allowedTCPPorts = [
