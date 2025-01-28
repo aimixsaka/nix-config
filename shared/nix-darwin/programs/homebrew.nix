@@ -11,9 +11,9 @@ in
     brews = flattenValues {
       system = [
         "mysql"
-        #{ 
+        #{
         #  name = "emacs-mac";
-        #  args = [ 
+        #  args = [
         #    "with-modules"
         #    "with-librsvg"
         #    "with-imagemagick"

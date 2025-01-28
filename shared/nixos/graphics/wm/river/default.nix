@@ -2,13 +2,13 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ../../wm
   ];
   home.packages = lib.attrValues {
-    inherit
-      (pkgs)
+    inherit (pkgs)
       swaybg
       copyq
       grim
