@@ -1,9 +1,8 @@
 {
   description = "amx's flake config for mac and nixos";
 
-  outputs =
-    inputs:
-    inputs.parts.lib.mkFlake { inherit inputs; } {
+  outputs = inputs:
+    inputs.parts.lib.mkFlake {inherit inputs;} {
       debug = true;
       systems = [
         "x86_64-darwin"
@@ -60,6 +59,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home.inputs.nixpkgs.follows = "nixpkgs";
     emacs-overlays.inputs.nixpkgs.follows = "nixpkgs";
+    nur.inputs.flake-parts.follows = "parts";
   };
 
   # the nixConfig affects the flake itself,
@@ -87,5 +87,4 @@
       "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
     ];
   };
-
 }
