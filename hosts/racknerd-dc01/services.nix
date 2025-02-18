@@ -2,8 +2,7 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   # blog
   imports = [
     ../../services/blog
@@ -33,18 +32,24 @@
   };
 
   # caddy
-  services.caddy.virtualHosts."aria2.amx.moe" = {
-    extraConfig = ''
-      file_server {
-          root ${pkgs.ariang}/share/ariang
-      }
-      reverse_proxy /jsonrpc localhost:${toString config.services.aria2.settings.rpc-listen-port}
-    '';
+  services.caddy.virtualHosts = {
+    "aria2.amx.moe" = {
+      extraConfig = ''
+        file_server {
+            root ${pkgs.ariang}/share/ariang
+        }
+        reverse_proxy /jsonrpc localhost:${toString config.services.aria2.settings.rpc-listen-port}
+      '';
+    };
+    "rss.amx.moe" = {
+      extraConfig = ''
+        reverse_proxy :${toString config.services.miniflux.config.PORT}
+      '';
+    };
   };
 
   networking.firewall.allowedTCPPorts = [
     3443 # xray
-    8081 # miniflux
     # blog
     80
     443
