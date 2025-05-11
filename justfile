@@ -39,5 +39,8 @@ hmgcnow:
 remote-switch flake target:
     nixos-rebuild switch --flake '{{ flake }}' --target-host '{{ target }}' --show-trace --verbose
 
+remote-build-switch flake target:
+    nixos-rebuild switch --flake '{{ flake }}' --build-host '{{ target }}' --target-host '{{ target }}' --show-trace --verbose
+
 update:
     @nix flake update

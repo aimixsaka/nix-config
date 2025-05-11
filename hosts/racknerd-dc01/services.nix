@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   # blog
   imports = [
     ../../services/blog
@@ -46,6 +47,12 @@
         reverse_proxy :${toString config.services.miniflux.config.PORT}
       '';
     };
+  };
+
+  # telegramirc
+  services.telegramirc = {
+    enable = true;
+    configFilePath = "/root/secret/telegramirc.toml";
   };
 
   networking.firewall.allowedTCPPorts = [

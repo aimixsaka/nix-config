@@ -1,8 +1,9 @@
 {
   description = "amx's flake config for mac and nixos";
 
-  outputs = inputs:
-    inputs.parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    inputs:
+    inputs.parts.lib.mkFlake { inherit inputs; } {
       debug = true;
       systems = [
         "x86_64-darwin"
@@ -13,6 +14,7 @@
         ./overlays
         ./hosts
         ./users
+        ./pkgs/flake-parts.nix
       ];
       flake.hmModules.default = import ./modules/home-manager;
       flake.nixosModules.default = import ./modules/nixos;

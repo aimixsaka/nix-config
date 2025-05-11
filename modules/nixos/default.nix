@@ -1,1 +1,3 @@
-{ }
+{
+  imports = [ ./services/telegramirc.nix ];
+}
