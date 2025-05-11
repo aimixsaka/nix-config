@@ -1,29 +1,25 @@
 {
   self,
-  inputs,
-  system,
   ...
 }:
+let
+  npins-sources = (import ../npins);
+in
 {
   flake.overlays = {
-    fcitx5-rime = import ./fcitx5;
-    emacs-overlays = inputs.emacs-overlays.overlays.default;
-
-    emacs-macport-overlay = self: super: {
-      emacs-macport = inputs.pkgs-emacs-macport.legacyPackages.${system}.emacs-macport;
-    };
-
-    pkgs = self: super: import ../pkgs { pkgs = super; };
+    pkgs =
+      final: prev:
+      let
+        pkgs = (import npins-sources.nixpkgs-release-24-11 { system = prev.stdenv.hostPlatform.system; });
+      in
+      import ../pkgs { inherit pkgs; };
 
     default =
       let
         overlays = [
-          self.overlays.emacs-overlays
-          self.overlays.emacs-macport-overlay
-          self.overlays.fcitx5-rime
           self.overlays.pkgs
         ];
       in
-      (self: super: super.lib.composeManyExtensions overlays self super);
+      (final: prev: prev.lib.composeManyExtensions overlays self prev);
   };
 }
