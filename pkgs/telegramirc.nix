@@ -54,6 +54,6 @@ stdenv.mkDerivation rec {
   '';
 
   meta = {
-    mainProgram = "telegramirc";
+    mainProgram = "${pname}";
   };
 }
