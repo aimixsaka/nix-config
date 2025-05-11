@@ -40,7 +40,7 @@ stdenv.mkDerivation rec {
   ];
 
   # add python shebang
-  patchPhase = ''
+  postPatch = ''
     sed -i "1i #!/usr/bin/env python" telegramirc.py
   '';
 
