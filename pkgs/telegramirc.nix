@@ -3,6 +3,7 @@
   makeWrapper,
   fetchFromGitHub,
   pydle,
+  pure-sasl,
   python312,
   ...
 }:
@@ -14,7 +15,10 @@ let
       tenacity
       toml
     ])
-    ++ [ pydle ]
+    ++ [
+      pydle
+      pure-sasl
+    ]
   );
 in
 stdenv.mkDerivation rec {

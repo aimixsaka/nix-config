@@ -3,5 +3,6 @@
 }:
 rec {
   pydle = pkgs.python312Packages.callPackage ./pydle { };
-  telegramirc = pkgs.callPackage ./telegramirc.nix { inherit pydle; };
+  pure-sasl = pkgs.python312Packages.callPackage ./pure-sasl { };
+  telegramirc = pkgs.callPackage ./telegramirc.nix { inherit pydle pure-sasl; };
 }
