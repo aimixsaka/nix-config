@@ -52,4 +52,8 @@ stdenv.mkDerivation rec {
 
     runHook postInstall
   '';
+
+  meta = {
+    mainProgram = "telegramirc";
+  };
 }
