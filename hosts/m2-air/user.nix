@@ -31,7 +31,6 @@ in
 
   ## graphics system level config
   imports = [
-    ../../shared/nixos/graphics/system/sound.nix
     ../../shared/nixos/graphics/system/bluetooth.nix
   ];
 }
