@@ -45,21 +45,8 @@
       qemu
       telegram-desktop
       qq
-      android-studio
-      google-chrome
       ;
 
-    #androidsdk =
-    #  (pkgs.androidenv.composeAndroidPackages {
-    #    platformVersions = [
-    #      "33"
-    #      "34"
-    #      "35"
-    #    ];
-    #    abiVersions = ["armeabi-v7a" "arm64-v8a"];
-    #    includeNDK = true;
-    #  })
-    #  .androidsdk;
     inherit (pkgs.nodePackages_latest)
       nodejs
       npm
