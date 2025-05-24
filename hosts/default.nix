@@ -20,5 +20,12 @@ _: {
         ./racknerd-dc01
       ];
     };
+    m2-air = {
+      system = "aarch64-linux";
+      stateVersion = "25.05";
+      modules = [
+        ./m2-air
+      ];
+    };
   };
 }

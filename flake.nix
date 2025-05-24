@@ -8,6 +8,7 @@
       systems = [
         "x86_64-darwin"
         "x86_64-linux"
+	"aarch64-linux"
       ];
       imports = [
         ./modules/parts
@@ -48,6 +49,7 @@
     ### -- platform support
     darwin.url = "github:LnL7/nix-darwin";
     home.url = "github:nix-community/home-manager";
+    apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
 
     ### -- install tools
     disko.url = "github:nix-community/disko";
