@@ -64,6 +64,7 @@
     home.inputs.nixpkgs.follows = "nixpkgs";
     emacs-overlays.inputs.nixpkgs.follows = "nixpkgs";
     nur.inputs.flake-parts.follows = "parts";
+    apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # the nixConfig affects the flake itself,
