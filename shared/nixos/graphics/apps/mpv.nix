@@ -1,4 +1,10 @@
+{ pkgs, ... }:
+
 {
+  home.packages = with pkgs; [
+    libva-utils
+  ];
+
   programs.mpv = {
     enable = true;
 
@@ -45,6 +51,25 @@
 
       WHEEL_UP = "add volume 1";
       WHEEL_DOWN = "add volume -1";
+    };
+
+    profiles = {
+      bilibili-add-referer = {
+        profile-desc = "Add referrer for bilibili vedio";
+        profile-cond = "path:match(\"https://www.bilibili.com\")~=nil";
+        profile-restore = "copy";
+        referrer = "https://www.bilibili.com/";
+        ytdl-raw-options = "cookies-from-browser=firefox";
+        ytdl-format = "bv*[height<=1440]+ba/b[height<=1440]";
+      };
+      youtube-add-referer = {
+        profile-desc = "Add referrer for youtube vedio";
+        profile-cond = "path:match(\"https://www.youtube.com\")~=nil";
+        profile-restore = "copy";
+        referrer = "https://www.youtube.com/";
+        ytdl-raw-options = "cookies-from-browser=firefox,write-subs=,write-auto-subs=,sub-lang=en";
+        ytdl-format = "bv*[height<=1440]+ba/b[height<=1440]";
+      };
     };
   };
 }

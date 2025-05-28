@@ -1,5 +1,5 @@
 {
   environment.variables = {
-    EDITOR = "emacs";
+    EDITOR = "vis";
   };
 }

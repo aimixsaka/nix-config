@@ -55,6 +55,10 @@ let
           # Default nixpkgs for home.nix
           pkgs = inputs.nixpkgs.legacyPackages.${ctx.system};
 
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+
           modules = config.modules ++ [
             inputs.nur.modules.homeManager.default
             ../home-manager

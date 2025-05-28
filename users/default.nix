@@ -21,6 +21,19 @@
         ./aimi-dell
       ];
     };
+    "aimi@m2-air" = rec {
+      system = "aarch64-linux";
+      stateVersion = "25.05";
+      modules = [
+        { home.packages = [ inputs.nixvim.packages.${system}.full ]; }
+        ../shared/nixos/graphics/wm/river
+        ../shared/nixos/graphics/wm/river/hidpi.nix
+        ../shared/nixos/graphics/apps
+        ../shared/nixos/graphics/dev
+        ../shared/home-manager/shells/fish.nix
+        ./aimi-m2-air
+      ];
+    };
     "aimi@host" = rec {
       system = "x86_64-linux";
       stateVersion = "24.05";

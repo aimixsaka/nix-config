@@ -6,6 +6,7 @@
 {
   home.packages = with pkgs; [
     pavucontrol
+    blueman
   ];
   programs.waybar.enable = true;
   imports = [

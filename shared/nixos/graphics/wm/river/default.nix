@@ -6,42 +6,40 @@
 {
   imports = [
     ../../wm
+    ./pkgs.nix
   ];
-  home.packages = lib.attrValues {
-    inherit (pkgs)
-      swaybg
-      copyq
-      grim
-      slurp
-      wl-clipboard
-      swappy
-      ;
+
+  home.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "river";
+    NIXOS_OZONE_WL = 1;
+    MOZ_ENABLE_WAYLAND = 1;
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
   };
+
   wayland.windowManager.river = {
     enable = true;
     systemd.enable = true;
 
-    extraSessionVariables = {
-      XDG_CURRENT_DESKTOP = "river";
-      NIXOS_OZONE_WL = 1;
-      MOZ_ENABLE_WAYLAND = 1;
-      QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
-    };
-
     extraConfig = ''
-            riverctl spawn "swaybg -m fill -i ${./shana.jpg}"
-            riverctl spawn "mako"
-            riverctl spawn "waybar"
-            #riverctl spawn "fcitx5 -d"
-            riverctl spawn "copyq --start-server"
+                  riverctl spawn "swaybg -m fill -i ${./shana.jpg}"
+      riverctl spawn "mako"
+      riverctl spawn "blueman-applet"
+      riverctl spawn "gammastep"
+      riverctl spawn "waybar"
+      riverctl spawn "fcitx5 -d"
+      riverctl spawn "copyq --start-server"
+      # flameshot-git working on wlroots based compositor now!
+      riverctl spawn "flameshot"
 
-      riverctl map normal Super C spawn 'grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot Copied to Clipboard"'
-      riverctl map normal Super+Shift C spawn 'grim -g $(slurp) - | swappy -f -'
-      riverctl map normal Print spawn /home/aimi/workspace/shell/screenshot.sh
+      # show mouse
+      riverctl map normal Super m spawn "/home/aimi/workspace/tools/wl-find-cursor/wl-find-cursor"
 
-      #riverctl keyboard-layout -options "ctrl:nocaps,altwin:swap_alt_win" us
-      riverctl keyboard-layout -options "ctrl:nocaps" us
-      riverctl map normal Super Return spawn "if pgrep alacritty &>/dev/null; then alacritty msg create-window; else alacritty; fi"
+      riverctl map normal Super C spawn 'flameshot gui'
+      riverctl map normal Super+Shift C spawn 'grim -g "$(slurp)" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date "+%Y%m%d-%H:%M:%S").png'
+
+      #riverctl map normal Super Return spawn "if pgrep alacritty &>/dev/null; then alacritty msg create-window; else alacritty; fi"
+      #riverctl map normal Super Return spawn "kitty"
+      riverctl map normal Super Return spawn "ghostty"
       riverctl map normal Super D spawn 'wofi --show drun --lines=5 --prompt=""'
 
       riverctl map normal Super Backspace spawn "pamixer -t"
@@ -73,8 +71,8 @@
       #riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
 
       # Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
-      #riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
-      #riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
+      riverctl map normal Super+Alt H send-layout-cmd rivertile "main-count -1"
+      riverctl map normal Super+Alt L send-layout-cmd rivertile "main-count +1"
 
       # Super+Alt+{H,J,K,L} to move views
       riverctl map normal Control+Super Left move left 100
@@ -121,8 +119,8 @@
       done
 
       ## cycle tags
-      riverctl map normal Super comma spawn "cycle-focused-tags -1 9"
-      riverctl map normal Super period spawn "cycle-focused-tags +1 9"
+      riverctl map normal Super comma spawn "cycle-focused-tags --skip-empty -1 9"
+      riverctl map normal Super period spawn "cycle-focused-tags --skip-empty +1 9"
 
       # Super+0 to focus all tags
       # Super+Shift+0 to tag focused view with all tags
@@ -161,8 +159,8 @@
           riverctl map $mode None XF86Eject spawn 'eject -T'
 
           # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
-          riverctl map $mode None XF86AudioRaiseVolume spawn 'pamixer -i 5'
-          riverctl map $mode None XF86AudioLowerVolume spawn 'pamixer -d 5'
+          riverctl map $mode None XF86AudioRaiseVolume spawn 'pamixer -i 2'
+          riverctl map $mode None XF86AudioLowerVolume spawn 'pamixer -d 2'
           riverctl map $mode None XF86AudioMute spawn 'pamixer --toggle-mute'
 
           # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
@@ -176,10 +174,12 @@
           riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
       done
 
+      riverctl rule-add -app-id '*' ssd
       # Set background and border color
       riverctl background-color 0x002b36
-      riverctl border-color-focused 0x0750bf
-      riverctl border-color-unfocused 0x5959a
+      riverctl border-width 4
+      riverctl border-color-focused 0xe44549
+      #riverctl border-color-unfocused 0xe190ee
 
       # Set keyboard repeat rate
       riverctl set-repeat 50 300
@@ -189,20 +189,43 @@
           'Godot'
           'bobx'
           'IDA'
+          'burp-StartBurp'
           'org.kde.dolphin'
+          'org.pulseaudio.pavucontro'
+          'blueman-services'
       )
       for app in "''${float_apps[@]}"; do
           riverctl rule-add -app-id "$app" float
+      done
+
+      tag_2=(
+      )
+      for app in "''${tag_2[@]}"; do
+          riverctl rule-add -app-id "$app" tags 2
+      done
+
+      tag_3=(
+          'org.telegram.desktop'
+      )
+      for app in "''${tag_3[@]}"; do
+          riverctl rule-add -app-id "$app" tags 4
+      done
+
+      tag_4=(
+      )
+      for app in "''${tag_4[@]}"; do
+          riverctl rule-add -app-id "$app" tags 8
       done
 
       # Make all views with app-id "bar" and any title use client-side decorations
       #riverctl rule-add -app-id "bar" csd
 
       # new window will on top layer
-      riverctl default-attach-mode top
+      #riverctl default-attach-mode top
 
       # Set the default layout generator to be rivertile and start it.
       # River will send the process group of the init executable SIGTERM on exit.
+      nm-applet > /tmp/nm-applet.''${XDG_VTNR}.''${USER}.log 2>&1 &
       riverctl default-layout rivertile
       rivertile -view-padding 6 -outer-padding 6 &
     '';

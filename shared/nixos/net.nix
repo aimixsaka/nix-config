@@ -1,7 +1,12 @@
 {
-  services.dae = {
+  ## proxy
+  networking.firewall.trustedInterfaces = [
+    "Meta"
+  ];
+  services.mihomo = {
     enable = true;
-    configFile = "/etc/dae/config.dae";
+    tunMode = true;
+    configFile = "/etc/mihomo/config.yaml";
   };
 
   services.zerotierone = {

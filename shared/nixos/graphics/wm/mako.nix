@@ -1,17 +1,18 @@
 {
   services.mako = {
     enable = true;
-    backgroundColor = "#303446";
-    textColor = "#c6d0f5";
-    borderColor = "#8caaee";
-    borderRadius = 10;
-    progressColor = "over #414559";
-    maxVisible = 3;
-    defaultTimeout = 6000;
 
-    extraConfig = ''
-      [urgency=high]
-      border-color=#ef9f76
-    '';
+    settings = {
+      "[urgency=high]" = {
+        border-color = "#ef9f76";
+      };
+      background-color = "#303446";
+      text-color = "#c6d0f5";
+      border-color = "#8caaee";
+      border-radius = 10;
+      progress-color = "over #414559";
+      max-visible = 3;
+      default-timeout = 6000;
+    };
   };
 }

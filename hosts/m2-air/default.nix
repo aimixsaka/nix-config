@@ -6,6 +6,7 @@
     ./configuration.nix
     ./user.nix
     ./filesystem.nix
+    ./pkgs.nix
 
     ../../shared/full-packages.nix
     ../../shared/nixos/graphics/wm/system.nix

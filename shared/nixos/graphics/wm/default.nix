@@ -10,16 +10,14 @@
     ./wofi.nix
     ./mako.nix
     ./gammastep.nix
-    ./alacritty.nix
+    ./ghostty.nix
     ./portal.nix
 
     ./fontconfig.nix
-    ./vnc.nix
   ];
   home.packages = lib.attrValues {
     inherit (pkgs)
-      wayvnc
-      tigervnc
+      qbittorrent
       ;
   };
 }

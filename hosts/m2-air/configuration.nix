@@ -1,4 +1,5 @@
 {
+  lib,
   modulesPath,
   ...
 }:
@@ -7,9 +8,14 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  #boot.loader = {
+  #  systemd-boot.enable = true;
+  #  efi.canTouchEfiVariables = true;
+  #};
+  boot.loader.grub = {
+    device = "nodev";
+    default = "saved";
+    efiSupport = true;
   };
 
   # enable btrfs support
@@ -22,7 +28,11 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
+  # we need to vendor this firmware if using nix flake
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+  # enable GPU support
+  hardware.graphics.enable = true;
+  hardware.asahi.useExperimentalGPUDriver = true;
 
   nix.sshServe = {
     enable = true;
@@ -38,4 +48,42 @@
   ];
   networking.networkmanager.enable = true;
   time.timeZone = "Asia/Shanghai";
+
+  ## remap key
+  services.keyd = {
+    enable = true;
+    keyboards.default = {
+      settings = {
+        main = {
+          leftalt = "layer(meta)";
+          leftmeta = "layer(alt)";
+          rightalt = "layer(meta)";
+          rightmeta = "layer(altgr)";
+          capslock = "layer(control)";
+        };
+      };
+    };
+  };
+
+  ## HiDPI
+  # Set scaling factor for xserver (used for xwayland)
+  services.xserver = {
+    # enable = true;    # should be set in configuration.nix
+    dpi = 116; # change depending on resolution
+  };
+
+  ## Kernel Patch for dae ebpf
+  boot.kernelPatches = [
+    {
+      name = "dae-ebpf";
+      patch = null;
+      extraStructuredConfig = {
+        DEBUG_INFO = lib.kernel.yes;
+        DEBUG_INFO_BTF = lib.kernel.yes;
+        KPROBE_EVENTS = lib.kernel.yes;
+        BPF_EVENTS = lib.kernel.yes;
+      };
+    }
+  ];
+
 }

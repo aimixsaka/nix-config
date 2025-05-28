@@ -29,9 +29,11 @@
 
           hostPlatform = system;
 
-          overlays = lib.mkForce [
+          overlays = lib.mkAfter [
             self.overlays.default
-            inputs.apple-silicon.overlays.default
+            #(final: prev: {
+            #  linux-asahi = prev.linux-asahi.overrideAttrs ()
+            # })
           ];
         };
 
