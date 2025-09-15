@@ -29,7 +29,7 @@
 
           hostPlatform = system;
 
-          overlays = lib.mkAfter [
+          overlays = [
             self.overlays.default
             #(final: prev: {
             #  linux-asahi = prev.linux-asahi.overrideAttrs ()
@@ -40,8 +40,7 @@
         # Extra arguments passed to the module system for nix-darwin, NixOS, and home-manager
         # later will set `_module.args = ctx.extraModules` for nix-darwin, NixOS module...
         extraModuleArgs = {
-          inherit inputs' system;
-          inputs = lib.mkForce inputs;
+          inherit inputs' system inputs;
 
           /*
             One can access these nixpkgs branches in the following form:

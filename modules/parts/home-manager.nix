@@ -52,15 +52,14 @@ let
       config._home = withSystem config.system (
         ctx:
         inputs.home.lib.homeManagerConfiguration {
-          # Default nixpkgs for home.nix
+          # FIXME: what's the relationship with this pkgs and nixpkgs config bellow ?
           pkgs = inputs.nixpkgs.legacyPackages.${ctx.system};
-
-          extraSpecialArgs = {
-            inherit inputs;
-          };
 
           modules = config.modules ++ [
             inputs.nur.modules.homeManager.default
+            inputs.niri.homeModules.niri
+            inputs.stylix.homeModules.stylix
+            inputs.nix-index-database.homeModules.nix-index
             ../home-manager
 
             # Shared configuration across all users

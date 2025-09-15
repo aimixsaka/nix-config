@@ -18,6 +18,7 @@
 
   wayland.windowManager.river = {
     enable = true;
+    package = pkgs.river-classic;
     systemd.enable = true;
 
     extraConfig = ''

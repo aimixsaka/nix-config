@@ -13,6 +13,13 @@ _: {
         ./dell
       ];
     };
+    lecoo = {
+      system = "x86_64-linux";
+      stateVersion = "24.11";
+      modules = [
+        ./lecoo
+      ];
+    };
     rn-dc01 = {
       system = "x86_64-linux";
       stateVersion = "24.11";

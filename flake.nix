@@ -17,7 +17,7 @@
         ./users
         ./pkgs/flake-parts.nix
       ];
-      flake.hmModules.default = import ./modules/home-manager;
+      flake.homeModules.default = import ./modules/home-manager;
       flake.nixosModules.default = import ./modules/nixos;
     };
   #// {
@@ -55,6 +55,12 @@
     disko.url = "github:nix-community/disko";
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
+    ### wm / de
+    niri.url = "github:sodiboo/niri-flake";
+
+    ### theme framework
+    stylix.url = "github:nix-community/stylix";
+
     # Minimize duplicate instances of inputs
     nix.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
@@ -65,6 +71,8 @@
     emacs-overlays.inputs.nixpkgs.follows = "nixpkgs";
     nur.inputs.flake-parts.follows = "parts";
     apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # the nixConfig affects the flake itself,
@@ -84,12 +92,14 @@
     extra-substituters = [
       "https://nix-community.cachix.org"
       "https://nixpkgs-wayland.cachix.org"
+      #"https://niri.cachix.org"
     ];
 
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+      #"niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
     ];
   };
 }

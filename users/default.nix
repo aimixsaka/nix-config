@@ -21,6 +21,19 @@
         ./aimi-dell
       ];
     };
+    "aimi@lecoo" = {
+      system = "x86_64-linux";
+      stateVersion = "24.05";
+      modules = [
+        ../shared/nixos/graphics/wm/niri
+        ../shared/nixos/graphics/apps
+        ../shared/nixos/graphics/dev
+        ../shared/nixos/graphics/theme.nix
+        ../shared/home-manager/shells/fish.nix
+        ../shared/home-manager/editors/helix.nix
+        ./aimi-lecoo
+      ];
+    };
     "aimi@m2-air" = rec {
       system = "aarch64-linux";
       stateVersion = "25.05";

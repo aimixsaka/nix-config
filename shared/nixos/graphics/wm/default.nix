@@ -7,10 +7,10 @@
 {
   imports = [
     ./waybar
-    ./wofi.nix
+    #./wofi.nix
     ./mako.nix
     ./gammastep.nix
-    ./ghostty.nix
+    #./ghostty.nix
     ./portal.nix
 
     ./fontconfig.nix

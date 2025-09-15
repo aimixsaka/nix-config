@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       gtk-single-instance = true;
-      theme = "catppuccin-latte";
+      #theme = "catppuccin-latte";
       font-family = "monospace";
       font-size = 16;
       window-decoration = false;

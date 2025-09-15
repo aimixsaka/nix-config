@@ -13,6 +13,7 @@
           type = "gpt";
           partitions = {
             ESP = {
+              label = "amxboot";
               priority = 1;
               name = "ESP";
               start = "1M";
@@ -31,6 +32,7 @@
             };
             root = {
               size = "100%";
+              label = "amxroot";
               content = {
                 type = "btrfs";
                 # set label
@@ -89,6 +91,10 @@
                   "var_lib_machines" = {
                     mountOptions = [ "compress=zstd" ];
                     mountpoint = "/var/lib/machines";
+                  };
+
+                  "var_lib_libvirt" = {
+                    mountpoint = "/var/lib/libvirt";
                   };
 
                   "swap" = {

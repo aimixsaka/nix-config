@@ -25,6 +25,7 @@
       pdm
       go
       rustup
+      janet
       zig
       ghc
       racket
@@ -35,6 +36,9 @@
       nil
       zls
       pyright
+
+      ## formatter
+      nixfmt
       ## net
 
       networkmanager

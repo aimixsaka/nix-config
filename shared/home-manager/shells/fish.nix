@@ -1,10 +1,6 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports = [
-    inputs.nix-index-database.hmModules.nix-index
-  ];
-
   home.packages = with pkgs; [
     trash-cli
   ];
@@ -116,22 +112,6 @@
           set_color --bold EA76CB
           printf '%s' (fish_git_prompt)
           set_color --bold 5FD700
-          ## nix shell level
-          set -l level_prefix ""
-
-          if test "$SHLVL" -gt 2
-              switch $SHLVL
-                  case 3
-                      set level_prefix "⁚"
-                  case 4
-                      set level_prefix "⁖"
-                  case 5
-                      set level_prefix "⁘"
-                  case '*'
-                      set level_prefix "⁙$SHLVL"
-              end
-          end
-
           printf '\n%sλ ' $level_prefix
           set_color normal
       end

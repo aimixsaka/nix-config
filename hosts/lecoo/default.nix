@@ -1,15 +1,12 @@
-{ inputs, ... }:
 {
   imports = [
-    inputs.apple-silicon.nixosModules.default
-
     ./configuration.nix
     ./user.nix
-    ./filesystem.nix
-    ./pkgs.nix
 
     ../../shared/full-packages.nix
     ../../shared/nixos/graphics/wm/system.nix
-    ../../shared/nixos/net/dae.nix
+    #../../shared/nixos/disk_layout/btrfs.nix
+    #../../shared/nixos/net/dae.nix
+    ../../shared/nixos/net/clash.nix
   ];
 }

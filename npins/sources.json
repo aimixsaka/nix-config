@@ -8,11 +8,11 @@
         "repo": "nixpkgs"
       },
       "branch": "master",
+      "submodules": false,
       "revision": "release-24.11",
       "url": "https://github.com/NixOS/nixpkgs/archive/release-24.11.tar.gz",
-      "hash": "04l0jf2r0jp97ddzddx5gl2kayjd5rvj8jyvnyyhj3qw0bl6ns1d"
+      "hash": "0fyhfcii8flpjq644k679nb92vvdv5jwmndimyd9a999p6hzxmwh"
     }
   },
-  "version": 3
+  "version": 5
 }
-

@@ -14,7 +14,7 @@
           "clock"
         ];
         modules-center = lib.mkDefault [
-          "river/tags"
+          "niri/workspaces"
         ];
         modules-right = [
           "cpu"
@@ -45,6 +45,26 @@
             active = "<span color=\"red\"></span>";
             urgent = "";
             default = "";
+          };
+          sort-by-number = true;
+        };
+
+        "niri/workspaces" = {
+          on-click = "activate";
+          format = "  {icon}  ";
+          format-icons = {
+            "1" = "  ";
+            "2" = "  ";
+            "3" = "  ";
+            "4" = "  ";
+            "5" = "  ";
+            "6" = "  ";
+            "7" = "  ";
+            "8" = "  ";
+            "9" = " ";
+            active = "<span color=\"red\">  </span>";
+            urgent = "  ";
+            default = "  ";
           };
           sort-by-number = true;
         };
