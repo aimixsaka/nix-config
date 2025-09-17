@@ -15,9 +15,11 @@
 
     ./fontconfig.nix
   ];
+  services.copyq.enable = true;
   home.packages = lib.attrValues {
     inherit (pkgs)
       qbittorrent
+      wl-clip-persist
       ;
   };
 }
