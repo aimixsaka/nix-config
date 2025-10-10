@@ -29,7 +29,7 @@
         ../shared/nixos/graphics/apps
         ../shared/nixos/graphics/dev
         ../shared/nixos/graphics/theme.nix
-        ../shared/home-manager/shells/fish.nix
+        #../shared/home-manager/shells/nushell.nix
         ../shared/home-manager/editors/helix.nix
         ./aimi-lecoo
       ];

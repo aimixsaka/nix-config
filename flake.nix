@@ -16,6 +16,7 @@
         ./hosts
         ./users
         ./pkgs/flake-parts.nix
+        ./devshells/android.nix
       ];
       flake.homeModules.default = import ./modules/home-manager;
       flake.nixosModules.default = import ./modules/nixos;

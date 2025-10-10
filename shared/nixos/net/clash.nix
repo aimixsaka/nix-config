@@ -1,13 +1,13 @@
 { pkgs, ... }:
 {
   # proxy
-  #networking.firewall.enable = false;
-  networking.firewall = {
-    checkReversePath = false;
-    trustedInterfaces = [
-      "Meta"
-    ];
-  };
+  networking.firewall.enable = false;
+  #networking.firewall = {
+  #  checkReversePath = false;
+  #  trustedInterfaces = [
+  #    "Meta"
+  #  ];
+  #};
 
   services.mihomo = {
     enable = true;

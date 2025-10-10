@@ -8,8 +8,13 @@
     inherit (pkgs)
       ## build
 
+      gcc
+      clang
       cmake
+      gnumake
       pkg-config
+      meson
+      ninja
       ## editor
 
       vis

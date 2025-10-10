@@ -5,5 +5,6 @@
     ./firefox.nix
     ./qutebrowser.nix
     ./tools.nix
+    ./syncthing.nix
   ];
 }

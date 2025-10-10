@@ -18,9 +18,9 @@
     ];
 
     trusted-substituters = [
-      "https://mirrors.ustc.edu.cn/nix-channels/store/?priority=10"
-      "https://cache.nixos.org?priority=7"
-      "https://nix-community.cachix.org?priority=5"
+      "https://mirrors.ustc.edu.cn/nix-channels/store/"
+      "https://cache.nixos.org"
+      "https://nix-community.cachix.org"
       "https://nixpkgs-wayland.cachix.org"
       "https://nix-gaming.cachix.org"
     ];

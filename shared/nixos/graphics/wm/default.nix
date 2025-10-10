@@ -18,8 +18,10 @@
   services.copyq.enable = true;
   home.packages = lib.attrValues {
     inherit (pkgs)
-      qbittorrent
       wl-clip-persist
+      adwaita-icon-theme
+      gnome-themes-extra
+      imv
       ;
   };
 }
